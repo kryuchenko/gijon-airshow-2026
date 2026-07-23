@@ -1291,8 +1291,21 @@
       wrap.classList.remove("print-hidden-original");
     });
   }
-  window.addEventListener("beforeprint", splitForPrint);
-  window.addEventListener("afterprint", restoreAfterPrint);
+  var savedMapView = null;
+  window.addEventListener("beforeprint", function () {
+    splitForPrint();
+    savedMapView = { center: map.getCenter(), zoom: map.getZoom() };
+    map.invalidateSize();
+    map.setView([43.5420, -5.6505], 14, { animate: false });
+  });
+  window.addEventListener("afterprint", function () {
+    restoreAfterPrint();
+    if (savedMapView) {
+      map.invalidateSize();
+      map.setView(savedMapView.center, savedMapView.zoom, { animate: false });
+      savedMapView = null;
+    }
+  });
 
   document.querySelectorAll(".sunctl-days button").forEach(function (b) {
     b.addEventListener("click", function () {
