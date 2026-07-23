@@ -1,68 +1,90 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="es" data-astryx-theme="gijon">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Festival Aereo de Gijon 2026: борта, время и положение солнца</title>
+<title>Festival Aéreo de Gijón 2026: aviones, horarios y posición del sol</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/@astryxdesign/core@0.1.8/reset.css">
+<link rel="stylesheet" href="https://unpkg.com/@astryxdesign/core@0.1.8/astryx.css">
+<link rel="stylesheet" href="theme.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <style>
+  @layer reset, astryx-base, astryx-theme;
+  /* Page-local aliases mapped to Astryx system tokens
+     (interop pattern from astryx.atmeta.com/docs/styling-libraries) */
   :root {
-    color-scheme: light dark;
-    --bg: light-dark(#F8F4ED, #111112);
-    --card: light-dark(#FFFFFF, #1F1F22);
-    --ink: light-dark(#15110C, #DFE2E5);
-    --muted: light-dark(#4E606F, #AAAFB5);
-    --border: light-dark(rgba(21, 17, 12, 0.12), rgba(223, 226, 229, 0.16));
-    --accent-muted: light-dark(rgba(21, 17, 12, 0.08), rgba(223, 226, 229, 0.14));
-    --brand: light-dark(#225BFF, #3D87FF);
-    --thead: light-dark(#F2EDE3, #26262A);
-    --good-bg: light-dark(#DFF0DC, #1D3323);
-    --good-ink: light-dark(#1C6B2F, #8FD19A);
-    --bad-bg: light-dark(#FBE3DD, #3A201B);
-    --bad-ink: light-dark(#A93A22, #F0A08F);
-    --side-bg: light-dark(#F6ECD4, #36301C);
-    --side-ink: light-dark(#8A6C1C, #D9C27A);
-    --dusk-bg: light-dark(#E7E3F2, #2B2740);
-    --dusk-ink: light-dark(#574A80, #B3A6E0);
-    --radius-element: 12px;
-    --radius-container: 16px;
-    --shadow-low: 0px 1px 1px rgba(0, 0, 0, 0.1), 0px 2px 8px rgba(0, 0, 0, 0.1);
+    --bg: var(--color-background-body);
+    --card: var(--color-background-card);
+    --ink: var(--color-text-primary);
+    --muted: var(--color-text-secondary);
+    --border: var(--color-border);
+    --thead: var(--color-accent-muted);
+    --brand: var(--color-brand);
+    --good-bg: var(--color-background-green);
+    --good-ink: var(--color-text-green);
+    --bad-bg: var(--color-background-red);
+    --bad-ink: var(--color-text-red);
+    --side-bg: var(--color-background-yellow);
+    --side-ink: var(--color-text-yellow);
+    --dusk-bg: var(--color-background-purple);
+    --dusk-ink: var(--color-text-purple);
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
-    font-family: Figtree, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--font-family-body);
     color: var(--ink);
     background: var(--bg);
     line-height: 1.55;
-    font-size: 16px;
+    font-size: 1rem;
   }
   header.hero {
     max-width: 980px;
     margin: 0 auto;
-    padding: 72px 20px 28px;
+    padding: 40px 20px 28px;
     text-align: center;
+  }
+  .lang-switch {
+    display: flex;
+    gap: var(--spacing-1);
+    justify-content: center;
+    margin-bottom: var(--spacing-6);
+  }
+  .lang-switch a {
+    padding: 4px 14px;
+    border-radius: var(--radius-full);
+    border: var(--border-width) solid var(--border);
+    color: var(--muted);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+  }
+  .lang-switch a.active {
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+    border-color: var(--color-accent);
   }
   .pill {
     display: inline-block;
-    padding: 6px 16px;
-    border: 1px solid var(--border);
-    border-radius: 9999px;
-    font-size: 14px;
-    font-weight: 500;
+    padding: var(--spacing-1-5) var(--spacing-4);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
     color: var(--muted);
     background: var(--card);
     margin-bottom: 22px;
   }
-  .pill strong { color: var(--brand); font-weight: 600; }
+  .pill strong { color: var(--brand); font-weight: var(--font-weight-semibold); }
   header.hero h1 {
     margin: 0 0 14px;
+    font-family: var(--font-family-heading);
     font-size: clamp(30px, 5vw, 52px);
-    font-weight: 600;
+    font-weight: var(--text-display-1-weight, var(--font-weight-semibold));
     letter-spacing: -0.02em;
     line-height: 1.12;
   }
@@ -81,7 +103,7 @@
   #map {
     height: 480px;
     border-radius: var(--radius-container);
-    border: 1px solid var(--border);
+    border: var(--border-width) solid var(--border);
     box-shadow: var(--shadow-low);
     margin-bottom: 12px;
   }
@@ -91,10 +113,11 @@
     margin: 0 4px 8px;
   }
   h2 {
+    font-family: var(--font-family-heading);
     font-size: 26px;
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     letter-spacing: -0.01em;
-    margin: 48px 0 6px;
+    margin: var(--spacing-12) 0 var(--spacing-1-5);
   }
   .sub {
     color: var(--muted);
@@ -110,24 +133,24 @@
   }
   .card {
     background: var(--card);
-    border: 1px solid var(--border);
+    border: var(--border-width) solid var(--border);
     border-radius: var(--radius-container);
     box-shadow: var(--shadow-low);
-    padding: 18px 20px;
+    padding: var(--spacing-5);
   }
   .card .dot {
     display: inline-block;
     width: 10px;
     height: 10px;
-    border-radius: 9999px;
-    margin-right: 8px;
+    border-radius: var(--radius-full);
+    margin-right: var(--spacing-2);
   }
-  .card h3 { margin: 0 0 8px; font-size: 17px; font-weight: 600; }
+  .card h3 { margin: 0 0 var(--spacing-2); font-size: 17px; font-weight: var(--font-weight-semibold); }
   .card p { margin: 0; font-size: 14.5px; color: var(--muted); }
   .table-wrap {
     overflow-x: auto;
     background: var(--card);
-    border: 1px solid var(--border);
+    border: var(--border-width) solid var(--border);
     border-radius: var(--radius-container);
     box-shadow: var(--shadow-low);
   }
@@ -138,15 +161,15 @@
     font-size: 14.5px;
   }
   th, td {
-    padding: 10px 14px;
-    border-bottom: 1px solid var(--border);
+    padding: var(--spacing-2-5, 10px) var(--spacing-3-5, 14px);
+    border-bottom: var(--border-width) solid var(--border);
     text-align: left;
     white-space: nowrap;
   }
   tr:last-child td { border-bottom: none; }
   th {
     background: var(--thead);
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
   }
   td a {
     color: var(--brand);
@@ -154,22 +177,22 @@
     border-bottom: 1px dotted color-mix(in srgb, var(--brand) 50%, transparent);
   }
   td a:hover { border-bottom-style: solid; }
-  td.good { background: var(--good-bg); color: var(--good-ink); font-weight: 600; }
-  td.bad  { background: var(--bad-bg);  color: var(--bad-ink);  font-weight: 600; }
+  td.good { background: var(--good-bg); color: var(--good-ink); font-weight: var(--font-weight-semibold); }
+  td.bad  { background: var(--bad-bg);  color: var(--bad-ink);  font-weight: var(--font-weight-semibold); }
   td.side { background: var(--side-bg); color: var(--side-ink); }
   td.dusk { background: var(--dusk-bg); color: var(--dusk-ink); }
   .legend {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin: 18px 0 8px;
+    gap: var(--spacing-2-5, 10px);
+    margin: 18px 0 var(--spacing-2);
     font-size: 13.5px;
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
   }
   .legend span {
     padding: 5px 14px;
-    border-radius: 9999px;
-    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    border: var(--border-width) solid var(--border);
   }
   .legend .good { background: var(--good-bg); color: var(--good-ink); }
   .legend .bad  { background: var(--bad-bg);  color: var(--bad-ink); }
@@ -178,164 +201,169 @@
   .verdict {
     margin-top: 44px;
     background: var(--card);
-    border: 1px solid var(--border);
+    border: var(--border-width) solid var(--border);
     border-radius: var(--radius-container);
     box-shadow: var(--shadow-low);
-    padding: 20px 24px;
+    padding: var(--spacing-5) var(--spacing-6);
     font-size: 15.5px;
   }
   .verdict strong.brand { color: var(--brand); }
   footer {
     max-width: 980px;
     margin: 0 auto;
-    border-top: 1px solid var(--border);
+    border-top: var(--border-width) solid var(--border);
     text-align: center;
     color: var(--muted);
     font-size: 13px;
     padding: 24px 16px 44px;
   }
-  .leaflet-container { background: var(--accent-muted); }
+  .leaflet-container { background: var(--color-accent-muted); font-family: var(--font-family-body); }
 </style>
 </head>
 <body>
 
 <header class="hero">
-  <span class="pill">24&ndash;26 июля 2026 &middot; <strong>Playa de San Lorenzo, Gijon</strong></span>
-  <h1>Авиашоу в Хихоне:<br>борта, время и <span class="brand">положение солнца</span></h1>
-  <p>Расчёт относительно предполагаемого центра полётов <strong>43.546583, &minus;5.651611</strong>.
-     Время отдельных выступлений ориентировочное.</p>
+  <nav class="lang-switch">
+    <a href="." data-lang="es">ES</a>
+    <a href="?hl=ru" data-lang="ru">RU</a>
+    <a href="?hl=en" data-lang="en">EN</a>
+  </nav>
+  <span class="pill" data-i18n="pill">24&ndash;26 de julio de 2026 &middot; <strong>Playa de San Lorenzo, Gijón</strong></span>
+  <h1 data-i18n="h1">Festival aéreo de Gijón:<br>aviones, horarios y <span class="brand">posición del sol</span></h1>
+  <p data-i18n="hero-p">Cálculo respecto al centro estimado de los vuelos <strong>43.546583, &minus;5.651611</strong>.
+     Los horarios de cada exhibición son orientativos.</p>
 </header>
 
 <main>
 
-<h2>Карта: откуда смотреть</h2>
-<p class="sub">Круг &mdash; ориентировочная зона полётов (радиус 500 м от предполагаемого центра). Маркеры &mdash; три удобные точки наблюдения.</p>
+<h2 data-i18n="map-h2">Mapa: desde dónde mirar</h2>
+<p class="sub" data-i18n="map-sub">El círculo marca la zona estimada de vuelo (radio de 500 m desde el centro previsto). Los marcadores señalan tres buenos puntos de observación.</p>
 <div id="map"></div>
-<p class="map-note">Позиции ориентировочные: реальная ось полётов может смещаться вдоль пляжа Сан-Лоренсо.</p>
+<p class="map-note" data-i18n="map-note">Posiciones orientativas: el eje real de los vuelos puede desplazarse a lo largo de la playa de San Lorenzo.</p>
 
 <div class="cards">
   <div class="card">
-    <h3><span class="dot" style="background:#D1495B"></span>1. Лестница 10 (Escalera 10)</h3>
-    <p>Середина пляжа Сан-Лоренсо. С ~13:05 и до конца программы солнце со спины &mdash; лучшая точка для второй половины воскресного шоу: A400M, Yakstars, Harrier, Eurofighter, Patrulla ASPA.</p>
+    <h3><span class="dot" style="background:#D1495B"></span><span data-i18n="card1-h">1. Escalera 10</span></h3>
+    <p data-i18n="card1-p">Mitad de la playa de San Lorenzo. Desde las ~13:05 y hasta el final del programa, sol a la espalda: el mejor punto para la segunda mitad de la exhibición del domingo: A400M, Yakstars, Harrier, Eurofighter, Patrulla ASPA.</p>
   </div>
   <div class="card">
-    <h3><span class="dot" style="background:#1E88E5"></span>2. Sombras de Luz</h3>
-    <p>Скульптура на Муро между лестницами 18 и 19. Солнце со спины всё утро и до ~14:10 &mdash; лучшая точка для тренировок и первой половины воскресного шоу. Вечером солнце в глаза.</p>
+    <h3><span class="dot" style="background:#1E88E5"></span><span data-i18n="card2-h">2. Sombras de Luz</span></h3>
+    <p data-i18n="card2-p">Escultura en el Muro, entre las escaleras 18 y 19. Sol a la espalda toda la mañana y hasta las ~14:10: el mejor punto para los entrenamientos y la primera mitad de la exhibición del domingo. Por la tarde, sol de cara.</p>
   </div>
   <div class="card">
-    <h3><span class="dot" style="background:#2E8B57"></span>3. Cerro de Santa Catalina</h3>
-    <p>Холм над Симадевильей, у скульптуры &laquo;Elogio del Horizonte&raquo;. Вид сверху, но днём солнце в глаза. Зато идеален для субботнего Sunset Air Show &mdash; солнце со спины.</p>
+    <h3><span class="dot" style="background:#2E8B57"></span><span data-i18n="card3-h">3. Cerro de Santa Catalina</span></h3>
+    <p data-i18n="card3-p">Colina sobre Cimavilla, junto al &laquo;Elogio del Horizonte&raquo;. Vista elevada, pero de día el sol está de cara. Ideal para el Sunset Air Show del sábado: sol a la espalda.</p>
   </div>
 </div>
 
 <div class="legend">
-  <span class="good">Солнце со спины &mdash; лучший свет</span>
-  <span class="bad">Солнце в глаза &mdash; против света</span>
-  <span class="side">Солнце сбоку</span>
-  <span class="dusk">Солнце за горизонтом</span>
+  <span class="good" data-i18n="legend-back">Sol a la espalda &mdash; la mejor luz</span>
+  <span class="bad" data-i18n="legend-eyes">Sol de cara &mdash; a contraluz</span>
+  <span class="side" data-i18n="legend-side">Sol lateral</span>
+  <span class="dusk" data-i18n="legend-dusk">Sol bajo el horizonte</span>
 </div>
 
-<h2>Пятница, 24 июля: тренировки</h2>
-<p class="sub">Распределение тренировок по бортам пока не опубликовано. Основное окно: 10:00&ndash;14:00
-(<a href="https://www.turismoasturias.es/agenda-de-asturias/cine-y-espectaculos/-/calendarsuite/event/festival-aereo-de-gijon/13470879/jr0cMeS144cd" target="_blank" rel="noopener">официальная информация</a>).</p>
+<h2 data-i18n="fri-h2">Viernes 24 de julio: entrenamientos</h2>
+<p class="sub" data-i18n="fri-sub">El reparto de los entrenamientos por aeronave aún no se ha publicado. Ventana principal: 10:00&ndash;14:00
+(<a href="https://www.turismoasturias.es/agenda-de-asturias/cine-y-espectaculos/-/calendarsuite/event/festival-aereo-de-gijon/13470879/jr0cMeS144cd" target="_blank" rel="noopener">información oficial</a>).</p>
 <div class="table-wrap">
 <table>
   <thead>
-    <tr><th>Время</th><th>Лестница 10</th><th>Sombras de Luz</th><th>Cerro Santa Catalina</th></tr>
+    <tr><th data-i18n="th-time">Hora</th><th data-i18n="th-l10">Escalera 10</th><th data-i18n="th-sombras">Sombras de Luz</th><th data-i18n="th-cerro">Cerro Santa Catalina</th></tr>
   </thead>
   <tbody>
-    <tr><td>10:00&ndash;13:04</td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>13:05&ndash;13:39</td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>13:40&ndash;14:00</td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку справа</td></tr>
-    <tr><td>Возможные 16:00&ndash;16:30</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку справа</td></tr>
+    <tr><td>10:00&ndash;13:04</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="bad" data-i18n="sun-eyes">Sol de cara</td></tr>
+    <tr><td>13:05&ndash;13:39</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="bad" data-i18n="sun-eyes">Sol de cara</td></tr>
+    <tr><td>13:40&ndash;14:00</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td></tr>
+    <tr><td data-i18n="row-possible">Posible 16:00&ndash;16:30</td><td class="side" data-i18n="sun-side-left">Sol lateral izquierdo</td><td class="side" data-i18n="sun-side-left">Sol lateral izquierdo</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td></tr>
   </tbody>
 </table>
 </div>
 
-<h2>Суббота, 25 июля: дневные тренировки</h2>
-<p class="sub">Порядок бортов также пока не опубликован. Тренировочное окно может продолжаться примерно до 15:15
+<h2 data-i18n="sat-h2">Sábado 25 de julio: entrenamientos diurnos</h2>
+<p class="sub" data-i18n="sat-sub">El orden de las aeronaves tampoco se ha publicado. La ventana de entrenamiento puede prolongarse hasta las 15:15 aprox.
 (<a href="https://www.europapress.es/asturias/noticia-atencion-restricciones-bano-trafico-gijon-viernes-festival-aereo-20260722181826.html" target="_blank" rel="noopener">Europa Press</a>).</p>
 <div class="table-wrap">
 <table>
   <thead>
-    <tr><th>Время</th><th>Лестница 10</th><th>Sombras de Luz</th><th>Cerro Santa Catalina</th></tr>
+    <tr><th data-i18n="th-time">Hora</th><th data-i18n="th-l10">Escalera 10</th><th data-i18n="th-sombras">Sombras de Luz</th><th data-i18n="th-cerro">Cerro Santa Catalina</th></tr>
   </thead>
   <tbody>
-    <tr><td>10:00&ndash;13:04</td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>13:05&ndash;13:39</td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>13:40&ndash;14:09</td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку справа</td></tr>
-    <tr><td>14:10&ndash;15:15</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку справа</td></tr>
+    <tr><td>10:00&ndash;13:04</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="bad" data-i18n="sun-eyes">Sol de cara</td></tr>
+    <tr><td>13:05&ndash;13:39</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="bad" data-i18n="sun-eyes">Sol de cara</td></tr>
+    <tr><td>13:40&ndash;14:09</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td></tr>
+    <tr><td>14:10&ndash;15:15</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="side" data-i18n="sun-side-left">Sol lateral izquierdo</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td></tr>
   </tbody>
 </table>
 </div>
 
-<h2>Суббота: Sunset Air Show</h2>
-<p class="sub">Вечерняя программа: лучший свет &mdash; на Cerro Santa Catalina. Закат около 21:52.</p>
+<h2 data-i18n="sunset-h2">Sábado: Sunset Air Show</h2>
+<p class="sub" data-i18n="sunset-sub">Programa vespertino: la mejor luz, desde el Cerro de Santa Catalina. Puesta de sol hacia las 21:52.</p>
 <div class="table-wrap">
 <table>
   <thead>
-    <tr><th>Примерное время</th><th>Борт</th><th>Лестница 10</th><th>Sombras de Luz</th><th>Cerro Santa Catalina</th></tr>
+    <tr><th data-i18n="th-time">Hora</th><th data-i18n="th-aircraft">Aeronave</th><th data-i18n="th-l10">Escalera 10</th><th data-i18n="th-sombras">Sombras de Luz</th><th data-i18n="th-cerro">Cerro Santa Catalina</th></tr>
   </thead>
   <tbody>
-    <tr><td>20:30&ndash;20:42</td><td><a href="https://en.wikipedia.org/wiki/Sikorsky_SH-60_Seahawk" target="_blank" rel="noopener">SH-60</a> Armada</td><td class="side">Солнце сбоку слева</td><td class="bad">Солнце в глаза</td><td class="good">Солнце со спины</td></tr>
-    <tr><td>20:42&ndash;20:54</td><td><a href="https://en.wikipedia.org/wiki/NHIndustries_NH90" target="_blank" rel="noopener">NH90</a> Lobo</td><td class="side">Солнце сбоку слева</td><td class="bad">Солнце в глаза</td><td class="good">Солнце со спины</td></tr>
-    <tr><td>20:54&ndash;21:06</td><td>Camilo Benito, <a href="https://en.wikipedia.org/wiki/Extra_EA-300" target="_blank" rel="noopener">Extra 330SC</a></td><td class="side">Солнце сбоку слева</td><td class="bad">Солнце в глаза, низко</td><td class="good">Солнце со спины</td></tr>
-    <tr><td>21:06&ndash;21:18</td><td><a href="https://en.wikipedia.org/wiki/Beechcraft_T-6_Texan_II" target="_blank" rel="noopener">T-6A Texan II</a></td><td class="side">Солнце сбоку слева</td><td class="bad">Солнце в глаза, низко</td><td class="good">Солнце со спины</td></tr>
-    <tr><td>21:18&ndash;21:23</td><td>Самолёт PAPEA</td><td class="side">Солнце сбоку слева</td><td class="bad">Солнце в глаза, низко</td><td class="good">Солнце со спины</td></tr>
-    <tr><td>21:23&ndash;21:43</td><td>Парашютисты PAPEA</td><td class="side">Солнце сбоку слева</td><td class="bad">Солнце в глаза, низко</td><td class="good">Солнце со спины</td></tr>
-    <tr><td>21:43&ndash;около 21:52</td><td>AeroSPARX (<a href="https://en.wikipedia.org/wiki/Grob_G_109" target="_blank" rel="noopener">Grob G 109</a>)</td><td class="side">Солнце сбоку слева</td><td class="bad">Солнце в глаза у горизонта</td><td class="good">Солнце со спины</td></tr>
-    <tr><td>Около 21:52&ndash;22:17</td><td>AeroSPARX (<a href="https://en.wikipedia.org/wiki/Grob_G_109" target="_blank" rel="noopener">Grob G 109</a>)</td><td class="dusk">Солнце за горизонтом</td><td class="dusk">Солнце за горизонтом</td><td class="dusk">Солнце за горизонтом</td></tr>
+    <tr><td>20:30&ndash;20:42</td><td><a href="https://en.wikipedia.org/wiki/Sikorsky_SH-60_Seahawk" target="_blank" rel="noopener">SH-60</a> Armada</td><td class="side" data-i18n="sun-side-left">Sol lateral izquierdo</td><td class="bad" data-i18n="sun-eyes">Sol de cara</td><td class="good" data-i18n="sun-back">Sol a la espalda</td></tr>
+    <tr><td>20:42&ndash;20:54</td><td><a href="https://en.wikipedia.org/wiki/NHIndustries_NH90" target="_blank" rel="noopener">NH90</a> Lobo</td><td class="side" data-i18n="sun-side-left">Sol lateral izquierdo</td><td class="bad" data-i18n="sun-eyes">Sol de cara</td><td class="good" data-i18n="sun-back">Sol a la espalda</td></tr>
+    <tr><td>20:54&ndash;21:06</td><td>Camilo Benito, <a href="https://en.wikipedia.org/wiki/Extra_EA-300" target="_blank" rel="noopener">Extra 330SC</a></td><td class="side" data-i18n="sun-side-left">Sol lateral izquierdo</td><td class="bad" data-i18n="sun-eyes-low">Sol de cara, bajo</td><td class="good" data-i18n="sun-back">Sol a la espalda</td></tr>
+    <tr><td>21:06&ndash;21:18</td><td><a href="https://en.wikipedia.org/wiki/Beechcraft_T-6_Texan_II" target="_blank" rel="noopener">T-6A Texan II</a></td><td class="side" data-i18n="sun-side-left">Sol lateral izquierdo</td><td class="bad" data-i18n="sun-eyes-low">Sol de cara, bajo</td><td class="good" data-i18n="sun-back">Sol a la espalda</td></tr>
+    <tr><td>21:18&ndash;21:23</td><td data-i18n="ac-papea-plane">Avión de la PAPEA</td><td class="side" data-i18n="sun-side-left">Sol lateral izquierdo</td><td class="bad" data-i18n="sun-eyes-low">Sol de cara, bajo</td><td class="good" data-i18n="sun-back">Sol a la espalda</td></tr>
+    <tr><td>21:23&ndash;21:43</td><td data-i18n="ac-papea-para">Paracaidistas de la PAPEA</td><td class="side" data-i18n="sun-side-left">Sol lateral izquierdo</td><td class="bad" data-i18n="sun-eyes-low">Sol de cara, bajo</td><td class="good" data-i18n="sun-back">Sol a la espalda</td></tr>
+    <tr><td>21:43&ndash;&asymp;21:52</td><td>AeroSPARX (<a href="https://en.wikipedia.org/wiki/Grob_G_109" target="_blank" rel="noopener">Grob G 109</a>)</td><td class="side" data-i18n="sun-side-left">Sol lateral izquierdo</td><td class="bad" data-i18n="sun-eyes-horizon">Sol de cara, en el horizonte</td><td class="good" data-i18n="sun-back">Sol a la espalda</td></tr>
+    <tr><td>&asymp;21:52&ndash;22:17</td><td>AeroSPARX (<a href="https://en.wikipedia.org/wiki/Grob_G_109" target="_blank" rel="noopener">Grob G 109</a>)</td><td class="dusk" data-i18n="sun-horizon">Sol bajo el horizonte</td><td class="dusk" data-i18n="sun-horizon">Sol bajo el horizonte</td><td class="dusk" data-i18n="sun-horizon">Sol bajo el horizonte</td></tr>
   </tbody>
 </table>
 </div>
 
-<h2>Воскресенье, 26 июля: основное шоу</h2>
-<p class="sub">Очередность взята из <a href="https://www.gijon.es/es/eventos/festival-aereo-de-gijon" target="_blank" rel="noopener">официальной программы</a>.</p>
+<h2 data-i18n="sun-h2">Domingo 26 de julio: exhibición principal</h2>
+<p class="sub" data-i18n="sun-sub">El orden procede del <a href="https://www.gijon.es/es/eventos/festival-aereo-de-gijon" target="_blank" rel="noopener">programa oficial</a>.</p>
 <div class="table-wrap">
 <table>
   <thead>
-    <tr><th>Примерное время</th><th>Борт</th><th>Лестница 10</th><th>Sombras de Luz</th><th>Cerro Santa Catalina</th></tr>
+    <tr><th data-i18n="th-time">Hora</th><th data-i18n="th-aircraft">Aeronave</th><th data-i18n="th-l10">Escalera 10</th><th data-i18n="th-sombras">Sombras de Luz</th><th data-i18n="th-cerro">Cerro Santa Catalina</th></tr>
   </thead>
   <tbody>
-    <tr><td>11:35&ndash;11:45</td><td>Mario Llanera</td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>11:45&ndash;11:55</td><td><a href="https://en.wikipedia.org/wiki/Ultralight_aviation" target="_blank" rel="noopener">ULM</a> La Morgal</td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>11:55&ndash;11:58</td><td>Самолёт PAPEA</td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>11:58&ndash;12:05</td><td>Dani Roman, <a href="https://en.wikipedia.org/wiki/Wingsuit_flying" target="_blank" rel="noopener">wingsuit</a></td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>12:05&ndash;12:23</td><td>PAPEA</td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>12:23&ndash;12:41</td><td>Парашютисты Guardia Civil</td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>12:41&ndash;12:51</td><td>AeroSPARX, <a href="https://en.wikipedia.org/wiki/Grob_G_109" target="_blank" rel="noopener">Grob G109B</a></td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>12:51&ndash;13:01</td><td>SASEMAR, <a href="https://en.wikipedia.org/wiki/AgustaWestland_AW139" target="_blank" rel="noopener">AW139</a></td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>13:01&ndash;13:11</td><td>Bomberos, <a href="https://en.wikipedia.org/wiki/Eurocopter_EC145" target="_blank" rel="noopener">EC145</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>13:11&ndash;13:21</td><td>Guardia Civil, <a href="https://en.wikipedia.org/wiki/Eurocopter_AS365_Dauphin" target="_blank" rel="noopener">AS365</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>13:16&ndash;13:26</td><td>Guardia Civil, <a href="https://en.wikipedia.org/wiki/CASA/IPTN_CN-235" target="_blank" rel="noopener">CN-235</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>13:26&ndash;13:36</td><td><a href="https://en.wikipedia.org/wiki/NHIndustries_NH90" target="_blank" rel="noopener">NH90</a> Lobo</td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>13:36&ndash;13:44</td><td>Policia Nacional, <a href="https://en.wikipedia.org/wiki/Eurocopter_EC135" target="_blank" rel="noopener">EC135</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку справа</td></tr>
-    <tr><td>13:44&ndash;13:54</td><td>Armada, <a href="https://en.wikipedia.org/wiki/Sikorsky_SH-60_Seahawk" target="_blank" rel="noopener">SH-60</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку справа</td></tr>
-    <tr><td>13:54&ndash;14:04</td><td>Luca Salvadori, <a href="https://en.wikipedia.org/wiki/Mudry_CAP_20" target="_blank" rel="noopener">CAP-21DS</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку справа</td></tr>
-    <tr><td>14:04&ndash;14:14</td><td>Camilo Benito, <a href="https://en.wikipedia.org/wiki/Extra_EA-300" target="_blank" rel="noopener">Extra 330SC</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку справа</td></tr>
-    <tr><td>14:14&ndash;14:22</td><td><a href="https://en.wikipedia.org/wiki/Airbus_A400M_Atlas" target="_blank" rel="noopener">Airbus A400M</a></td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку справа</td></tr>
-    <tr><td>14:22&ndash;14:34</td><td>Yakstars, 4&times; <a href="https://en.wikipedia.org/wiki/Yakovlev_Yak-52" target="_blank" rel="noopener">Yak-52</a></td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку справа</td></tr>
-    <tr><td>14:34&ndash;14:44</td><td><a href="https://en.wikipedia.org/wiki/Boeing_CH-47_Chinook" target="_blank" rel="noopener">CH-47F Chinook</a></td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку справа</td></tr>
-    <tr><td>14:44&ndash;14:54</td><td><a href="https://en.wikipedia.org/wiki/Beechcraft_T-6_Texan_II" target="_blank" rel="noopener">T-6A Texan II</a></td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку справа</td></tr>
-    <tr><td>14:54&ndash;15:04</td><td><a href="https://en.wikipedia.org/wiki/McDonnell_Douglas_AV-8B_Harrier_II" target="_blank" rel="noopener">AV-8B+ Harrier</a></td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку справа</td></tr>
-    <tr><td>15:04&ndash;15:14</td><td><a href="https://en.wikipedia.org/wiki/Eurofighter_Typhoon" target="_blank" rel="noopener">Eurofighter</a></td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку справа</td></tr>
-    <tr><td>15:14&ndash;15:32</td><td>Patrulla ASPA (<a href="https://en.wikipedia.org/wiki/Eurocopter_EC120_Colibri" target="_blank" rel="noopener">EC120 Colibri</a>)</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку справа</td></tr>
+    <tr><td>11:35&ndash;11:45</td><td>Mario Llanera</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="bad" data-i18n="sun-eyes">Sol de cara</td></tr>
+    <tr><td>11:45&ndash;11:55</td><td><a href="https://en.wikipedia.org/wiki/Ultralight_aviation" target="_blank" rel="noopener">ULM</a> La Morgal</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="bad" data-i18n="sun-eyes">Sol de cara</td></tr>
+    <tr><td>11:55&ndash;11:58</td><td data-i18n="ac-papea-plane">Avión de la PAPEA</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="bad" data-i18n="sun-eyes">Sol de cara</td></tr>
+    <tr><td>11:58&ndash;12:05</td><td>Dani Roman, <a href="https://en.wikipedia.org/wiki/Wingsuit_flying" target="_blank" rel="noopener">wingsuit</a></td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="bad" data-i18n="sun-eyes">Sol de cara</td></tr>
+    <tr><td>12:05&ndash;12:23</td><td>PAPEA</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="bad" data-i18n="sun-eyes">Sol de cara</td></tr>
+    <tr><td>12:23&ndash;12:41</td><td data-i18n="ac-gc-para">Paracaidistas de la Guardia Civil</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="bad" data-i18n="sun-eyes">Sol de cara</td></tr>
+    <tr><td>12:41&ndash;12:51</td><td>AeroSPARX, <a href="https://en.wikipedia.org/wiki/Grob_G_109" target="_blank" rel="noopener">Grob G109B</a></td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="bad" data-i18n="sun-eyes">Sol de cara</td></tr>
+    <tr><td>12:51&ndash;13:01</td><td>SASEMAR, <a href="https://en.wikipedia.org/wiki/AgustaWestland_AW139" target="_blank" rel="noopener">AW139</a></td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="bad" data-i18n="sun-eyes">Sol de cara</td></tr>
+    <tr><td>13:01&ndash;13:11</td><td>Bomberos, <a href="https://en.wikipedia.org/wiki/Eurocopter_EC145" target="_blank" rel="noopener">EC145</a></td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="bad" data-i18n="sun-eyes">Sol de cara</td></tr>
+    <tr><td>13:11&ndash;13:21</td><td>Guardia Civil, <a href="https://en.wikipedia.org/wiki/Eurocopter_AS365_Dauphin" target="_blank" rel="noopener">AS365</a></td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="bad" data-i18n="sun-eyes">Sol de cara</td></tr>
+    <tr><td>13:16&ndash;13:26</td><td>Guardia Civil, <a href="https://en.wikipedia.org/wiki/CASA/IPTN_CN-235" target="_blank" rel="noopener">CN-235</a></td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="bad" data-i18n="sun-eyes">Sol de cara</td></tr>
+    <tr><td>13:26&ndash;13:36</td><td><a href="https://en.wikipedia.org/wiki/NHIndustries_NH90" target="_blank" rel="noopener">NH90</a> Lobo</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="bad" data-i18n="sun-eyes">Sol de cara</td></tr>
+    <tr><td>13:36&ndash;13:44</td><td>Policia Nacional, <a href="https://en.wikipedia.org/wiki/Eurocopter_EC135" target="_blank" rel="noopener">EC135</a></td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td></tr>
+    <tr><td>13:44&ndash;13:54</td><td>Armada, <a href="https://en.wikipedia.org/wiki/Sikorsky_SH-60_Seahawk" target="_blank" rel="noopener">SH-60</a></td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td></tr>
+    <tr><td>13:54&ndash;14:04</td><td>Luca Salvadori, <a href="https://en.wikipedia.org/wiki/Mudry_CAP_20" target="_blank" rel="noopener">CAP-21DS</a></td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td></tr>
+    <tr><td>14:04&ndash;14:14</td><td>Camilo Benito, <a href="https://en.wikipedia.org/wiki/Extra_EA-300" target="_blank" rel="noopener">Extra 330SC</a></td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td></tr>
+    <tr><td>14:14&ndash;14:22</td><td><a href="https://en.wikipedia.org/wiki/Airbus_A400M_Atlas" target="_blank" rel="noopener">Airbus A400M</a></td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="side" data-i18n="sun-side-left">Sol lateral izquierdo</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td></tr>
+    <tr><td>14:22&ndash;14:34</td><td>Yakstars, 4&times; <a href="https://en.wikipedia.org/wiki/Yakovlev_Yak-52" target="_blank" rel="noopener">Yak-52</a></td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="side" data-i18n="sun-side-left">Sol lateral izquierdo</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td></tr>
+    <tr><td>14:34&ndash;14:44</td><td><a href="https://en.wikipedia.org/wiki/Boeing_CH-47_Chinook" target="_blank" rel="noopener">CH-47F Chinook</a></td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="side" data-i18n="sun-side-left">Sol lateral izquierdo</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td></tr>
+    <tr><td>14:44&ndash;14:54</td><td><a href="https://en.wikipedia.org/wiki/Beechcraft_T-6_Texan_II" target="_blank" rel="noopener">T-6A Texan II</a></td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="side" data-i18n="sun-side-left">Sol lateral izquierdo</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td></tr>
+    <tr><td>14:54&ndash;15:04</td><td><a href="https://en.wikipedia.org/wiki/McDonnell_Douglas_AV-8B_Harrier_II" target="_blank" rel="noopener">AV-8B+ Harrier</a></td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="side" data-i18n="sun-side-left">Sol lateral izquierdo</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td></tr>
+    <tr><td>15:04&ndash;15:14</td><td><a href="https://en.wikipedia.org/wiki/Eurofighter_Typhoon" target="_blank" rel="noopener">Eurofighter</a></td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="side" data-i18n="sun-side-left">Sol lateral izquierdo</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td></tr>
+    <tr><td>15:14&ndash;15:32</td><td>Patrulla ASPA (<a href="https://en.wikipedia.org/wiki/Eurocopter_EC120_Colibri" target="_blank" rel="noopener">EC120 Colibri</a>)</td><td class="good" data-i18n="sun-back">Sol a la espalda</td><td class="side" data-i18n="sun-side-left">Sol lateral izquierdo</td><td class="side" data-i18n="sun-side-right">Sol lateral derecho</td></tr>
   </tbody>
 </table>
 </div>
 
-<div class="verdict">
-  <strong>Вывод:</strong> для тренировок и первой половины воскресного шоу (примерно до 13:00) лучше
-  <strong class="brand">Sombras de Luz</strong> &mdash; солнце со спины всё утро. Для второй половины
-  воскресного шоу, особенно A400M, Yakstars, Harrier, Eurofighter и ASPA, лучше
-  <strong class="brand">лестница 10</strong>. Для субботнего Sunset Air Show &mdash;
+<div class="verdict" data-i18n="verdict">
+  <strong>Conclusión:</strong> para los entrenamientos y la primera mitad de la exhibición del domingo
+  (hasta las 13:00 aprox.) es mejor <strong class="brand">Sombras de Luz</strong>: sol a la espalda toda
+  la manana. Para la segunda mitad, en especial A400M, Yakstars, Harrier, Eurofighter y ASPA, es mejor la
+  <strong class="brand">escalera 10</strong>. Para el Sunset Air Show del sábado, el
   <strong class="brand">Cerro de Santa Catalina</strong>.
 </div>
 
 </main>
 
-<footer>
-  Время выступлений ориентировочное, программа может меняться. Источники:
+<footer data-i18n="footer">
+  Los horarios son orientativos y el programa puede cambiar. Fuentes:
   <a href="https://www.gijon.es/es/eventos/festival-aereo-de-gijon" target="_blank" rel="noopener">gijon.es</a>,
   <a href="https://www.turismoasturias.es" target="_blank" rel="noopener">turismoasturias.es</a>.
 </footer>
@@ -343,43 +371,178 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
+  var I18N = {
+    es: {
+      "title": "Festival Aéreo de Gijón 2026: aviones, horarios y posición del sol",
+      "popup-zone": "<strong>Zona estimada de vuelo</strong><br>Centro: 43.546583, −5.651611<br>Radio: 500 m",
+      "popup-center": "Centro estimado de los vuelos",
+      "popup1-t": "1. Escalera 10",
+      "popup1": "Mitad de la playa de San Lorenzo. Sol a la espalda desde las ~13:05 hasta el final. El mejor punto para la segunda mitad de la exhibición del domingo.",
+      "popup2-t": "2. Sombras de Luz",
+      "popup2": "Escultura en el Muro, entre las escaleras 18 y 19. Sol a la espalda hasta las ~14:10: ideal para los entrenamientos y la primera mitad de la exhibición.",
+      "popup3-t": "3. Cerro de Santa Catalina",
+      "popup3": "Colina junto al «Elogio del Horizonte». Vista elevada; de día sol de cara, pero al atardecer, en el Sunset Air Show, a la espalda."
+    },
+    ru: {
+      "title": "Авиашоу в Хихоне 2026: борта, время и положение солнца",
+      "pill": "24–26 июля 2026 · <strong>Playa de San Lorenzo, Gijón</strong>",
+      "h1": "Авиашоу в Хихоне:<br>борта, время и <span class=\"brand\">положение солнца</span>",
+      "hero-p": "Расчёт относительно предполагаемого центра полётов <strong>43.546583, −5.651611</strong>. Время отдельных выступлений ориентировочное.",
+      "map-h2": "Карта: откуда смотреть",
+      "map-sub": "Круг — ориентировочная зона полётов (радиус 500 м от предполагаемого центра). Маркеры — три удобные точки наблюдения.",
+      "map-note": "Позиции ориентировочные: реальная ось полётов может смещаться вдоль пляжа Сан-Лоренсо.",
+      "card1-h": "1. Лестница 10 (Escalera 10)",
+      "card1-p": "Середина пляжа Сан-Лоренсо. С ~13:05 и до конца программы солнце со спины — лучшая точка для второй половины воскресного шоу: A400M, Yakstars, Harrier, Eurofighter, Patrulla ASPA.",
+      "card2-h": "2. Sombras de Luz",
+      "card2-p": "Скульптура на Муро между лестницами 18 и 19. Солнце со спины всё утро и до ~14:10 — лучшая точка для тренировок и первой половины воскресного шоу. Вечером солнце в глаза.",
+      "card3-h": "3. Cerro de Santa Catalina",
+      "card3-p": "Холм над Симадевильей, у скульптуры «Elogio del Horizonte». Вид сверху, но днём солнце в глаза. Зато идеален для субботнего Sunset Air Show — солнце со спины.",
+      "legend-back": "Солнце со спины — лучший свет",
+      "legend-eyes": "Солнце в глаза — против света",
+      "legend-side": "Солнце сбоку",
+      "legend-dusk": "Солнце за горизонтом",
+      "fri-h2": "Пятница, 24 июля: тренировки",
+      "fri-sub": "Распределение тренировок по бортам пока не опубликовано. Основное окно: 10:00–14:00 (<a href=\"https://www.turismoasturias.es/agenda-de-asturias/cine-y-espectaculos/-/calendarsuite/event/festival-aereo-de-gijon/13470879/jr0cMeS144cd\" target=\"_blank\" rel=\"noopener\">официальная информация</a>).",
+      "sat-h2": "Суббота, 25 июля: дневные тренировки",
+      "sat-sub": "Порядок бортов также пока не опубликован. Тренировочное окно может продолжаться примерно до 15:15 (<a href=\"https://www.europapress.es/asturias/noticia-atencion-restricciones-bano-trafico-gijon-viernes-festival-aereo-20260722181826.html\" target=\"_blank\" rel=\"noopener\">Europa Press</a>).",
+      "sunset-h2": "Суббота: Sunset Air Show",
+      "sunset-sub": "Вечерняя программа: лучший свет — на Cerro Santa Catalina. Закат около 21:52.",
+      "sun-h2": "Воскресенье, 26 июля: основное шоу",
+      "sun-sub": "Очерёдность взята из <a href=\"https://www.gijon.es/es/eventos/festival-aereo-de-gijon\" target=\"_blank\" rel=\"noopener\">официальной программы</a>.",
+      "th-time": "Время",
+      "th-aircraft": "Борт",
+      "th-l10": "Лестница 10",
+      "th-sombras": "Sombras de Luz",
+      "th-cerro": "Cerro Santa Catalina",
+      "row-possible": "Возможные 16:00–16:30",
+      "sun-back": "Солнце со спины",
+      "sun-eyes": "Солнце в глаза",
+      "sun-eyes-low": "Солнце в глаза, низко",
+      "sun-eyes-horizon": "Солнце в глаза у горизонта",
+      "sun-side-left": "Солнце сбоку слева",
+      "sun-side-right": "Солнце сбоку справа",
+      "sun-horizon": "Солнце за горизонтом",
+      "ac-papea-plane": "Самолёт PAPEA",
+      "ac-papea-para": "Парашютисты PAPEA",
+      "ac-gc-para": "Парашютисты Guardia Civil",
+      "verdict": "<strong>Вывод:</strong> для тренировок и первой половины воскресного шоу (примерно до 13:00) лучше <strong class=\"brand\">Sombras de Luz</strong> — солнце со спины всё утро. Для второй половины, особенно A400M, Yakstars, Harrier, Eurofighter и ASPA, лучше <strong class=\"brand\">лестница 10</strong>. Для субботнего Sunset Air Show — <strong class=\"brand\">Cerro de Santa Catalina</strong>.",
+      "footer": "Время выступлений ориентировочное, программа может меняться. Источники: <a href=\"https://www.gijon.es/es/eventos/festival-aereo-de-gijon\" target=\"_blank\" rel=\"noopener\">gijon.es</a>, <a href=\"https://www.turismoasturias.es\" target=\"_blank\" rel=\"noopener\">turismoasturias.es</a>.",
+      "popup-zone": "<strong>Ориентировочная зона полётов</strong><br>Центр: 43.546583, −5.651611<br>Радиус: 500 м",
+      "popup-center": "Предполагаемый центр полётов",
+      "popup1-t": "1. Лестница 10",
+      "popup1": "Середина пляжа Сан-Лоренсо. Солнце со спины с ~13:05 и до конца программы. Лучшая точка для второй половины воскресного шоу.",
+      "popup2-t": "2. Sombras de Luz",
+      "popup2": "Скульптура на Муро между лестницами 18 и 19. Солнце со спины до ~14:10 — оптимально для тренировок и первой половины шоу.",
+      "popup3-t": "3. Cerro de Santa Catalina",
+      "popup3": "Холм у «Elogio del Horizonte». Вид сверху; днём солнце в глаза, зато вечером на Sunset Air Show — со спины."
+    },
+    en: {
+      "title": "Gijón Air Show 2026: aircraft, schedule and sun position",
+      "pill": "24–26 July 2026 · <strong>Playa de San Lorenzo, Gijón</strong>",
+      "h1": "Gijón Air Show:<br>aircraft, schedule and <span class=\"brand\">sun position</span>",
+      "hero-p": "Computed relative to the estimated display center <strong>43.546583, −5.651611</strong>. Times of individual displays are approximate.",
+      "map-h2": "Map: where to watch from",
+      "map-sub": "The circle marks the estimated flying zone (500 m radius around the expected center). The markers are three good viewing spots.",
+      "map-note": "Positions are approximate: the actual display line may shift along San Lorenzo beach.",
+      "card1-h": "1. Stairway 10 (Escalera 10)",
+      "card1-p": "Middle of San Lorenzo beach. From ~13:05 until the end of the programme the sun is at your back: the best spot for the second half of Sunday's show: A400M, Yakstars, Harrier, Eurofighter, Patrulla ASPA.",
+      "card2-h": "2. Sombras de Luz",
+      "card2-p": "Sculpture on the Muro promenade, between stairways 18 and 19. Sun at your back all morning until ~14:10: the best spot for the training sessions and the first half of Sunday's show. In the evening the sun is in your eyes.",
+      "card3-h": "3. Cerro de Santa Catalina",
+      "card3-p": "Hill above Cimavilla, by the “Elogio del Horizonte” sculpture. Elevated view, but the daytime sun is in your eyes. Ideal for Saturday's Sunset Air Show: sun at your back.",
+      "legend-back": "Sun at your back — best light",
+      "legend-eyes": "Sun in your eyes — backlit",
+      "legend-side": "Sun to the side",
+      "legend-dusk": "Sun below the horizon",
+      "fri-h2": "Friday 24 July: training sessions",
+      "fri-sub": "The per-aircraft training schedule has not been published yet. Main window: 10:00–14:00 (<a href=\"https://www.turismoasturias.es/agenda-de-asturias/cine-y-espectaculos/-/calendarsuite/event/festival-aereo-de-gijon/13470879/jr0cMeS144cd\" target=\"_blank\" rel=\"noopener\">official information</a>).",
+      "sat-h2": "Saturday 25 July: daytime training",
+      "sat-sub": "The aircraft order has not been published either. The training window may run until about 15:15 (<a href=\"https://www.europapress.es/asturias/noticia-atencion-restricciones-bano-trafico-gijon-viernes-festival-aereo-20260722181826.html\" target=\"_blank\" rel=\"noopener\">Europa Press</a>).",
+      "sunset-h2": "Saturday: Sunset Air Show",
+      "sunset-sub": "Evening programme: the best light is from Cerro Santa Catalina. Sunset around 21:52.",
+      "sun-h2": "Sunday 26 July: main show",
+      "sun-sub": "The running order is taken from the <a href=\"https://www.gijon.es/es/eventos/festival-aereo-de-gijon\" target=\"_blank\" rel=\"noopener\">official programme</a>.",
+      "th-time": "Time",
+      "th-aircraft": "Aircraft",
+      "th-l10": "Stairway 10",
+      "th-sombras": "Sombras de Luz",
+      "th-cerro": "Cerro Santa Catalina",
+      "row-possible": "Possible 16:00–16:30",
+      "sun-back": "Sun at your back",
+      "sun-eyes": "Sun in your eyes",
+      "sun-eyes-low": "Sun in your eyes, low",
+      "sun-eyes-horizon": "Sun in your eyes at the horizon",
+      "sun-side-left": "Sun to the left",
+      "sun-side-right": "Sun to the right",
+      "sun-horizon": "Sun below the horizon",
+      "ac-papea-plane": "PAPEA aircraft",
+      "ac-papea-para": "PAPEA paratroopers",
+      "ac-gc-para": "Guardia Civil paratroopers",
+      "verdict": "<strong>Bottom line:</strong> for the training sessions and the first half of Sunday's show (until about 13:00) <strong class=\"brand\">Sombras de Luz</strong> is best: the sun stays at your back all morning. For the second half, especially the A400M, Yakstars, Harrier, Eurofighter and ASPA, <strong class=\"brand\">Stairway 10</strong> is best. For Saturday's Sunset Air Show, <strong class=\"brand\">Cerro de Santa Catalina</strong>.",
+      "footer": "Display times are approximate and the programme may change. Sources: <a href=\"https://www.gijon.es/es/eventos/festival-aereo-de-gijon\" target=\"_blank\" rel=\"noopener\">gijon.es</a>, <a href=\"https://www.turismoasturias.es\" target=\"_blank\" rel=\"noopener\">turismoasturias.es</a>.",
+      "popup-zone": "<strong>Estimated flying zone</strong><br>Center: 43.546583, −5.651611<br>Radius: 500 m",
+      "popup-center": "Estimated display center",
+      "popup1-t": "1. Stairway 10",
+      "popup1": "Middle of San Lorenzo beach. Sun at your back from ~13:05 until the end. The best spot for the second half of Sunday's show.",
+      "popup2-t": "2. Sombras de Luz",
+      "popup2": "Sculpture on the Muro promenade, between stairways 18 and 19. Sun at your back until ~14:10: ideal for training sessions and the first half of the show.",
+      "popup3-t": "3. Cerro de Santa Catalina",
+      "popup3": "Hill by the “Elogio del Horizonte”. Elevated view; sun in your eyes during the day, but at your back for the Sunset Air Show."
+    }
+  };
+
+  var hl = new URLSearchParams(location.search).get("hl");
+  var lang = (hl === "ru" || hl === "en") ? hl : "es";
+  var dict = I18N[lang];
+
+  document.documentElement.lang = lang;
+  if (dict.title) document.title = dict.title;
+  if (lang !== "es") {
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n");
+      if (dict[key]) el.innerHTML = dict[key];
+    });
+  }
+  document.querySelectorAll(".lang-switch a").forEach(function (a) {
+    a.classList.toggle("active", a.getAttribute("data-lang") === lang);
+  });
+
   var flightCenter = [43.546583, -5.651611];
 
-  var map = L.map('map').setView([43.5445, -5.6525], 14);
+  var map = L.map("map").setView([43.5445, -5.6525], 14);
+  map.attributionControl.setPrefix('<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>');
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }).addTo(map);
 
   L.circle(flightCenter, {
     radius: 500,
-    color: '#225BFF',
+    color: "#225BFF",
     weight: 2,
-    fillColor: '#225BFF',
+    fillColor: "#225BFF",
     fillOpacity: 0.12
-  }).addTo(map).bindPopup('<strong>Ориентировочная зона полётов</strong><br>Центр: 43.546583, &minus;5.651611<br>Радиус: 500 м');
+  }).addTo(map).bindPopup(dict["popup-zone"] || I18N.es["popup-zone"]);
 
   L.circleMarker(flightCenter, {
-    radius: 4, color: '#225BFF', fillColor: '#225BFF', fillOpacity: 1
-  }).addTo(map).bindPopup('Предполагаемый центр полётов');
+    radius: 4, color: "#225BFF", fillColor: "#225BFF", fillOpacity: 1
+  }).addTo(map).bindPopup(dict["popup-center"] || I18N.es["popup-center"]);
 
-  function viewpoint(coords, color, title, text) {
+  function viewpoint(coords, color, titleKey, textKey) {
+    var d = dict[titleKey] ? dict : I18N.es;
     L.circleMarker(coords, {
       radius: 9,
-      color: '#ffffff',
+      color: "#ffffff",
       weight: 2,
       fillColor: color,
       fillOpacity: 1
-    }).addTo(map).bindPopup('<strong>' + title + '</strong><br>' + text);
+    }).addTo(map).bindPopup("<strong>" + d[titleKey] + "</strong><br>" + d[textKey]);
   }
 
-  viewpoint([43.54076, -5.65185], '#D1495B', '1. Лестница 10',
-    'Середина пляжа Сан-Лоренсо. Солнце со спины с ~13:05 и до конца программы. Лучшая точка для второй половины воскресного шоу.');
-  viewpoint([43.54394, -5.64611], '#1E88E5', '2. Sombras de Luz',
-    'Скульптура на Муро между лестницами 18 и 19. Солнце со спины до ~14:10 &mdash; оптимально для тренировок и первой половины шоу.');
-  viewpoint([43.549188, -5.663062], '#2E8B57', '3. Cerro de Santa Catalina',
-    'Холм у &laquo;Elogio del Horizonte&raquo;. Вид сверху; днём солнце в глаза, зато вечером на Sunset Air Show &mdash; со спины.');
+  viewpoint([43.54076, -5.65185], "#D1495B", "popup1-t", "popup1");
+  viewpoint([43.54394, -5.64611], "#1E88E5", "popup2-t", "popup2");
+  viewpoint([43.549188, -5.663062], "#2E8B57", "popup3-t", "popup3");
 </script>
 
 </body>

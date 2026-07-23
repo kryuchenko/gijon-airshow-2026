@@ -1,0 +1,41 @@
+/*
+ * Brand theme for gijon-airshow-2026, authored in the output format of
+ * `astryx theme build` (@astryxdesign/core). Token values follow the
+ * "astryx" brand theme used on astryx.atmeta.com.
+ */
+
+@layer astryx-theme {
+  :root {
+    color-scheme: light dark;
+  }
+  html[data-theme="light"] {
+    color-scheme: light;
+  }
+  html[data-theme="dark"] {
+    color-scheme: dark;
+  }
+  @scope ([data-astryx-theme="gijon"]) to ([data-astryx-theme]) {
+    :scope {
+      --font-family-body: Figtree, "Figtree Variable", system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-family-heading: Figtree, "Figtree Variable", system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --color-accent: light-dark(#15110C, #DFE2E5);
+      --color-text-accent: light-dark(#15110C, #DFE2E5);
+      --color-icon-accent: light-dark(#15110C, #DFE2E5);
+      --color-accent-muted: light-dark(rgba(21, 17, 12, 0.08), rgba(223, 226, 229, 0.14));
+      --color-on-accent: light-dark(#FFFFFF, #15110C);
+      --color-background-body: light-dark(#F8F4ED, #111112);
+      --color-text-primary: light-dark(#15110C, #DFE2E5);
+      --color-icon-primary: light-dark(#15110C, #DFE2E5);
+      --text-display-1-weight: var(--font-weight-semibold);
+      --text-display-2-weight: var(--font-weight-semibold);
+      --text-display-3-weight: var(--font-weight-semibold);
+      --radius-inner: 8px;
+      --radius-element: 12px;
+      --radius-container: 16px;
+      --radius-page: 32px;
+      --color-brand: light-dark(#225BFF, #3D87FF);
+    }
+  }
+}
