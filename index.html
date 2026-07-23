@@ -465,6 +465,22 @@
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
   }
   .zone-label::before { display: none; }
+  .p-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
+    border: 2px solid #ffffff;
+    background: #0066FF;
+    color: #ffffff;
+    font-family: var(--font-family-body);
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .p-icon.free { background: #2E8B57; }
   .pt-label {
     background: rgba(255, 255, 255, 0.92);
     border: 1px solid rgba(12, 27, 51, 0.2);
@@ -576,7 +592,7 @@
 <main>
 
 <h2 id="map-sec" data-i18n="map-h2">Mapa: desde dónde mirar</h2>
-<p class="sub" data-i18n="map-sub">El área azul discontinua marca la zona estimada de vuelo sobre la bahía. Los marcadores señalan tres buenos puntos de observación. La línea naranja indica la dirección del sol a la hora elegida; las líneas discontinuas, la dirección de visión desde cada punto.</p>
+<p class="sub" data-i18n="map-sub">El área azul discontinua marca la zona estimada de vuelo sobre la bahía. Los marcadores señalan tres buenos puntos de observación. La línea naranja indica la dirección del sol a la hora elegida; las líneas discontinuas, la dirección de visión desde cada punto. Los iconos P son aparcamientos: azules de pago, verde gratuito.</p>
 <div id="map"></div>
 <div class="sunctl">
   <div class="sunctl-days">
@@ -740,6 +756,10 @@
   var I18N = {
     es: {
       "title": "Festival Aéreo de Gijón 2026: aviones, horarios y posición del sol",
+      "park1": "<strong>Aparcamiento Camino de Los Olmos</strong><br>De pago. Plazas limitadas: mejor llegar por la mañana.",
+      "park2": "<strong>Aparcamiento Este del Molinón</strong><br>Gratuito. Buenas probabilidades de encontrar sitio.",
+      "park3": "<strong>Parking Cimadevilla</strong><br>De pago. Muy pocas plazas: solo tienes opciones llegando muy temprano, y puede estar lleno desde la noche.",
+      "park4": "<strong>Parking Indigo — Gijón Espigón</strong><br>De pago. Suele haber plazas, pero es popular: mejor llegar antes del festival.",
       "lbl-az": "Acimut", "lbl-alt": "altura", "lbl-below": "Sol bajo el horizonte",
       "popup-zone": "<strong>Zona estimada de vuelo</strong><br>Bahía de San Lorenzo",
       "zone-label": "Zona de vuelo",
@@ -765,7 +785,7 @@
       "banner2": "Главное авиационное событие Астурии — берите расписание с собой.",
       "nav-map": "Карта", "nav-verdict": "Вывод",
       "map-h2": "Карта: откуда смотреть",
-      "map-sub": "Синяя пунктирная область — ориентировочная зона полётов над бухтой. Маркеры — три удобные точки наблюдения. Оранжевый луч — направление на солнце в выбранное время, пунктир — направление взгляда с каждой точки.",
+      "map-sub": "Синяя пунктирная область — ориентировочная зона полётов над бухтой. Маркеры — три удобные точки наблюдения. Оранжевый луч — направление на солнце в выбранное время, пунктир — направление взгляда с каждой точки. Значки P — парковки: синие платные, зелёная бесплатная.",
       "map-note": "Позиции ориентировочные: реальная ось полётов может смещаться вдоль пляжа Сан-Лоренсо.",
       "card1-h": "1. Лестница 10 (Escalera 10)",
       "card1-p": "Середина пляжа Сан-Лоренсо. С ~13:05 и до конца программы солнце со спины — лучшая точка для второй половины воскресного шоу: A400M, Yakstars, Harrier, Eurofighter, Patrulla ASPA.",
@@ -803,6 +823,10 @@
       "ac-gc-para": "<a href=\"https://en.wikipedia.org/wiki/Parachuting\" target=\"_blank\" rel=\"noopener\">Парашютисты</a> Guardia Civil<span class=\"ac-sub\"><a href=\"https://en.wikipedia.org/wiki/Eurocopter_AS365_Dauphin\" target=\"_blank\" rel=\"noopener\">AS365</a></span>",
       "verdict": "<strong>Вывод:</strong> для тренировок и первой половины воскресного шоу (примерно до 13:00) лучше <strong class=\"brand\">Sombras de Luz</strong> — солнце со спины всё утро. Для второй половины, особенно A400M, Yakstars, Harrier, Eurofighter и ASPA, лучше <strong class=\"brand\">лестница 10</strong>. Для субботнего Sunset Air Show — <strong class=\"brand\">Cerro de Santa Catalina</strong>.",
       "footer": "Время выступлений ориентировочное, программа может меняться. Официальный источник: <a href=\"https://www.festivalaereogijon.com/\" target=\"_blank\" rel=\"noopener\">festivalaereogijon.com</a>. Дополнительно: <a href=\"https://www.gijon.es/es/eventos/festival-aereo-de-gijon\" target=\"_blank\" rel=\"noopener\">gijon.es</a>, <a href=\"https://www.turismoasturias.es\" target=\"_blank\" rel=\"noopener\">turismoasturias.es</a>.",
+      "park1": "<strong>Парковка Camino de Los Olmos</strong><br>Платная. Мест не очень много — лучше приезжать утром.",
+      "park2": "<strong>Парковка Este del Molinón</strong><br>Бесплатная. Высокие шансы найти место.",
+      "park3": "<strong>Parking Cimadevilla</strong><br>Платная. Мест очень мало: шанс только если приехать совсем рано утром, и то может быть занято с ночи.",
+      "park4": "<strong>Parking Indigo — Gijón Espigón</strong><br>Платная. Места есть, но парковка популярная — лучше приехать до начала шоу.",
       "lbl-az": "Азимут", "lbl-alt": "высота", "lbl-below": "Солнце за горизонтом", "day-fri": "Пт 24", "day-sat": "Сб 25", "day-sun": "Вс 26",
       "popup-zone": "<strong>Ориентировочная зона полётов</strong><br>Бухта Сан-Лоренсо",
       "zone-label": "Зона полётов",
@@ -828,7 +852,7 @@
       "banner2": "Asturias' biggest aviation event — take the schedule with you.",
       "nav-map": "Map", "nav-verdict": "Verdict",
       "map-h2": "Map: where to watch from",
-      "map-sub": "The dashed blue area marks the estimated flying zone over the bay. The markers are three good viewing spots. The orange ray shows the sun direction at the chosen time; the dashed lines are the sight lines from each spot.",
+      "map-sub": "The dashed blue area marks the estimated flying zone over the bay. The markers are three good viewing spots. The orange ray shows the sun direction at the chosen time; the dashed lines are the sight lines from each spot. P icons are car parks: blue paid, green free.",
       "map-note": "Positions are approximate: the actual display line may shift along San Lorenzo beach.",
       "card1-h": "1. Stairway 10 (Escalera 10)",
       "card1-p": "Middle of San Lorenzo beach. From ~13:05 until the end of the programme the sun is at your back: the best spot for the second half of Sunday's show: A400M, Yakstars, Harrier, Eurofighter, Patrulla ASPA.",
@@ -866,6 +890,10 @@
       "ac-gc-para": "Guardia Civil <a href=\"https://en.wikipedia.org/wiki/Parachuting\" target=\"_blank\" rel=\"noopener\">paratroopers</a><span class=\"ac-sub\"><a href=\"https://en.wikipedia.org/wiki/Eurocopter_AS365_Dauphin\" target=\"_blank\" rel=\"noopener\">AS365</a></span>",
       "verdict": "<strong>Bottom line:</strong> for the training sessions and the first half of Sunday's show (until about 13:00) <strong class=\"brand\">Sombras de Luz</strong> is best: the sun stays at your back all morning. For the second half, especially the A400M, Yakstars, Harrier, Eurofighter and ASPA, <strong class=\"brand\">Stairway 10</strong> is best. For Saturday's Sunset Air Show, <strong class=\"brand\">Cerro de Santa Catalina</strong>.",
       "footer": "Display times are approximate and the programme may change. Official source: <a href=\"https://www.festivalaereogijon.com/\" target=\"_blank\" rel=\"noopener\">festivalaereogijon.com</a>. Also: <a href=\"https://www.gijon.es/es/eventos/festival-aereo-de-gijon\" target=\"_blank\" rel=\"noopener\">gijon.es</a>, <a href=\"https://www.turismoasturias.es\" target=\"_blank\" rel=\"noopener\">turismoasturias.es</a>.",
+      "park1": "<strong>Camino de Los Olmos car park</strong><br>Paid. Limited spaces: best to arrive in the morning.",
+      "park2": "<strong>Molinón East car park</strong><br>Free. Good chances of finding a spot.",
+      "park3": "<strong>Parking Cimadevilla</strong><br>Paid. Very few spaces: only a chance if you arrive very early, and it may be full overnight.",
+      "park4": "<strong>Parking Indigo — Gijón Espigón</strong><br>Paid. Usually has spaces but it is popular: best to arrive before the show.",
       "lbl-az": "Azimuth", "lbl-alt": "altitude", "lbl-below": "Sun below the horizon", "day-fri": "Fri 24", "day-sat": "Sat 25", "day-sun": "Sun 26",
       "popup-zone": "<strong>Estimated flying zone</strong><br>San Lorenzo bay",
       "zone-label": "Flight zone",
@@ -1025,6 +1053,23 @@
   viewpoint([43.54076, -5.65185], "#D1495B", "popup1-t", "popup1", "right");
   viewpoint([43.54394, -5.64611], "#1E88E5", "popup2-t", "popup2", "right");
   viewpoint([43.549188, -5.663062], "#2E8B57", "popup3-t", "popup3", "left");
+
+  [
+    [43.5419335, -5.6421244, "park1", false],
+    [43.5352913, -5.6354489, "park2", true],
+    [43.5468176, -5.6648634, "park3", false],
+    [43.5434308, -5.6664962, "park4", false]
+  ].forEach(function (p) {
+    var d = dict[p[2]] ? dict : I18N.es;
+    L.marker([p[0], p[1]], {
+      icon: L.divIcon({
+        className: "",
+        html: '<div class="p-icon' + (p[3] ? " free" : "") + '">P</div>',
+        iconSize: [22, 22],
+        iconAnchor: [11, 11]
+      })
+    }).addTo(map).bindPopup(d[p[2]]);
+  });
 
   [[43.54076, -5.65185, "#D1495B"], [43.54394, -5.64611, "#1E88E5"], [43.549188, -5.663062, "#2E8B57"]]
     .forEach(function (p) {
