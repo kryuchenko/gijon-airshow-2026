@@ -528,7 +528,6 @@
 <div class="day-tabs">
   <button data-day-btn="fri" class="active" data-i18n="day-fri">Vie 24</button>
   <button data-day-btn="sat" data-i18n="day-sat">Sáb 25</button>
-  <button data-day-btn="sunset">Sunset</button>
   <button data-day-btn="sun" data-i18n="day-sun">Dom 26</button>
 </div>
 <div class="filters">
@@ -582,7 +581,7 @@
 
 </section>
 
-<section data-day="sunset">
+<section data-day="sat">
 <h2 id="sunset" data-i18n="sunset-h2">Sábado: Sunset Air Show</h2>
 <p class="sub" data-i18n="sunset-sub">Programa vespertino: la mejor luz, desde el Cerro de Santa Catalina. Puesta de sol hacia las 21:52.</p>
 <div class="table-wrap">
@@ -912,7 +911,7 @@
     b.addEventListener("click", function () { showDay(b.getAttribute("data-day-btn")); });
   });
   showDay("fri");
-  var dayAnchors = { friday: "fri", saturday: "sat", sunset: "sunset", sunday: "sun" };
+  var dayAnchors = { friday: "fri", saturday: "sat", sunset: "sat", sunday: "sun" };
   document.querySelectorAll(".topnav-links a").forEach(function (a) {
     var id = (a.getAttribute("href") || "").slice(1);
     if (dayAnchors[id]) {
