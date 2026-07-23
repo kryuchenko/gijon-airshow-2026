@@ -594,9 +594,9 @@
 
 
 <div class="day-tabs">
-  <button data-day-btn="fri" class="active" data-i18n="day-fri">Vie 24</button>
+  <button data-day-btn="fri" data-i18n="day-fri">Vie 24</button>
   <button data-day-btn="sat" data-i18n="day-sat">Sáb 25</button>
-  <button data-day-btn="sun" data-i18n="day-sun">Dom 26</button>
+  <button data-day-btn="sun" class="active" data-i18n="day-sun">Dom 26</button>
 </div>
 <div class="filters">
   <button data-filter="all" class="active" data-i18n="cls-all">Todos</button>
@@ -1062,7 +1062,7 @@
   document.querySelectorAll("[data-day-btn]").forEach(function (b) {
     b.addEventListener("click", function () { showDay(b.getAttribute("data-day-btn")); });
   });
-  showDay("fri");
+  showDay("sun");
   var dayAnchors = { friday: "fri", saturday: "sat", sunset: "sat", sunday: "sun" };
   document.querySelectorAll(".topnav-links a").forEach(function (a) {
     var id = (a.getAttribute("href") || "").slice(1);
@@ -1105,39 +1105,42 @@
   });
 
   function splitForPrint() {
-    var wrap = document.querySelector('section[data-day="sun"] .table-wrap');
-    if (!wrap || wrap.getAttribute("data-split")) return;
-    wrap.setAttribute("data-split", "1");
-    var table = wrap.querySelector("table");
-    var thead = table.querySelector("thead");
-    var rows = Array.prototype.filter.call(table.querySelectorAll("tbody tr"), function (tr) {
-      return !tr.classList.contains("empty-row");
+    document.querySelectorAll("section[data-day] .table-wrap").forEach(function (wrap) {
+      if (wrap.getAttribute("data-split") || wrap.closest(".print-cols")) return;
+      var table = wrap.querySelector("table");
+      if (!table) return;
+      var thead = table.querySelector("thead");
+      var rows = Array.prototype.filter.call(table.querySelectorAll("tbody tr"), function (tr) {
+        return !tr.classList.contains("empty-row");
+      });
+      if (rows.length < 4) return;
+      wrap.setAttribute("data-split", "1");
+      var half = Math.ceil(rows.length / 2);
+      var cont = document.createElement("div");
+      cont.className = "print-cols";
+      [rows.slice(0, half), rows.slice(half)].forEach(function (part) {
+        var w = document.createElement("div");
+        w.className = "table-wrap";
+        var t = document.createElement("table");
+        t.appendChild(thead.cloneNode(true));
+        var tb = document.createElement("tbody");
+        part.forEach(function (tr) { tb.appendChild(tr.cloneNode(true)); });
+        t.appendChild(tb);
+        w.appendChild(t);
+        cont.appendChild(w);
+      });
+      wrap.parentNode.insertBefore(cont, wrap);
+      wrap.classList.add("print-hidden-original");
     });
-    var half = Math.ceil(rows.length / 2);
-    var cont = document.createElement("div");
-    cont.className = "print-cols";
-    [rows.slice(0, half), rows.slice(half)].forEach(function (part) {
-      var w = document.createElement("div");
-      w.className = "table-wrap";
-      var t = document.createElement("table");
-      t.appendChild(thead.cloneNode(true));
-      var tb = document.createElement("tbody");
-      part.forEach(function (tr) { tb.appendChild(tr.cloneNode(true)); });
-      t.appendChild(tb);
-      w.appendChild(t);
-      cont.appendChild(w);
-    });
-    wrap.parentNode.insertBefore(cont, wrap);
-    wrap.classList.add("print-hidden-original");
   }
   function restoreAfterPrint() {
-    var cont = document.querySelector(".print-cols");
-    if (cont) cont.parentNode.removeChild(cont);
-    var wrap = document.querySelector('section[data-day="sun"] .table-wrap');
-    if (wrap) {
+    document.querySelectorAll(".print-cols").forEach(function (c) {
+      c.parentNode.removeChild(c);
+    });
+    document.querySelectorAll('section[data-day] .table-wrap[data-split]').forEach(function (wrap) {
       wrap.removeAttribute("data-split");
       wrap.classList.remove("print-hidden-original");
-    }
+    });
   }
   window.addEventListener("beforeprint", splitForPrint);
   window.addEventListener("afterprint", restoreAfterPrint);
