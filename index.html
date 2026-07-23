@@ -246,9 +246,11 @@
     section[data-day] tr:not(.empty-row) { display: table-row !important; }
     tr.empty-row { display: none !important; }
     tr { break-inside: avoid; }
-    table { min-width: 0; width: 100%; font-size: 10.5px; }
-    th, td { padding: 3.5px 8px; }
-    .ac-name .ac-sub { font-size: 9px; }
+    table { min-width: 0; width: 100%; font-size: 9.5px; }
+    th, td { padding: 3px 6px; }
+    td.ac { min-width: 0; }
+    td.ac, td.ac .ac-name { white-space: normal; }
+    .ac-name .ac-sub { font-size: 8.5px; }
     td a { color: inherit !important; border-bottom: none !important; text-decoration: none !important; }
     td.bad {
       text-decoration: underline;
