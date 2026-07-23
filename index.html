@@ -6,7 +6,7 @@
 <title>Festival Aéreo de Gijón 2026: aviones, horarios y posición del sol</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="https://unpkg.com/@astryxdesign/core@0.1.8/reset.css">
 <link rel="stylesheet" href="https://unpkg.com/@astryxdesign/core@0.1.8/astryx.css">
 <link rel="stylesheet" href="theme.css?v=3b8374e8">
@@ -79,79 +79,164 @@
   }
   .topnav-links a:hover { background: var(--color-accent-muted); color: var(--brand); }
   h2, .verdict { scroll-margin-top: 76px; }
-  header.hero {
-    background: linear-gradient(150deg,
-      light-dark(#0043BE, #0A2E66) 0%,
-      light-dark(#0066FF, #123F8F) 55%,
-      light-dark(#2E86FF, #1D55B8) 100%);
-    border-bottom: 4px solid var(--color-asturias-yellow);
-    color: #FFFFFF;
-    text-align: center;
-    padding: 28px 20px 48px;
+  .flag-stripes span { display: block; }
+  .flag-stripes .y { height: 5px; background: var(--color-asturias-yellow); }
+  .flag-stripes .b { height: 8px; background: var(--brand); }
+  .topnav-brand .b1 {
+    display: block;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--brand);
+    letter-spacing: -0.01em;
+    line-height: 1.05;
   }
-  .hero-inner { max-width: 980px; margin: 0 auto; }
-  .hero-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--spacing-3);
-    margin-bottom: var(--spacing-10);
-  }
-  .hero-badge {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #BFD7FF;
+  .topnav-brand .b2 {
+    display: block;
+    font-size: 10px;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.18em;
+    color: var(--brand);
   }
   .lang-switch { display: flex; gap: var(--spacing-1); }
   .lang-switch a {
-    padding: 4px 14px;
+    padding: 4px 12px;
     border-radius: var(--radius-full);
-    border: var(--border-width) solid rgba(255, 255, 255, 0.35);
-    color: #D6E4FF;
+    border: var(--border-width) solid var(--border);
+    color: var(--muted);
     text-decoration: none;
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
   }
   .lang-switch a.active {
+    background: var(--brand);
+    color: var(--color-on-accent);
+    border-color: var(--brand);
+  }
+  .pdf-btn {
+    padding: 8px 18px;
+    border-radius: 10px;
+    border: none;
     background: var(--color-asturias-yellow);
     color: #0C1B33;
-    border-color: var(--color-asturias-yellow);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+  }
+  header.hero { padding: 24px 16px 4px; }
+  .hero-inner {
+    max-width: 948px;
+    margin: 0 auto;
+    background: light-dark(linear-gradient(120deg, #E7F0FF, #F4F9FF), linear-gradient(120deg, #14213A, #1A2333));
+    border: var(--border-width) solid light-dark(rgba(0, 102, 255, 0.15), rgba(226, 232, 242, 0.16));
+    border-radius: 20px;
+    padding: 36px;
+  }
+  .hero-badge {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: var(--spacing-3);
   }
   header.hero h1 {
-    margin: 0 0 14px;
+    margin: 14px 0 8px;
     font-family: var(--font-family-heading);
-    font-size: clamp(30px, 5vw, 52px);
-    font-weight: var(--text-display-1-weight, var(--font-weight-semibold));
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 800;
     letter-spacing: -0.02em;
-    line-height: 1.12;
+    line-height: 1.08;
+    color: var(--brand);
   }
-  header.hero h1 .brand { color: var(--color-asturias-yellow); }
+  header.hero h1 .brand { color: inherit; }
   header.hero p {
-    margin: 0 auto;
-    max-width: 680px;
-    color: #CFE0FF;
+    margin: 0;
+    max-width: 620px;
+    color: var(--muted);
     font-size: 17px;
   }
   .hero-chips {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: var(--spacing-2);
-    margin-top: var(--spacing-6);
+    margin-top: var(--spacing-4);
   }
   .pill {
     display: inline-block;
     padding: var(--spacing-1-5) var(--spacing-4);
-    border: var(--border-width) solid rgba(255, 255, 255, 0.3);
+    border: var(--border-width) solid var(--border);
     border-radius: var(--radius-full);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-medium);
-    color: #EAF2FF;
-    background: rgba(255, 255, 255, 0.12);
+    font-size: 13px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--muted);
+    background: var(--card);
   }
-  .pill strong { color: var(--color-asturias-yellow); font-weight: var(--font-weight-semibold); }
+  .pill strong { color: var(--brand); font-weight: var(--font-weight-semibold); }
+  .day-tabs, .filters {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: var(--spacing-6);
+  }
+  .filters { margin-top: var(--spacing-3); }
+  .day-tabs button, .filters button {
+    font-family: inherit;
+    cursor: pointer;
+    border-radius: var(--radius-full);
+    border: var(--border-width) solid var(--border);
+    background: var(--card);
+    color: var(--muted);
+  }
+  .day-tabs button {
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: var(--font-weight-semibold);
+  }
+  .day-tabs button.active {
+    background: var(--color-asturias-yellow);
+    color: #0C1B33;
+    border-color: var(--color-asturias-yellow);
+  }
+  .filters button {
+    padding: 5px 14px;
+    font-size: 13px;
+    font-weight: var(--font-weight-medium);
+  }
+  .filters button.active {
+    background: var(--color-accent-muted);
+    color: var(--brand);
+    border-color: var(--brand);
+    font-weight: var(--font-weight-semibold);
+  }
+  .cta-banner {
+    margin-top: 32px;
+    background: var(--brand);
+    color: var(--color-on-accent);
+    border-radius: 20px;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+    flex-wrap: wrap;
+  }
+  .cta-banner .cta-t { font-size: 19px; font-weight: 800; letter-spacing: -0.01em; }
+  .cta-banner .cta-s { font-size: 14.5px; opacity: 0.85; }
+  .cta-banner .pdf-btn { margin-left: auto; }
+  @media print {
+    :root { color-scheme: light; }
+    body { background: #fff; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    .flag-stripes, .topnav, .sunctl, #map, .map-note, .cards, .legend, .notice,
+    .day-tabs, .filters, .cta-banner, #map-sec, #map-sec + .sub, footer { display: none !important; }
+    section[data-day] { display: block !important; break-before: page; }
+    section[data-day="fri"] { break-before: auto; }
+    section[data-day] tr { display: table-row !important; }
+    tr { break-inside: avoid; }
+    .table-wrap, .hero-inner, .verdict { box-shadow: none !important; }
+    .table-wrap { overflow: visible; }
+    @page { margin: 12mm; }
+  }
   main {
     max-width: 980px;
     margin: 0 auto;
@@ -315,10 +400,15 @@
     -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 1 21h22L12 2zm1 14h-2v2h2v-2zm0-7h-2v5h2V9z'/%3E%3C/svg%3E") center / 28px 28px no-repeat;
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 1 21h22L12 2zm1 14h-2v2h2v-2zm0-7h-2v5h2V9z'/%3E%3C/svg%3E") center / 28px 28px no-repeat;
   }
-  td.good { background: var(--good-bg); color: var(--good-ink); font-weight: var(--font-weight-semibold); }
-  td.bad  { background: var(--bad-bg);  color: var(--bad-ink);  font-weight: var(--font-weight-semibold); }
-  td.side { background: var(--side-bg); color: var(--side-ink); }
-  td.dusk { background: var(--dusk-bg); color: var(--dusk-ink); }
+  td.good, td.side, td.dusk { color: var(--muted); font-weight: var(--font-weight-normal); }
+  td.bad {
+    color: var(--ink);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: underline;
+    text-decoration-color: var(--color-asturias-yellow);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 3px;
+  }
   .legend {
     display: flex;
     flex-wrap: wrap;
@@ -332,10 +422,15 @@
     border-radius: var(--radius-full);
     border: var(--border-width) solid var(--border);
   }
-  .legend .good { background: var(--good-bg); color: var(--good-ink); }
-  .legend .bad  { background: var(--bad-bg);  color: var(--bad-ink); }
-  .legend .side { background: var(--side-bg); color: var(--side-ink); }
-  .legend .dusk { background: var(--dusk-bg); color: var(--dusk-ink); }
+  .legend .good, .legend .side, .legend .dusk { color: var(--muted); }
+  .legend .bad {
+    color: var(--ink);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: underline;
+    text-decoration-color: var(--color-asturias-yellow);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 3px;
+  }
   .verdict {
     margin-top: 44px;
     background: var(--card);
@@ -360,9 +455,10 @@
 </head>
 <body>
 
+<div class="flag-stripes"><span class="y"></span><span class="b"></span></div>
 <nav class="topnav">
   <div class="topnav-inner">
-    <span class="topnav-brand">Gijón <span>Air Show</span> 2026</span>
+    <span class="topnav-brand"><span class="b1">Gijón Airshow</span><span class="b2">ASTURIAS</span></span>
     <div class="topnav-links">
       <a href="#map-sec" data-i18n="nav-map">Mapa</a>
       <a href="#friday" data-i18n="day-fri">Vie 24</a>
@@ -371,25 +467,25 @@
       <a href="#sunday" data-i18n="day-sun">Dom 26</a>
       <a href="#verdict" data-i18n="nav-verdict">Conclusión</a>
     </div>
+    <nav class="lang-switch">
+      <a href="." data-lang="es">ES</a>
+      <a href="?hl=ru" data-lang="ru">RU</a>
+      <a href="?hl=en" data-lang="en">EN</a>
+    </nav>
+    <button class="pdf-btn" data-pdf data-i18n="pdf">Guardar PDF</button>
   </div>
 </nav>
 
 <header class="hero">
   <div class="hero-inner">
-    <div class="hero-top">
-      <span class="hero-badge">XX edición · 2006–2026</span>
-      <nav class="lang-switch">
-        <a href="." data-lang="es">ES</a>
-        <a href="?hl=ru" data-lang="ru">RU</a>
-        <a href="?hl=en" data-lang="en">EN</a>
-      </nav>
-    </div>
+    <span class="hero-badge">XX edición · 2006–2026</span>
+    <span class="pill" data-i18n="pill">24&ndash;26 de julio de 2026 &middot; <strong>Playa de San Lorenzo, Gijón</strong></span>
     <h1 data-i18n="h1">Festival aéreo de Gijón:<br>aviones, horarios y <span class="brand">posición del sol</span></h1>
     <p data-i18n="hero-p">Cálculo respecto al centro estimado de los vuelos <strong>43.546583, &minus;5.651611</strong>.
      Los horarios de cada exhibición son orientativos.</p>
     <div class="hero-chips">
-      <span class="pill" data-i18n="pill">24&ndash;26 de julio de 2026 &middot; <strong>Playa de San Lorenzo, Gijón</strong></span>
       <span class="pill">FM <strong>90.9</strong></span>
+      <span class="pill">Playa de San Lorenzo</span>
     </div>
   </div>
 </header>
@@ -429,11 +525,29 @@
 
 <div class="legend">
   <span class="good" data-i18n="legend-back">☀️ a la espalda &mdash; la mejor luz</span>
-  <span class="bad" data-i18n="legend-eyes">☀️ de cara &mdash; a contraluz</span>
+  <span class="bad" data-i18n="legend-eyes">🤦 de cara &mdash; a contraluz</span>
   <span class="side" data-i18n="legend-side">☀️ lateral</span>
   <span class="dusk" data-i18n="legend-dusk">🌙 bajo el horizonte</span>
 </div>
 
+<div class="day-tabs">
+  <button data-day-btn="fri" class="active" data-i18n="day-fri">Vie 24</button>
+  <button data-day-btn="sat" data-i18n="day-sat">Sáb 25</button>
+  <button data-day-btn="sunset">Sunset</button>
+  <button data-day-btn="sun" data-i18n="day-sun">Dom 26</button>
+</div>
+<div class="filters">
+  <button data-filter="all" class="active" data-i18n="cls-all">Todos</button>
+  <button data-filter="heli" data-i18n="cls-heli">🚁 Helicópteros</button>
+  <button data-filter="jet" data-i18n="cls-jet">✈️ Reactores</button>
+  <button data-filter="para" data-i18n="cls-para">🪂 Paracaidistas</button>
+  <button data-filter="aero" data-i18n="cls-aero">🌀 Acrobacia</button>
+  <button data-filter="cargo" data-i18n="cls-cargo">📦 Transporte</button>
+  <button data-filter="light" data-i18n="cls-light">🛩️ Aviación ligera</button>
+  <button data-filter="pyro" data-i18n="cls-pyro">🎆 Pirotecnia</button>
+</div>
+
+<section data-day="fri">
 <h2 id="friday" data-i18n="fri-h2">Viernes 24 de julio: entrenamientos</h2>
 <p class="sub" data-i18n="fri-sub">El reparto de los entrenamientos por aeronave aún no se ha publicado. Ventana principal: 10:00&ndash;14:00
 (<a href="https://www.turismoasturias.es/agenda-de-asturias/cine-y-espectaculos/-/calendarsuite/event/festival-aereo-de-gijon/13470879/jr0cMeS144cd" target="_blank" rel="noopener">información oficial</a>).</p>
@@ -443,14 +557,17 @@
     <tr><th data-i18n="th-time">Hora</th><th data-i18n="th-l10">Escalera 10</th><th data-i18n="th-sombras">Sombras de Luz</th><th data-i18n="th-cerro">Cerro Santa Catalina</th></tr>
   </thead>
   <tbody>
-    <tr><td>10:00&ndash;13:04</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">☀️ de cara</td></tr>
-    <tr><td>13:05&ndash;13:39</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">☀️ de cara</td></tr>
+    <tr><td>10:00&ndash;13:04</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de cara</td></tr>
+    <tr><td>13:05&ndash;13:39</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de cara</td></tr>
     <tr><td>13:40&ndash;14:00</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
     <tr><td data-i18n="row-possible">Posible 16:00&ndash;16:30</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
   </tbody>
 </table>
 </div>
 
+</section>
+
+<section data-day="sat">
 <h2 id="saturday" data-i18n="sat-h2">Sábado 25 de julio: entrenamientos diurnos</h2>
 <p class="sub" data-i18n="sat-sub">El orden de las aeronaves tampoco se ha publicado. La ventana de entrenamiento puede prolongarse hasta las 15:15 aprox.
 (<a href="https://www.europapress.es/asturias/noticia-atencion-restricciones-bano-trafico-gijon-viernes-festival-aereo-20260722181826.html" target="_blank" rel="noopener">Europa Press</a>).</p>
@@ -460,14 +577,17 @@
     <tr><th data-i18n="th-time">Hora</th><th data-i18n="th-l10">Escalera 10</th><th data-i18n="th-sombras">Sombras de Luz</th><th data-i18n="th-cerro">Cerro Santa Catalina</th></tr>
   </thead>
   <tbody>
-    <tr><td>10:00&ndash;13:04</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">☀️ de cara</td></tr>
-    <tr><td>13:05&ndash;13:39</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">☀️ de cara</td></tr>
+    <tr><td>10:00&ndash;13:04</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de cara</td></tr>
+    <tr><td>13:05&ndash;13:39</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de cara</td></tr>
     <tr><td>13:40&ndash;14:09</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
     <tr><td>14:10&ndash;15:15</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
   </tbody>
 </table>
 </div>
 
+</section>
+
+<section data-day="sunset">
 <h2 id="sunset" data-i18n="sunset-h2">Sábado: Sunset Air Show</h2>
 <p class="sub" data-i18n="sunset-sub">Programa vespertino: la mejor luz, desde el Cerro de Santa Catalina. Puesta de sol hacia las 21:52.</p>
 <div class="table-wrap">
@@ -476,18 +596,21 @@
     <tr><th data-i18n="th-time">Hora</th><th data-i18n="th-aircraft">Aeronave</th><th data-i18n="th-l10">Escalera 10</th><th data-i18n="th-sombras">Sombras de Luz</th><th data-i18n="th-cerro">Cerro Santa Catalina</th></tr>
   </thead>
   <tbody>
-    <tr><td>20:30&ndash;20:42</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/SH-60B_Seahawk2.jpg/250px-SH-60B_Seahawk2.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/Sikorsky_SH-60_Seahawk" target="_blank" rel="noopener">SH-60B Seahawk</a> Armada</span></td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="bad" data-i18n="sun-eyes">☀️ de cara</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td></tr>
-    <tr><td>20:42&ndash;20:54</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/French_Navy_NH90_lands_on_USS_Antietam_%28CG-54%29_in_the_Bay_of_Bengal_%28cropped%29.jpg/250px-French_Navy_NH90_lands_on_USS_Antietam_%28CG-54%29_in_the_Bay_of_Bengal_%28cropped%29.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/NHIndustries_NH90" target="_blank" rel="noopener">NH90</a> Lobo</span></td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="bad" data-i18n="sun-eyes">☀️ de cara</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td></tr>
-    <tr><td>20:54&ndash;21:06</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/N763DT_Extra_EA-300L.jpg/250px-N763DT_Extra_EA-300L.jpg"><span class="ac-name">Camilo Benito, <a href="https://en.wikipedia.org/wiki/Extra_EA-300" target="_blank" rel="noopener">Extra 330SC</a></span></td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="bad" data-i18n="sun-eyes-low">☀️ de cara, bajo</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td></tr>
-    <tr><td>21:06&ndash;21:18</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/T-6A_Texan_II.jpg/250px-T-6A_Texan_II.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/Beechcraft_T-6_Texan_II" target="_blank" rel="noopener">T-6A Texan II</a></span></td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="bad" data-i18n="sun-eyes-low">☀️ de cara, bajo</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td></tr>
-    <tr><td>21:18&ndash;21:23</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Polish_Air_Force_C-295_%28cropped%29.jpg/250px-Polish_Air_Force_C-295_%28cropped%29.jpg"><span class="ac-name" data-i18n="ac-papea-plane">Avión de la PAPEA<span class="ac-sub"><a href="https://en.wikipedia.org/wiki/Airbus_C295" target="_blank" rel="noopener">C-295</a> / <a href="https://en.wikipedia.org/wiki/CASA_C-212_Aviocar" target="_blank" rel="noopener">C-212</a></span></span></td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="bad" data-i18n="sun-eyes-low">☀️ de cara, bajo</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td></tr>
-    <tr><td>21:23&ndash;21:43</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Patrulla_Papea.jpg/250px-Patrulla_Papea.jpg"><span class="ac-name" data-i18n="ac-papea-para"><a href="https://en.wikipedia.org/wiki/Parachuting" target="_blank" rel="noopener">Paracaidistas</a> de la PAPEA<span class="ac-sub"><a href="https://en.wikipedia.org/wiki/Airbus_C295" target="_blank" rel="noopener">C-295</a> / <a href="https://en.wikipedia.org/wiki/CASA_C-212_Aviocar" target="_blank" rel="noopener">C-212</a></span></span></td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="bad" data-i18n="sun-eyes-low">☀️ de cara, bajo</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td></tr>
-    <tr><td>21:43&ndash;&asymp;21:52</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Grob.g109b.glider.arp.jpg/250px-Grob.g109b.glider.arp.jpg"><span class="ac-name">AeroSPARX (<a href="https://en.wikipedia.org/wiki/Grob_G_109" target="_blank" rel="noopener">Grob G109B</a>)</span></td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="bad" data-i18n="sun-eyes-horizon">☀️ de cara, horizonte</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td></tr>
-    <tr><td>&asymp;21:52&ndash;22:17</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Grob.g109b.glider.arp.jpg/250px-Grob.g109b.glider.arp.jpg"><span class="ac-name">AeroSPARX (<a href="https://en.wikipedia.org/wiki/Grob_G_109" target="_blank" rel="noopener">Grob G109B</a>)</span></td><td class="dusk" data-i18n="sun-horizon">🌙 bajo el horizonte</td><td class="dusk" data-i18n="sun-horizon">🌙 bajo el horizonte</td><td class="dusk" data-i18n="sun-horizon">🌙 bajo el horizonte</td></tr>
+    <tr data-cls="heli"><td>20:30&ndash;20:42</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/SH-60B_Seahawk2.jpg/250px-SH-60B_Seahawk2.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/Sikorsky_SH-60_Seahawk" target="_blank" rel="noopener">SH-60B Seahawk</a> Armada</span></td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="bad" data-i18n="sun-eyes">🤦 de cara</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td></tr>
+    <tr data-cls="heli"><td>20:42&ndash;20:54</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/French_Navy_NH90_lands_on_USS_Antietam_%28CG-54%29_in_the_Bay_of_Bengal_%28cropped%29.jpg/250px-French_Navy_NH90_lands_on_USS_Antietam_%28CG-54%29_in_the_Bay_of_Bengal_%28cropped%29.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/NHIndustries_NH90" target="_blank" rel="noopener">NH90</a> Lobo</span></td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="bad" data-i18n="sun-eyes">🤦 de cara</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td></tr>
+    <tr data-cls="aero"><td>20:54&ndash;21:06</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/N763DT_Extra_EA-300L.jpg/250px-N763DT_Extra_EA-300L.jpg"><span class="ac-name">Camilo Benito, <a href="https://en.wikipedia.org/wiki/Extra_EA-300" target="_blank" rel="noopener">Extra 330SC</a></span></td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="bad" data-i18n="sun-eyes-low">🤦 de cara, bajo</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td></tr>
+    <tr data-cls="aero"><td>21:06&ndash;21:18</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/T-6A_Texan_II.jpg/250px-T-6A_Texan_II.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/Beechcraft_T-6_Texan_II" target="_blank" rel="noopener">T-6A Texan II</a></span></td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="bad" data-i18n="sun-eyes-low">🤦 de cara, bajo</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td></tr>
+    <tr data-cls="cargo para"><td>21:18&ndash;21:23</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Polish_Air_Force_C-295_%28cropped%29.jpg/250px-Polish_Air_Force_C-295_%28cropped%29.jpg"><span class="ac-name" data-i18n="ac-papea-plane">Avión de la PAPEA<span class="ac-sub"><a href="https://en.wikipedia.org/wiki/Airbus_C295" target="_blank" rel="noopener">C-295</a> / <a href="https://en.wikipedia.org/wiki/CASA_C-212_Aviocar" target="_blank" rel="noopener">C-212</a></span></span></td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="bad" data-i18n="sun-eyes-low">🤦 de cara, bajo</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td></tr>
+    <tr data-cls="para"><td>21:23&ndash;21:43</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Patrulla_Papea.jpg/250px-Patrulla_Papea.jpg"><span class="ac-name" data-i18n="ac-papea-para"><a href="https://en.wikipedia.org/wiki/Parachuting" target="_blank" rel="noopener">Paracaidistas</a> de la PAPEA<span class="ac-sub"><a href="https://en.wikipedia.org/wiki/Airbus_C295" target="_blank" rel="noopener">C-295</a> / <a href="https://en.wikipedia.org/wiki/CASA_C-212_Aviocar" target="_blank" rel="noopener">C-212</a></span></span></td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="bad" data-i18n="sun-eyes-low">🤦 de cara, bajo</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td></tr>
+    <tr data-cls="aero pyro"><td>21:43&ndash;&asymp;21:52</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Grob.g109b.glider.arp.jpg/250px-Grob.g109b.glider.arp.jpg"><span class="ac-name">AeroSPARX (<a href="https://en.wikipedia.org/wiki/Grob_G_109" target="_blank" rel="noopener">Grob G109B</a>)</span></td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="bad" data-i18n="sun-eyes-horizon">🤦 de cara, horizonte</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td></tr>
+    <tr data-cls="aero pyro"><td>&asymp;21:52&ndash;22:17</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Grob.g109b.glider.arp.jpg/250px-Grob.g109b.glider.arp.jpg"><span class="ac-name">AeroSPARX (<a href="https://en.wikipedia.org/wiki/Grob_G_109" target="_blank" rel="noopener">Grob G109B</a>)</span></td><td class="dusk" data-i18n="sun-horizon">🌙 bajo el horizonte</td><td class="dusk" data-i18n="sun-horizon">🌙 bajo el horizonte</td><td class="dusk" data-i18n="sun-horizon">🌙 bajo el horizonte</td></tr>
   </tbody>
 </table>
 </div>
 
+</section>
+
+<section data-day="sun">
 <h2 id="sunday" data-i18n="sun-h2">Domingo 26 de julio: exhibición principal</h2>
 <p class="sub" data-i18n="sun-sub">El orden procede del <a href="https://www.gijon.es/es/eventos/festival-aereo-de-gijon" target="_blank" rel="noopener">programa oficial</a> (inicio 11:35, fin 15:32). La locución del festival puede seguirse en la radio FM 90.9, útil en el Cerro y la zona este de la playa. El Canadair CL-215T (43 Grupo) figura entre los participantes, pero sin hueco en la parrilla publicada.</p>
 <div class="table-wrap">
@@ -496,32 +619,34 @@
     <tr><th data-i18n="th-time">Hora</th><th data-i18n="th-aircraft">Aeronave</th><th data-i18n="th-l10">Escalera 10</th><th data-i18n="th-sombras">Sombras de Luz</th><th data-i18n="th-cerro">Cerro Santa Catalina</th></tr>
   </thead>
   <tbody>
-    <tr><td>11:35&ndash;11:45</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Socata_TB-9_Tampico_PH-BIS_at_EHLE_in_2022.jpg/250px-Socata_TB-9_Tampico_PH-BIS_at_EHLE_in_2022.jpg"><span class="ac-name">Mario (Aeroclub Llanera)<span class="ac-sub"><a href="https://en.wikipedia.org/wiki/SOCATA_TB_family" target="_blank" rel="noopener">Socata TB-9 Tampico</a></span></span></td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">☀️ de cara</td></tr>
-    <tr><td>11:45&ndash;11:55</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/ULM_La_Morgal._Zenair_XL._Festival_a%C3%A9reo_internacional_de_Gij%C3%B3n_2024._%2853887392028%29_%28cropped%29.jpg/250px-ULM_La_Morgal._Zenair_XL._Festival_a%C3%A9reo_internacional_de_Gij%C3%B3n_2024._%2853887392028%29_%28cropped%29.jpg"><span class="ac-name">Carrusel La Morgal (<a href="https://en.wikipedia.org/wiki/Ultralight_aviation" target="_blank" rel="noopener">ULM</a>)<span class="ac-sub"><a href="https://en.wikipedia.org/wiki/AMD_Zodiac" target="_blank" rel="noopener">CH 601 XL</a>, <a href="https://en.wikipedia.org/wiki/ICP_Savannah" target="_blank" rel="noopener">Savannah</a>, <a href="https://en.wikipedia.org/wiki/Tecnam_P92" target="_blank" rel="noopener">P92 Echo</a>, 2&times; <a href="https://en.wikipedia.org/wiki/Kappa_77_KP_2U-SOVA" target="_blank" rel="noopener">Skyleader 200</a></span></span></td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">☀️ de cara</td></tr>
-    <tr><td>11:55&ndash;11:58</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Polish_Air_Force_C-295_%28cropped%29.jpg/250px-Polish_Air_Force_C-295_%28cropped%29.jpg"><span class="ac-name" data-i18n="ac-papea-plane">Avión de la PAPEA<span class="ac-sub"><a href="https://en.wikipedia.org/wiki/Airbus_C295" target="_blank" rel="noopener">C-295</a> / <a href="https://en.wikipedia.org/wiki/CASA_C-212_Aviocar" target="_blank" rel="noopener">C-212</a></span></span></td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">☀️ de cara</td></tr>
-    <tr><td>11:58&ndash;12:05</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Wingsuit_Flying_over_Langar_Airfield_UK.jpg/250px-Wingsuit_Flying_over_Langar_Airfield_UK.jpg"><span class="ac-name">Dani Roman, <a href="https://en.wikipedia.org/wiki/Wingsuit_flying" target="_blank" rel="noopener">wingsuit</a></span></td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">☀️ de cara</td></tr>
-    <tr><td>12:05&ndash;12:23</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Patrulla_Papea.jpg/250px-Patrulla_Papea.jpg"><span class="ac-name">PAPEA</span></td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">☀️ de cara</td></tr>
-    <tr><td>12:23&ndash;12:41</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Accuracy-landing_7178837.jpg/250px-Accuracy-landing_7178837.jpg"><span class="ac-name" data-i18n="ac-gc-para"><a href="https://en.wikipedia.org/wiki/Parachuting" target="_blank" rel="noopener">Paracaidistas</a> de la Guardia Civil<span class="ac-sub"><a href="https://en.wikipedia.org/wiki/Eurocopter_AS365_Dauphin" target="_blank" rel="noopener">AS365</a></span></span></td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">☀️ de cara</td></tr>
-    <tr><td>12:41&ndash;12:51</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Grob.g109b.glider.arp.jpg/250px-Grob.g109b.glider.arp.jpg"><span class="ac-name">AeroSPARX, <a href="https://en.wikipedia.org/wiki/Grob_G_109" target="_blank" rel="noopener">Grob G109B</a></span></td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">☀️ de cara</td></tr>
-    <tr><td>12:51&ndash;13:01</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Augusta_Westland_AW-139_EC-KXA_de_Helimer%2C_Salvamento_Mar%C3%ADtimo_%28cropped%29.jpg/250px-Augusta_Westland_AW-139_EC-KXA_de_Helimer%2C_Salvamento_Mar%C3%ADtimo_%28cropped%29.jpg"><span class="ac-name">SASEMAR, <a href="https://en.wikipedia.org/wiki/AgustaWestland_AW139" target="_blank" rel="noopener">AW139</a></span></td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">☀️ de cara</td></tr>
-    <tr><td>13:01&ndash;13:11</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Stanford_EC145.jpg/250px-Stanford_EC145.jpg"><span class="ac-name">Bomberos Asturias<span class="ac-sub"><a href="https://en.wikipedia.org/wiki/Eurocopter_AS350_%C3%89cureuil" target="_blank" rel="noopener">AS350 Écureuil</a> + <a href="https://en.wikipedia.org/wiki/Eurocopter_EC145" target="_blank" rel="noopener">H145</a></span></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">☀️ de cara</td></tr>
-    <tr><td>13:11&ndash;13:21</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/ZJ780_8490634574_%28cropped%29.jpg/250px-ZJ780_8490634574_%28cropped%29.jpg"><span class="ac-name">Guardia Civil, <a href="https://en.wikipedia.org/wiki/Eurocopter_AS365_Dauphin" target="_blank" rel="noopener">AS365</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">☀️ de cara</td></tr>
-    <tr><td>13:16&ndash;13:26</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Festival_A%C3%A9reo_de_Vigo_2010_%284807526294%29.jpg/250px-Festival_A%C3%A9reo_de_Vigo_2010_%284807526294%29.jpg"><span class="ac-name">Guardia Civil, <a href="https://en.wikipedia.org/wiki/CASA/IPTN_CN-235" target="_blank" rel="noopener">CN-235MP</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">☀️ de cara</td></tr>
-    <tr><td>13:26&ndash;13:36</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/French_Navy_NH90_lands_on_USS_Antietam_%28CG-54%29_in_the_Bay_of_Bengal_%28cropped%29.jpg/250px-French_Navy_NH90_lands_on_USS_Antietam_%28CG-54%29_in_the_Bay_of_Bengal_%28cropped%29.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/NHIndustries_NH90" target="_blank" rel="noopener">NH90</a> Lobo</span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">☀️ de cara</td></tr>
-    <tr><td>13:36&ndash;13:44</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/EC-135_-_RIAT_2011_%286199185182%29.jpg/250px-EC-135_-_RIAT_2011_%286199185182%29.jpg"><span class="ac-name">Policia Nacional, <a href="https://en.wikipedia.org/wiki/Eurocopter_EC135" target="_blank" rel="noopener">EC135</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
-    <tr><td>13:44&ndash;13:54</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/SH-60B_Seahawk2.jpg/250px-SH-60B_Seahawk2.jpg"><span class="ac-name">Armada, <a href="https://en.wikipedia.org/wiki/Sikorsky_SH-60_Seahawk" target="_blank" rel="noopener">SH-60B Seahawk</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
-    <tr><td>13:54&ndash;14:04</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/CAP20_1.jpg/250px-CAP20_1.jpg"><span class="ac-name">Luca Salvadori, <a href="https://en.wikipedia.org/wiki/Mudry_CAP_20" target="_blank" rel="noopener">Mudry CAP-21DS</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
-    <tr><td>14:04&ndash;14:14</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/N763DT_Extra_EA-300L.jpg/250px-N763DT_Extra_EA-300L.jpg"><span class="ac-name">Camilo Benito, <a href="https://en.wikipedia.org/wiki/Extra_EA-300" target="_blank" rel="noopener">Extra 330SC</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
-    <tr><td>14:14&ndash;14:22</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/German_Air_Force_Airbus_A400M_%28out_cropped%29.jpg/250px-German_Air_Force_Airbus_A400M_%28out_cropped%29.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/Airbus_A400M_Atlas" target="_blank" rel="noopener">Airbus A400M</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
-    <tr><td>14:22&ndash;14:34</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Yakkes_Yak-52_RA-3085K.jpg/250px-Yakkes_Yak-52_RA-3085K.jpg"><span class="ac-name">Yakstars, <a href="https://en.wikipedia.org/wiki/Yakovlev_Yak-52" target="_blank" rel="noopener">Yak-52</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
-    <tr><td>14:34&ndash;14:44</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/CH-47_assigned_to_3rd_General_Support_Aviation_Battalion%2C_82nd_Combat_Aviation_Brigade.jpg/250px-CH-47_assigned_to_3rd_General_Support_Aviation_Battalion%2C_82nd_Combat_Aviation_Brigade.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/Boeing_CH-47_Chinook" target="_blank" rel="noopener">CH-47F Chinook</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
-    <tr><td>14:44&ndash;14:54</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/T-6A_Texan_II.jpg/250px-T-6A_Texan_II.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/Beechcraft_T-6_Texan_II" target="_blank" rel="noopener">T-6A Texan II</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
-    <tr><td>14:54&ndash;15:04</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Boeing_AV-8B_Harrier_II%2C_Italy_-_Navy_JP7306232.jpg/250px-Boeing_AV-8B_Harrier_II%2C_Italy_-_Navy_JP7306232.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/McDonnell_Douglas_AV-8B_Harrier_II" target="_blank" rel="noopener">AV-8B+ Harrier</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
-    <tr><td>15:04&ndash;15:14</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/RAF_Eurofighter_EF-2000_Typhoon_F2_Lofting-1.jpg/250px-RAF_Eurofighter_EF-2000_Typhoon_F2_Lofting-1.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/Eurofighter_Typhoon" target="_blank" rel="noopener">Eurofighter</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
-    <tr><td>15:14&ndash;15:32</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Eurocopter_EC-120B_Colibri_AN0367366.jpg/250px-Eurocopter_EC-120B_Colibri_AN0367366.jpg"><span class="ac-name">Patrulla ASPA (<a href="https://en.wikipedia.org/wiki/Eurocopter_EC120_Colibri" target="_blank" rel="noopener">EC120 Colibri</a>)</span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
+    <tr data-cls="light"><td>11:35&ndash;11:45</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Socata_TB-9_Tampico_PH-BIS_at_EHLE_in_2022.jpg/250px-Socata_TB-9_Tampico_PH-BIS_at_EHLE_in_2022.jpg"><span class="ac-name">Mario (Aeroclub Llanera)<span class="ac-sub"><a href="https://en.wikipedia.org/wiki/SOCATA_TB_family" target="_blank" rel="noopener">Socata TB-9 Tampico</a></span></span></td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de cara</td></tr>
+    <tr data-cls="light"><td>11:45&ndash;11:55</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/ULM_La_Morgal._Zenair_XL._Festival_a%C3%A9reo_internacional_de_Gij%C3%B3n_2024._%2853887392028%29_%28cropped%29.jpg/250px-ULM_La_Morgal._Zenair_XL._Festival_a%C3%A9reo_internacional_de_Gij%C3%B3n_2024._%2853887392028%29_%28cropped%29.jpg"><span class="ac-name">Carrusel La Morgal (<a href="https://en.wikipedia.org/wiki/Ultralight_aviation" target="_blank" rel="noopener">ULM</a>)<span class="ac-sub"><a href="https://en.wikipedia.org/wiki/AMD_Zodiac" target="_blank" rel="noopener">CH 601 XL</a>, <a href="https://en.wikipedia.org/wiki/ICP_Savannah" target="_blank" rel="noopener">Savannah</a>, <a href="https://en.wikipedia.org/wiki/Tecnam_P92" target="_blank" rel="noopener">P92 Echo</a>, 2&times; <a href="https://en.wikipedia.org/wiki/Kappa_77_KP_2U-SOVA" target="_blank" rel="noopener">Skyleader 200</a></span></span></td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de cara</td></tr>
+    <tr data-cls="cargo para"><td>11:55&ndash;11:58</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Polish_Air_Force_C-295_%28cropped%29.jpg/250px-Polish_Air_Force_C-295_%28cropped%29.jpg"><span class="ac-name" data-i18n="ac-papea-plane">Avión de la PAPEA<span class="ac-sub"><a href="https://en.wikipedia.org/wiki/Airbus_C295" target="_blank" rel="noopener">C-295</a> / <a href="https://en.wikipedia.org/wiki/CASA_C-212_Aviocar" target="_blank" rel="noopener">C-212</a></span></span></td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de cara</td></tr>
+    <tr data-cls="para"><td>11:58&ndash;12:05</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Wingsuit_Flying_over_Langar_Airfield_UK.jpg/250px-Wingsuit_Flying_over_Langar_Airfield_UK.jpg"><span class="ac-name">Dani Roman, <a href="https://en.wikipedia.org/wiki/Wingsuit_flying" target="_blank" rel="noopener">wingsuit</a></span></td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de cara</td></tr>
+    <tr data-cls="para"><td>12:05&ndash;12:23</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Patrulla_Papea.jpg/250px-Patrulla_Papea.jpg"><span class="ac-name">PAPEA</span></td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de cara</td></tr>
+    <tr data-cls="para"><td>12:23&ndash;12:41</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Accuracy-landing_7178837.jpg/250px-Accuracy-landing_7178837.jpg"><span class="ac-name" data-i18n="ac-gc-para"><a href="https://en.wikipedia.org/wiki/Parachuting" target="_blank" rel="noopener">Paracaidistas</a> de la Guardia Civil<span class="ac-sub"><a href="https://en.wikipedia.org/wiki/Eurocopter_AS365_Dauphin" target="_blank" rel="noopener">AS365</a></span></span></td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de cara</td></tr>
+    <tr data-cls="aero"><td>12:41&ndash;12:51</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Grob.g109b.glider.arp.jpg/250px-Grob.g109b.glider.arp.jpg"><span class="ac-name">AeroSPARX, <a href="https://en.wikipedia.org/wiki/Grob_G_109" target="_blank" rel="noopener">Grob G109B</a></span></td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de cara</td></tr>
+    <tr data-cls="heli"><td>12:51&ndash;13:01</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Augusta_Westland_AW-139_EC-KXA_de_Helimer%2C_Salvamento_Mar%C3%ADtimo_%28cropped%29.jpg/250px-Augusta_Westland_AW-139_EC-KXA_de_Helimer%2C_Salvamento_Mar%C3%ADtimo_%28cropped%29.jpg"><span class="ac-name">SASEMAR, <a href="https://en.wikipedia.org/wiki/AgustaWestland_AW139" target="_blank" rel="noopener">AW139</a></span></td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de cara</td></tr>
+    <tr data-cls="heli"><td>13:01&ndash;13:11</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Stanford_EC145.jpg/250px-Stanford_EC145.jpg"><span class="ac-name">Bomberos Asturias<span class="ac-sub"><a href="https://en.wikipedia.org/wiki/Eurocopter_AS350_%C3%89cureuil" target="_blank" rel="noopener">AS350 Écureuil</a> + <a href="https://en.wikipedia.org/wiki/Eurocopter_EC145" target="_blank" rel="noopener">H145</a></span></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de cara</td></tr>
+    <tr data-cls="heli"><td>13:11&ndash;13:21</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/ZJ780_8490634574_%28cropped%29.jpg/250px-ZJ780_8490634574_%28cropped%29.jpg"><span class="ac-name">Guardia Civil, <a href="https://en.wikipedia.org/wiki/Eurocopter_AS365_Dauphin" target="_blank" rel="noopener">AS365</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de cara</td></tr>
+    <tr data-cls="cargo"><td>13:16&ndash;13:26</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Festival_A%C3%A9reo_de_Vigo_2010_%284807526294%29.jpg/250px-Festival_A%C3%A9reo_de_Vigo_2010_%284807526294%29.jpg"><span class="ac-name">Guardia Civil, <a href="https://en.wikipedia.org/wiki/CASA/IPTN_CN-235" target="_blank" rel="noopener">CN-235MP</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de cara</td></tr>
+    <tr data-cls="heli"><td>13:26&ndash;13:36</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/French_Navy_NH90_lands_on_USS_Antietam_%28CG-54%29_in_the_Bay_of_Bengal_%28cropped%29.jpg/250px-French_Navy_NH90_lands_on_USS_Antietam_%28CG-54%29_in_the_Bay_of_Bengal_%28cropped%29.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/NHIndustries_NH90" target="_blank" rel="noopener">NH90</a> Lobo</span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de cara</td></tr>
+    <tr data-cls="heli"><td>13:36&ndash;13:44</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/EC-135_-_RIAT_2011_%286199185182%29.jpg/250px-EC-135_-_RIAT_2011_%286199185182%29.jpg"><span class="ac-name">Policia Nacional, <a href="https://en.wikipedia.org/wiki/Eurocopter_EC135" target="_blank" rel="noopener">EC135</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
+    <tr data-cls="heli"><td>13:44&ndash;13:54</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/SH-60B_Seahawk2.jpg/250px-SH-60B_Seahawk2.jpg"><span class="ac-name">Armada, <a href="https://en.wikipedia.org/wiki/Sikorsky_SH-60_Seahawk" target="_blank" rel="noopener">SH-60B Seahawk</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
+    <tr data-cls="aero"><td>13:54&ndash;14:04</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/CAP20_1.jpg/250px-CAP20_1.jpg"><span class="ac-name">Luca Salvadori, <a href="https://en.wikipedia.org/wiki/Mudry_CAP_20" target="_blank" rel="noopener">Mudry CAP-21DS</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
+    <tr data-cls="aero"><td>14:04&ndash;14:14</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/N763DT_Extra_EA-300L.jpg/250px-N763DT_Extra_EA-300L.jpg"><span class="ac-name">Camilo Benito, <a href="https://en.wikipedia.org/wiki/Extra_EA-300" target="_blank" rel="noopener">Extra 330SC</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
+    <tr data-cls="cargo"><td>14:14&ndash;14:22</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/German_Air_Force_Airbus_A400M_%28out_cropped%29.jpg/250px-German_Air_Force_Airbus_A400M_%28out_cropped%29.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/Airbus_A400M_Atlas" target="_blank" rel="noopener">Airbus A400M</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
+    <tr data-cls="aero"><td>14:22&ndash;14:34</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Yakkes_Yak-52_RA-3085K.jpg/250px-Yakkes_Yak-52_RA-3085K.jpg"><span class="ac-name">Yakstars, <a href="https://en.wikipedia.org/wiki/Yakovlev_Yak-52" target="_blank" rel="noopener">Yak-52</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
+    <tr data-cls="heli"><td>14:34&ndash;14:44</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/CH-47_assigned_to_3rd_General_Support_Aviation_Battalion%2C_82nd_Combat_Aviation_Brigade.jpg/250px-CH-47_assigned_to_3rd_General_Support_Aviation_Battalion%2C_82nd_Combat_Aviation_Brigade.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/Boeing_CH-47_Chinook" target="_blank" rel="noopener">CH-47F Chinook</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
+    <tr data-cls="aero"><td>14:44&ndash;14:54</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/T-6A_Texan_II.jpg/250px-T-6A_Texan_II.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/Beechcraft_T-6_Texan_II" target="_blank" rel="noopener">T-6A Texan II</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
+    <tr data-cls="jet"><td>14:54&ndash;15:04</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Boeing_AV-8B_Harrier_II%2C_Italy_-_Navy_JP7306232.jpg/250px-Boeing_AV-8B_Harrier_II%2C_Italy_-_Navy_JP7306232.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/McDonnell_Douglas_AV-8B_Harrier_II" target="_blank" rel="noopener">AV-8B+ Harrier</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
+    <tr data-cls="jet"><td>15:04&ndash;15:14</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/RAF_Eurofighter_EF-2000_Typhoon_F2_Lofting-1.jpg/250px-RAF_Eurofighter_EF-2000_Typhoon_F2_Lofting-1.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/Eurofighter_Typhoon" target="_blank" rel="noopener">Eurofighter</a></span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
+    <tr data-cls="heli"><td>15:14&ndash;15:32</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Eurocopter_EC-120B_Colibri_AN0367366.jpg/250px-Eurocopter_EC-120B_Colibri_AN0367366.jpg"><span class="ac-name">Patrulla ASPA (<a href="https://en.wikipedia.org/wiki/Eurocopter_EC120_Colibri" target="_blank" rel="noopener">EC120 Colibri</a>)</span></td><td class="good" data-i18n="sun-back">☀️ a la espalda</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
   </tbody>
 </table>
 </div>
+
+</section>
 
 <div class="verdict" id="verdict" data-i18n="verdict">
   <strong>Conclusión:</strong> para los entrenamientos y la primera mitad de la exhibición del domingo
@@ -529,6 +654,14 @@
   la manana. Para la segunda mitad, en especial A400M, Yakstars, Harrier, Eurofighter y ASPA, es mejor la
   <strong class="brand">escalera 10</strong>. Para el Sunset Air Show del sábado, el
   <strong class="brand">Cerro de Santa Catalina</strong>.
+</div>
+
+<div class="cta-banner">
+  <div>
+    <div class="cta-t" data-i18n="banner1">Cielo. Mar. Adrenalina.</div>
+    <div class="cta-s" data-i18n="banner2">El mayor evento aéreo de Asturias: llévate el programa contigo.</div>
+  </div>
+  <button class="pdf-btn" data-pdf data-i18n="pdf">Guardar PDF</button>
 </div>
 
 </main>
@@ -562,6 +695,11 @@
       "h1": "Авиашоу в Хихоне:<br>борта, время и <span class=\"brand\">положение солнца</span>",
       "hero-p": "Расчёт относительно предполагаемого центра полётов <strong>43.546583, −5.651611</strong>. Время отдельных выступлений ориентировочное.",
       "notice": "Всё время ориентировочное: программа может меняться, слоты могут сдвигаться. В день шоу проверяйте официальные источники.",
+      "pdf": "Сохранить PDF",
+      "cls-all": "Все", "cls-heli": "🚁 Вертолёты", "cls-jet": "✈️ Реактивные", "cls-para": "🪂 Парашютисты",
+      "cls-aero": "🌀 Пилотаж", "cls-cargo": "📦 Транспорт", "cls-light": "🛩️ Лёгкая авиация", "cls-pyro": "🎆 Пиро-шоу",
+      "banner1": "Небо. Море. Адреналин.",
+      "banner2": "Главное авиационное событие Астурии — берите расписание с собой.",
       "nav-map": "Карта", "nav-verdict": "Вывод",
       "map-h2": "Карта: откуда смотреть",
       "map-sub": "Круг — ориентировочная зона полётов (радиус 500 м от предполагаемого центра). Маркеры — три удобные точки наблюдения. Оранжевый луч — направление на солнце в выбранное время, пунктир — направление взгляда с каждой точки.",
@@ -573,7 +711,7 @@
       "card3-h": "3. Cerro de Santa Catalina",
       "card3-p": "Холм над Симадевильей, у скульптуры «Elogio del Horizonte». Вид сверху, но днём солнце в глаза. Зато идеален для субботнего Sunset Air Show — солнце со спины.",
       "legend-back": "☀️ со спины — лучший свет",
-      "legend-eyes": "☀️ в глаза — против света",
+      "legend-eyes": "🤦 в глаза — против света",
       "legend-side": "☀️ сбоку",
       "legend-dusk": "🌙 за горизонтом",
       "fri-h2": "Пятница, 24 июля: тренировки",
@@ -591,9 +729,9 @@
       "th-cerro": "Cerro Santa Catalina",
       "row-possible": "Возможные 16:00–16:30",
       "sun-back": "☀️ со спины",
-      "sun-eyes": "☀️ в глаза",
-      "sun-eyes-low": "☀️ в глаза, низко",
-      "sun-eyes-horizon": "☀️ в глаза у горизонта",
+      "sun-eyes": "🤦 в глаза",
+      "sun-eyes-low": "🤦 в глаза, низко",
+      "sun-eyes-horizon": "🤦 в глаза у горизонта",
       "sun-side-left": "☀️ сбоку слева",
       "sun-side-right": "☀️ сбоку справа",
       "sun-horizon": "🌙 за горизонтом",
@@ -618,6 +756,11 @@
       "h1": "Gijón Air Show:<br>aircraft, schedule and <span class=\"brand\">sun position</span>",
       "hero-p": "Computed relative to the estimated display center <strong>43.546583, −5.651611</strong>. Times of individual displays are approximate.",
       "notice": "All times are approximate: the programme may change and slots may shift. Check official sources on the day of the show.",
+      "pdf": "Save PDF",
+      "cls-all": "All", "cls-heli": "🚁 Helicopters", "cls-jet": "✈️ Jets", "cls-para": "🪂 Parachutists",
+      "cls-aero": "🌀 Aerobatics", "cls-cargo": "📦 Transport", "cls-light": "🛩️ Light aviation", "cls-pyro": "🎆 Pyro show",
+      "banner1": "Sky. Sea. Adrenaline.",
+      "banner2": "Asturias' biggest aviation event — take the schedule with you.",
       "nav-map": "Map", "nav-verdict": "Verdict",
       "map-h2": "Map: where to watch from",
       "map-sub": "The circle marks the estimated flying zone (500 m radius around the expected center). The markers are three good viewing spots. The orange ray shows the sun direction at the chosen time; the dashed lines are the sight lines from each spot.",
@@ -629,7 +772,7 @@
       "card3-h": "3. Cerro de Santa Catalina",
       "card3-p": "Hill above Cimavilla, by the “Elogio del Horizonte” sculpture. Elevated view, but the daytime sun is in your eyes. Ideal for Saturday's Sunset Air Show: sun at your back.",
       "legend-back": "☀️ behind you — best light",
-      "legend-eyes": "☀️ in your eyes — backlit",
+      "legend-eyes": "🤦 in your eyes — backlit",
       "legend-side": "☀️ to the side",
       "legend-dusk": "🌙 below the horizon",
       "fri-h2": "Friday 24 July: training sessions",
@@ -647,9 +790,9 @@
       "th-cerro": "Cerro Santa Catalina",
       "row-possible": "Possible 16:00–16:30",
       "sun-back": "☀️ behind you",
-      "sun-eyes": "☀️ in your eyes",
-      "sun-eyes-low": "☀️ in your eyes, low",
-      "sun-eyes-horizon": "☀️ in eyes, at horizon",
+      "sun-eyes": "🤦 in your eyes",
+      "sun-eyes-low": "🤦 in your eyes, low",
+      "sun-eyes-horizon": "🤦 in eyes, at horizon",
       "sun-side-left": "☀️ on the left",
       "sun-side-right": "☀️ on the right",
       "sun-horizon": "🌙 below horizon",
@@ -762,6 +905,45 @@
         "\u00B0 \u00B7 " + sunDict["lbl-alt"] + " " + Math.round(alt) + "\u00B0";
     }
   }
+
+  var daySections = document.querySelectorAll("section[data-day]");
+  function showDay(id) {
+    daySections.forEach(function (s) { s.style.display = (s.getAttribute("data-day") === id) ? "" : "none"; });
+    document.querySelectorAll("[data-day-btn]").forEach(function (b) {
+      b.classList.toggle("active", b.getAttribute("data-day-btn") === id);
+    });
+  }
+  document.querySelectorAll("[data-day-btn]").forEach(function (b) {
+    b.addEventListener("click", function () { showDay(b.getAttribute("data-day-btn")); });
+  });
+  showDay("fri");
+  var dayAnchors = { friday: "fri", saturday: "sat", sunset: "sunset", sunday: "sun" };
+  document.querySelectorAll(".topnav-links a").forEach(function (a) {
+    var id = (a.getAttribute("href") || "").slice(1);
+    if (dayAnchors[id]) {
+      a.addEventListener("click", function () { showDay(dayAnchors[id]); });
+    }
+  });
+
+  function applyFilter(cls) {
+    document.querySelectorAll("tr[data-cls]").forEach(function (tr) {
+      var ok = cls === "all" || tr.getAttribute("data-cls").split(" ").indexOf(cls) !== -1;
+      tr.style.display = ok ? "" : "none";
+    });
+    document.querySelectorAll("[data-filter]").forEach(function (b) {
+      b.classList.toggle("active", b.getAttribute("data-filter") === cls);
+    });
+  }
+  document.querySelectorAll("[data-filter]").forEach(function (b) {
+    b.addEventListener("click", function () { applyFilter(b.getAttribute("data-filter")); });
+  });
+
+  document.querySelectorAll("[data-pdf]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      applyFilter("all");
+      setTimeout(function () { window.print(); }, 100);
+    });
+  });
 
   document.querySelectorAll(".sunctl-days button").forEach(function (b) {
     b.addEventListener("click", function () {
