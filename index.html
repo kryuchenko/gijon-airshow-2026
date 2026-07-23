@@ -184,7 +184,7 @@
     flex-wrap: wrap;
     margin-top: var(--spacing-6);
   }
-  .filters { margin-top: var(--spacing-3); flex-wrap: nowrap; gap: 4px; }
+  .filters { margin: var(--spacing-3) 0 10px; flex-wrap: nowrap; gap: 4px; }
   @media (max-width: 760px) {
     .filters { flex-wrap: wrap; }
   }
@@ -1198,11 +1198,15 @@
   }
 
   var daySections = document.querySelectorAll("section[data-day]");
+  var filtersEl = document.querySelector(".filters");
   function showDay(id) {
     daySections.forEach(function (s) { s.style.display = (s.getAttribute("data-day") === id) ? "" : "none"; });
     document.querySelectorAll("[data-day-btn]").forEach(function (b) {
       b.classList.toggle("active", b.getAttribute("data-day-btn") === id);
     });
+    var sec = document.querySelector('section[data-day="' + id + '"]');
+    var tw = sec && sec.querySelector(".table-wrap");
+    if (filtersEl && tw) tw.parentNode.insertBefore(filtersEl, tw);
   }
   document.querySelectorAll("[data-day-btn]").forEach(function (b) {
     b.addEventListener("click", function () { showDay(b.getAttribute("data-day-btn")); });
