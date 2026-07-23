@@ -396,6 +396,18 @@
     -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 1 21h22L12 2zm1 14h-2v2h2v-2zm0-7h-2v5h2V9z'/%3E%3C/svg%3E") center / 28px 28px no-repeat;
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 1 21h22L12 2zm1 14h-2v2h2v-2zm0-7h-2v5h2V9z'/%3E%3C/svg%3E") center / 28px 28px no-repeat;
   }
+  td.trn { color: var(--muted); }
+  tr.divider td {
+    text-align: center;
+    background: var(--color-accent-muted);
+    color: var(--brand);
+    font-weight: var(--font-weight-semibold);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: normal;
+    scroll-margin-top: 76px;
+  }
   td.good, td.side, td.dusk { color: var(--muted); font-weight: var(--font-weight-normal); }
   td.bad {
     color: var(--ink);
@@ -562,27 +574,9 @@
 </section>
 
 <section data-day="sat">
-<h2 id="saturday" data-i18n="sat-h2">Sábado 25 de julio: entrenamientos diurnos</h2>
+<h2 id="saturday" data-i18n="sat-h2">Sábado 25 de julio: entrenamientos y Sunset Air Show</h2>
 <p class="sub" data-i18n="sat-sub">El orden de las aeronaves tampoco se ha publicado. La ventana de entrenamiento puede prolongarse hasta las 15:15 aprox.
 (<a href="https://www.europapress.es/asturias/noticia-atencion-restricciones-bano-trafico-gijon-viernes-festival-aereo-20260722181826.html" target="_blank" rel="noopener">Europa Press</a>).</p>
-<div class="table-wrap">
-<table>
-  <thead>
-    <tr><th data-i18n="th-time">&asymp; Hora</th><th data-i18n="th-l10">Escalera 10</th><th data-i18n="th-sombras">Sombras de Luz</th><th data-i18n="th-cerro">Cerro Santa Catalina</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>10:00&ndash;13:04</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de frente</td></tr>
-    <tr><td>13:05&ndash;13:39</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de frente</td></tr>
-    <tr><td>13:40&ndash;14:09</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
-    <tr><td>14:10&ndash;15:15</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
-  </tbody>
-</table>
-</div>
-
-</section>
-
-<section data-day="sat">
-<h2 id="sunset" data-i18n="sunset-h2">Sábado: Sunset Air Show</h2>
 <p class="sub" data-i18n="sunset-sub">Programa vespertino: la mejor luz, desde el Cerro de Santa Catalina. Puesta de sol hacia las 21:52.</p>
 <div class="table-wrap">
 <table>
@@ -590,6 +584,11 @@
     <tr><th data-i18n="th-time">&asymp; Hora</th><th data-i18n="th-aircraft">Participante</th><th data-i18n="th-l10">Escalera 10</th><th data-i18n="th-sombras">Sombras de Luz</th><th data-i18n="th-cerro">Cerro Santa Catalina</th></tr>
   </thead>
   <tbody>
+    <tr><td>10:00&ndash;13:04</td><td class="trn" data-i18n="row-training">Entrenamientos</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de frente</td></tr>
+    <tr><td>13:05&ndash;13:39</td><td class="trn" data-i18n="row-training">Entrenamientos</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de frente</td></tr>
+    <tr><td>13:40&ndash;14:09</td><td class="trn" data-i18n="row-training">Entrenamientos</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
+    <tr><td>14:10&ndash;15:15</td><td class="trn" data-i18n="row-training">Entrenamientos</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
+    <tr class="divider" id="sunset"><td colspan="5" data-i18n="row-divider">Fin de los ensayos &middot; comienzo del Sunset Air Show</td></tr>
     <tr data-cls="heli"><td>20:30&ndash;20:42</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/SH-60B_Seahawk2.jpg/250px-SH-60B_Seahawk2.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/Sikorsky_SH-60_Seahawk" target="_blank" rel="noopener">SH-60B Seahawk</a> Armada</span></td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="bad" data-i18n="sun-eyes">🤦 de frente</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td></tr>
     <tr data-cls="heli"><td>20:42&ndash;20:54</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/French_Navy_NH90_lands_on_USS_Antietam_%28CG-54%29_in_the_Bay_of_Bengal_%28cropped%29.jpg/250px-French_Navy_NH90_lands_on_USS_Antietam_%28CG-54%29_in_the_Bay_of_Bengal_%28cropped%29.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/NHIndustries_NH90" target="_blank" rel="noopener">NH90</a> Lobo</span></td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="bad" data-i18n="sun-eyes">🤦 de frente</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td></tr>
     <tr data-cls="aero"><td>20:54&ndash;21:06</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/N763DT_Extra_EA-300L.jpg/250px-N763DT_Extra_EA-300L.jpg"><span class="ac-name">Camilo Benito, <a href="https://en.wikipedia.org/wiki/Extra_EA-300" target="_blank" rel="noopener">Extra 330SC</a></span></td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="bad" data-i18n="sun-eyes-low">🤦 de frente, bajo</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td></tr>
@@ -601,7 +600,6 @@
   </tbody>
 </table>
 </div>
-
 </section>
 
 <section data-day="sun">
@@ -689,6 +687,7 @@
       "h1": "Авиашоу в Хихоне:<br>борта, время и <span class=\"brand\">положение солнца</span>",
       "hero-p": "Расчёт относительно предполагаемого центра полётов <strong>43.546583, −5.651611</strong>. Время отдельных выступлений ориентировочное.",
       "notice": "Всё время ориентировочное: программа может меняться, слоты могут сдвигаться. В день шоу проверяйте официальные источники.",
+      "row-training": "Тренировки", "row-divider": "Конец репетиций · начало вечернего шоу",
       "pdf": "Сохранить PDF",
       "cls-all": "Все", "cls-heli": "🚁 Вертолёты", "cls-jet": "✈️ Реактивные", "cls-para": "🪂 Парашютисты",
       "cls-aero": "🌀 Пилотаж", "cls-cargo": "📦 Транспорт", "cls-light": "🛩️ Лёгкая авиация", "cls-pyro": "🎆 Пиро-шоу",
@@ -710,7 +709,7 @@
       "legend-dusk": "🌙 за горизонтом",
       "fri-h2": "Пятница, 24 июля: тренировки",
       "fri-sub": "Распределение тренировок по бортам пока не опубликовано. Основное окно: 10:00–14:00 (<a href=\"https://www.turismoasturias.es/agenda-de-asturias/cine-y-espectaculos/-/calendarsuite/event/festival-aereo-de-gijon/13470879/jr0cMeS144cd\" target=\"_blank\" rel=\"noopener\">официальная информация</a>).",
-      "sat-h2": "Суббота, 25 июля: дневные тренировки",
+      "sat-h2": "Суббота, 25 июля: тренировки и Sunset Air Show",
       "sat-sub": "Порядок бортов также пока не опубликован. Тренировочное окно может продолжаться примерно до 15:15 (<a href=\"https://www.europapress.es/asturias/noticia-atencion-restricciones-bano-trafico-gijon-viernes-festival-aereo-20260722181826.html\" target=\"_blank\" rel=\"noopener\">Europa Press</a>).",
       "sunset-h2": "Суббота: Sunset Air Show",
       "sunset-sub": "Вечерняя программа: лучший свет — на Cerro Santa Catalina. Закат около 21:52.",
@@ -750,6 +749,7 @@
       "h1": "Gijón Air Show:<br>aircraft, schedule and <span class=\"brand\">sun position</span>",
       "hero-p": "Computed relative to the estimated display center <strong>43.546583, −5.651611</strong>. Times of individual displays are approximate.",
       "notice": "All times are approximate: the programme may change and slots may shift. Check official sources on the day of the show.",
+      "row-training": "Training", "row-divider": "End of rehearsals · start of the evening show",
       "pdf": "Save PDF",
       "cls-all": "All", "cls-heli": "🚁 Helicopters", "cls-jet": "✈️ Jets", "cls-para": "🪂 Parachutists",
       "cls-aero": "🌀 Aerobatics", "cls-cargo": "📦 Transport", "cls-light": "🛩️ Light aviation", "cls-pyro": "🎆 Pyro show",
@@ -771,7 +771,7 @@
       "legend-dusk": "🌙 below the horizon",
       "fri-h2": "Friday 24 July: training sessions",
       "fri-sub": "The per-aircraft training schedule has not been published yet. Main window: 10:00–14:00 (<a href=\"https://www.turismoasturias.es/agenda-de-asturias/cine-y-espectaculos/-/calendarsuite/event/festival-aereo-de-gijon/13470879/jr0cMeS144cd\" target=\"_blank\" rel=\"noopener\">official information</a>).",
-      "sat-h2": "Saturday 25 July: daytime training",
+      "sat-h2": "Saturday 25 July: training and Sunset Air Show",
       "sat-sub": "The aircraft order has not been published either. The training window may run until about 15:15 (<a href=\"https://www.europapress.es/asturias/noticia-atencion-restricciones-bano-trafico-gijon-viernes-festival-aereo-20260722181826.html\" target=\"_blank\" rel=\"noopener\">Europa Press</a>).",
       "sunset-h2": "Saturday: Sunset Air Show",
       "sunset-sub": "Evening programme: the best light is from Cerro Santa Catalina. Sunset around 21:52.",
