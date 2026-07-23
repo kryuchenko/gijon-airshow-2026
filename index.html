@@ -465,6 +465,7 @@
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
   }
   .zone-label::before { display: none; }
+  .print-cols { display: none; }
   @media print {
     :root { color-scheme: light; }
     body {
@@ -517,7 +518,10 @@
       margin-top: 10px;
       break-inside: avoid;
     }
-    @page { margin: 11mm; }
+    .print-cols { display: flex !important; gap: 6mm; align-items: flex-start; }
+    .print-cols .table-wrap { flex: 1 1 0; }
+    .print-hidden-original { display: none !important; }
+    @page { size: A4 landscape; margin: 10mm; }
   }
 </style>
 </head>
@@ -1099,6 +1103,44 @@
       setTimeout(function () { window.print(); }, 100);
     });
   });
+
+  function splitForPrint() {
+    var wrap = document.querySelector('section[data-day="sun"] .table-wrap');
+    if (!wrap || wrap.getAttribute("data-split")) return;
+    wrap.setAttribute("data-split", "1");
+    var table = wrap.querySelector("table");
+    var thead = table.querySelector("thead");
+    var rows = Array.prototype.filter.call(table.querySelectorAll("tbody tr"), function (tr) {
+      return !tr.classList.contains("empty-row");
+    });
+    var half = Math.ceil(rows.length / 2);
+    var cont = document.createElement("div");
+    cont.className = "print-cols";
+    [rows.slice(0, half), rows.slice(half)].forEach(function (part) {
+      var w = document.createElement("div");
+      w.className = "table-wrap";
+      var t = document.createElement("table");
+      t.appendChild(thead.cloneNode(true));
+      var tb = document.createElement("tbody");
+      part.forEach(function (tr) { tb.appendChild(tr.cloneNode(true)); });
+      t.appendChild(tb);
+      w.appendChild(t);
+      cont.appendChild(w);
+    });
+    wrap.parentNode.insertBefore(cont, wrap);
+    wrap.classList.add("print-hidden-original");
+  }
+  function restoreAfterPrint() {
+    var cont = document.querySelector(".print-cols");
+    if (cont) cont.parentNode.removeChild(cont);
+    var wrap = document.querySelector('section[data-day="sun"] .table-wrap');
+    if (wrap) {
+      wrap.removeAttribute("data-split");
+      wrap.classList.remove("print-hidden-original");
+    }
+  }
+  window.addEventListener("beforeprint", splitForPrint);
+  window.addEventListener("afterprint", restoreAfterPrint);
 
   document.querySelectorAll(".sunctl-days button").forEach(function (b) {
     b.addEventListener("click", function () {
