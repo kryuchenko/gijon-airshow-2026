@@ -25,7 +25,7 @@
       --color-icon-accent: light-dark(#0066FF, #5C95FF);
       --color-accent-muted: light-dark(rgba(0, 102, 255, 0.1), rgba(92, 149, 255, 0.18));
       --color-on-accent: light-dark(#FFFFFF, #0A1730);
-      --color-background-body: light-dark(#FFFFFF, #0F1522);
+      --color-background-body: light-dark(#F4F7FC, #0F1522);
       --color-background-card: light-dark(#FFFFFF, #1A2333);
       --color-background-surface: light-dark(#FFFFFF, #1A2333);
       --color-text-primary: light-dark(#0C1B33, #E2E8F2);
