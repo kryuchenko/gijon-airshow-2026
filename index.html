@@ -481,6 +481,7 @@
     line-height: 1;
   }
   .p-icon.free { background: #2E8B57; }
+  .p-icon.risky { background: #E2A400; }
   .pt-label {
     background: rgba(255, 255, 255, 0.92);
     border: 1px solid rgba(12, 27, 51, 0.2);
@@ -592,7 +593,7 @@
 <main>
 
 <h2 id="map-sec" data-i18n="map-h2">Mapa: desde dónde mirar</h2>
-<p class="sub" data-i18n="map-sub">El área azul discontinua marca la zona estimada de vuelo sobre la bahía. Los marcadores señalan tres buenos puntos de observación. La línea naranja indica la dirección del sol a la hora elegida; las líneas discontinuas, la dirección de visión desde cada punto. Los iconos P son aparcamientos: azules de pago, verde gratuito.</p>
+<p class="sub" data-i18n="map-sub">El área azul discontinua marca la zona estimada de vuelo sobre la bahía. Los marcadores señalan tres buenos puntos de observación. La línea naranja indica la dirección del sol a la hora elegida; las líneas discontinuas, la dirección de visión desde cada punto. Los iconos P son aparcamientos: azules de pago, verdes gratuitos, amarillo — arriesgado.</p>
 <div id="map"></div>
 <div class="sunctl">
   <div class="sunctl-days">
@@ -761,6 +762,7 @@
       "park3": "<strong>Parking Cimadevilla</strong><br>De pago. Muy pocas plazas: solo tienes opciones llegando muy temprano, y puede estar lleno desde la noche.",
       "park4": "<strong>Parking Indigo — Gijón Espigón</strong><br>De pago. Suele haber plazas, pero es popular: mejor llegar antes del festival.",
       "park5": "<strong>Aparcamiento Escuela Superior de la Marina Civil</strong><br>Junto a la carpa del Cirque du Soleil. Gratuito, pero lejos de la playa (unos 25 min a pie).",
+      "park6": "<strong>Parque de los Hermanos Castro</strong><br>Cerca de la playa, pero arriesgado: el parque acoge festivales a menudo y entonces no funciona como aparcamiento — puede no estar disponible.",
       "lbl-az": "Acimut", "lbl-alt": "altura", "lbl-below": "Sol bajo el horizonte",
       "popup-zone": "<strong>Zona estimada de vuelo</strong><br>Bahía de San Lorenzo",
       "zone-label": "Zona de vuelo",
@@ -786,7 +788,7 @@
       "banner2": "Главное авиационное событие Астурии — берите расписание с собой.",
       "nav-map": "Карта", "nav-verdict": "Вывод",
       "map-h2": "Карта: откуда смотреть",
-      "map-sub": "Синяя пунктирная область — ориентировочная зона полётов над бухтой. Маркеры — три удобные точки наблюдения. Оранжевый луч — направление на солнце в выбранное время, пунктир — направление взгляда с каждой точки. Значки P — парковки: синие платные, зелёная бесплатная.",
+      "map-sub": "Синяя пунктирная область — ориентировочная зона полётов над бухтой. Маркеры — три удобные точки наблюдения. Оранжевый луч — направление на солнце в выбранное время, пунктир — направление взгляда с каждой точки. Значки P — парковки: синие платные, зелёные бесплатные, жёлтая — рискованная.",
       "map-note": "Позиции ориентировочные: реальная ось полётов может смещаться вдоль пляжа Сан-Лоренсо.",
       "card1-h": "1. Лестница 10 (Escalera 10)",
       "card1-p": "Середина пляжа Сан-Лоренсо. С ~13:05 и до конца программы солнце со спины — лучшая точка для второй половины воскресного шоу: A400M, Yakstars, Harrier, Eurofighter, Patrulla ASPA.",
@@ -829,6 +831,7 @@
       "park3": "<strong>Parking Cimadevilla</strong><br>Платная. Мест очень мало: шанс только если приехать совсем рано утром, и то может быть занято с ночи.",
       "park4": "<strong>Parking Indigo — Gijón Espigón</strong><br>Платная. Места есть, но парковка популярная — лучше приехать до начала шоу.",
       "park5": "<strong>Парковка у Escuela Superior de la Marina Civil</strong><br>Перед шатром Cirque du Soleil. Бесплатная, но далеко от пляжа — около 25 минут пешком.",
+      "park6": "<strong>Parque de los Hermanos Castro</strong><br>Близко к пляжу, но рискованно: в парке часто проходят фестивали, и тогда парковки там нет — именно сейчас её может не быть.",
       "lbl-az": "Азимут", "lbl-alt": "высота", "lbl-below": "Солнце за горизонтом", "day-fri": "Пт 24", "day-sat": "Сб 25", "day-sun": "Вс 26",
       "popup-zone": "<strong>Ориентировочная зона полётов</strong><br>Бухта Сан-Лоренсо",
       "zone-label": "Зона полётов",
@@ -854,7 +857,7 @@
       "banner2": "Asturias' biggest aviation event — take the schedule with you.",
       "nav-map": "Map", "nav-verdict": "Verdict",
       "map-h2": "Map: where to watch from",
-      "map-sub": "The dashed blue area marks the estimated flying zone over the bay. The markers are three good viewing spots. The orange ray shows the sun direction at the chosen time; the dashed lines are the sight lines from each spot. P icons are car parks: blue paid, green free.",
+      "map-sub": "The dashed blue area marks the estimated flying zone over the bay. The markers are three good viewing spots. The orange ray shows the sun direction at the chosen time; the dashed lines are the sight lines from each spot. P icons are car parks: blue paid, green free, yellow risky.",
       "map-note": "Positions are approximate: the actual display line may shift along San Lorenzo beach.",
       "card1-h": "1. Stairway 10 (Escalera 10)",
       "card1-p": "Middle of San Lorenzo beach. From ~13:05 until the end of the programme the sun is at your back: the best spot for the second half of Sunday's show: A400M, Yakstars, Harrier, Eurofighter, Patrulla ASPA.",
@@ -897,6 +900,7 @@
       "park3": "<strong>Parking Cimadevilla</strong><br>Paid. Very few spaces: only a chance if you arrive very early, and it may be full overnight.",
       "park4": "<strong>Parking Indigo — Gijón Espigón</strong><br>Paid. Usually has spaces but it is popular: best to arrive before the show.",
       "park5": "<strong>Higher School of Civil Navy car park</strong><br>By the Cirque du Soleil big top. Free, but far from the beach (about a 25 min walk).",
+      "park6": "<strong>Parque de los Hermanos Castro</strong><br>Close to the beach but risky: the park often hosts festivals and then there is no parking — it may be unavailable right now.",
       "lbl-az": "Azimuth", "lbl-alt": "altitude", "lbl-below": "Sun below the horizon", "day-fri": "Fri 24", "day-sat": "Sat 25", "day-sun": "Sun 26",
       "popup-zone": "<strong>Estimated flying zone</strong><br>San Lorenzo bay",
       "zone-label": "Flight zone",
@@ -1058,17 +1062,18 @@
   viewpoint([43.549188, -5.663062], "#2E8B57", "popup3-t", "popup3", "left");
 
   [
-    [43.5419335, -5.6421244, "park1", false],
-    [43.5352913, -5.6354489, "park2", true],
-    [43.5468176, -5.6648634, "park3", false],
-    [43.5434308, -5.6664962, "park4", false],
-    [43.5260139, -5.6334863, "park5", true]
+    [43.5419335, -5.6421244, "park1", ""],
+    [43.5352913, -5.6354489, "park2", "free"],
+    [43.5468176, -5.6648634, "park3", ""],
+    [43.5434308, -5.6664962, "park4", ""],
+    [43.5260139, -5.6334863, "park5", "free"],
+    [43.5397559, -5.640873, "park6", "risky"]
   ].forEach(function (p) {
     var d = dict[p[2]] ? dict : I18N.es;
     L.marker([p[0], p[1]], {
       icon: L.divIcon({
         className: "",
-        html: '<div class="p-icon' + (p[3] ? " free" : "") + '">P</div>',
+        html: '<div class="p-icon' + (p[3] ? " " + p[3] : "") + '">P</div>',
         iconSize: [22, 22],
         iconAnchor: [11, 11]
       })
