@@ -271,6 +271,43 @@
     min-width: 200px;
     font-variant-numeric: tabular-nums;
   }
+  .map-legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 16px;
+    margin: 10px 4px 12px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .ml-item { display: inline-flex; align-items: center; gap: 6px; }
+  .ml-zone {
+    width: 20px;
+    height: 13px;
+    border: 2px dashed #0052CC;
+    border-radius: 4px;
+    background: rgba(0, 102, 255, 0.3);
+  }
+  .ml-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 9999px;
+    border: 1.5px solid #fff;
+    box-shadow: 0 0 0 1px rgba(12, 27, 51, 0.15);
+  }
+  .ml-sun { width: 18px; height: 3px; background: #E3B800; border-radius: 2px; }
+  .ml-sight {
+    width: 18px;
+    height: 0;
+    border-top: 2px dashed #8896AA;
+  }
+  .p-icon.ml-p {
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+    border-width: 1.5px;
+    border-radius: 4px;
+  }
   .map-note {
     color: var(--muted);
     font-size: 14px;
@@ -501,9 +538,12 @@
       print-color-adjust: exact;
       -webkit-print-color-adjust: exact;
     }
-    .flag-stripes, .topnav, .sunctl, #map, .map-note, .cards, .legend, .notice,
-    .day-tabs, .filters, .cta-banner, #map-sec, #map-sec + .sub, footer,
+    .flag-stripes, .topnav, .sunctl, .map-note, .cards, .legend, .notice,
+    .day-tabs, .filters, .cta-banner, #map-sec + .sub, footer,
     .hero-badge, .hero-chips { display: none !important; }
+    #map { height: 470px; }
+    .leaflet-control-zoom, .leaflet-control-attribution a[href*="leafletjs"] { display: none !important; }
+    .map-legend { margin: 6px 0 0; font-size: 10px; color: #46586E; }
     .ac-thumb {
       width: 40px;
       height: 26px;
@@ -518,7 +558,7 @@
     h2 { font-size: 15px; margin: 0 0 2px; }
     .sub { font-size: 10px; margin: 0 0 6px; }
     section[data-day] { display: block !important; break-before: page; padding-top: 4px; }
-    section[data-day="fri"], section[data-day="sat"] { break-before: auto; }
+    section[data-day="sat"] { break-before: auto; }
     section[data-day="sat"] { margin-top: 14px; }
     section[data-day] tr:not(.empty-row) { display: table-row !important; }
     tr.empty-row { display: none !important; }
@@ -595,6 +635,15 @@
 <h2 id="map-sec" data-i18n="map-h2">Mapa: desde dónde mirar</h2>
 <p class="sub" data-i18n="map-sub">El área azul discontinua marca la zona estimada de vuelo sobre la bahía. Los marcadores señalan tres buenos puntos de observación. La línea naranja indica la dirección del sol a la hora elegida; las líneas discontinuas, la dirección de visión desde cada punto. Los iconos P son aparcamientos: azules de pago, verdes gratuitos, amarillo — arriesgado.</p>
 <div id="map"></div>
+<div class="map-legend">
+  <span class="ml-item"><span class="ml-zone"></span><span data-i18n="lg-zone">Zona de vuelo</span></span>
+  <span class="ml-item"><span class="ml-dot" style="background:#D1495B"></span><span class="ml-dot" style="background:#1E88E5"></span><span class="ml-dot" style="background:#2E8B57"></span><span data-i18n="lg-points">Puntos de observación</span></span>
+  <span class="ml-item"><span class="ml-sun"></span><span data-i18n="lg-sun">Dirección del sol</span></span>
+  <span class="ml-item"><span class="ml-sight"></span><span data-i18n="lg-sight">Líneas de visión</span></span>
+  <span class="ml-item"><span class="p-icon ml-p">P</span><span data-i18n="lg-p-paid">parking de pago</span></span>
+  <span class="ml-item"><span class="p-icon free ml-p">P</span><span data-i18n="lg-p-free">gratuito</span></span>
+  <span class="ml-item"><span class="p-icon risky ml-p">P</span><span data-i18n="lg-p-risky">arriesgado</span></span>
+</div>
 <div class="sunctl">
   <div class="sunctl-days">
     <button type="button" data-day="24" data-i18n="day-fri">Vie 24</button>
@@ -832,6 +881,7 @@
       "park4": "<strong>Parking Indigo — Gijón Espigón</strong><br>Платная. Места есть, но парковка популярная — лучше приехать до начала шоу.",
       "park5": "<strong>Парковка у Escuela Superior de la Marina Civil</strong><br>Бесплатная, но далеко от пляжа — около 25 минут пешком.",
       "park6": "<strong>Parque de los Hermanos Castro</strong><br>Близко к пляжу, но рискованно: в парке часто проходят фестивали, и тогда парковки там нет — именно сейчас её может не быть.",
+      "lg-zone": "Зона полётов", "lg-points": "Точки наблюдения", "lg-sun": "Направление на солнце", "lg-sight": "Линии взгляда", "lg-p-paid": "платная парковка", "lg-p-free": "бесплатная", "lg-p-risky": "рискованная",
       "lbl-az": "Азимут", "lbl-alt": "высота", "lbl-below": "Солнце за горизонтом", "day-fri": "Пт 24", "day-sat": "Сб 25", "day-sun": "Вс 26",
       "popup-zone": "<strong>Ориентировочная зона полётов</strong><br>Бухта Сан-Лоренсо",
       "zone-label": "Зона полётов",
@@ -901,6 +951,7 @@
       "park4": "<strong>Parking Indigo — Gijón Espigón</strong><br>Paid. Usually has spaces but it is popular: best to arrive before the show.",
       "park5": "<strong>Higher School of Civil Navy car park</strong><br>Free, but far from the beach (about a 25 min walk).",
       "park6": "<strong>Parque de los Hermanos Castro</strong><br>Close to the beach but risky: the park often hosts festivals and then there is no parking — it may be unavailable right now.",
+      "lg-zone": "Flight zone", "lg-points": "Viewing spots", "lg-sun": "Sun direction", "lg-sight": "Sight lines", "lg-p-paid": "paid parking", "lg-p-free": "free", "lg-p-risky": "risky",
       "lbl-az": "Azimuth", "lbl-alt": "altitude", "lbl-below": "Sun below the horizon", "day-fri": "Fri 24", "day-sat": "Sat 25", "day-sun": "Sun 26",
       "popup-zone": "<strong>Estimated flying zone</strong><br>San Lorenzo bay",
       "zone-label": "Flight zone",
