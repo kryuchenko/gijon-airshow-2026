@@ -490,7 +490,8 @@
     h2 { font-size: 15px; margin: 0 0 2px; }
     .sub { font-size: 10px; margin: 0 0 6px; }
     section[data-day] { display: block !important; break-before: page; padding-top: 4px; }
-    section[data-day="fri"] { break-before: auto; }
+    section[data-day="fri"], section[data-day="sat"] { break-before: auto; }
+    section[data-day="sat"] { margin-top: 14px; }
     section[data-day] tr:not(.empty-row) { display: table-row !important; }
     tr.empty-row { display: none !important; }
     tr { break-inside: avoid; }
