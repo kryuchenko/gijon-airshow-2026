@@ -42,44 +42,83 @@
     line-height: 1.55;
     font-size: 1rem;
   }
-  header.hero {
+  html { scroll-behavior: smooth; }
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom: var(--border-width) solid var(--border);
+  }
+  .topnav-inner {
     max-width: 980px;
     margin: 0 auto;
-    padding: 40px 20px 28px;
-    text-align: center;
-  }
-  .lang-switch {
+    padding: 10px 16px;
     display: flex;
-    gap: var(--spacing-1);
-    justify-content: center;
-    margin-bottom: var(--spacing-6);
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-3);
+    flex-wrap: wrap;
   }
+  .topnav-brand {
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+  .topnav-brand span { color: var(--brand); }
+  .topnav-links { display: flex; gap: var(--spacing-1); flex-wrap: wrap; }
+  .topnav-links a {
+    padding: 5px 12px;
+    border-radius: var(--radius-full);
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: var(--font-weight-medium);
+  }
+  .topnav-links a:hover { background: var(--color-accent-muted); color: var(--brand); }
+  h2, .verdict { scroll-margin-top: 76px; }
+  header.hero {
+    background: linear-gradient(150deg,
+      light-dark(#0043BE, #0A2E66) 0%,
+      light-dark(#0066FF, #123F8F) 55%,
+      light-dark(#2E86FF, #1D55B8) 100%);
+    border-bottom: 4px solid var(--color-asturias-yellow);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 28px 20px 48px;
+  }
+  .hero-inner { max-width: 980px; margin: 0 auto; }
+  .hero-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-3);
+    margin-bottom: var(--spacing-10);
+  }
+  .hero-badge {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #BFD7FF;
+  }
+  .lang-switch { display: flex; gap: var(--spacing-1); }
   .lang-switch a {
     padding: 4px 14px;
     border-radius: var(--radius-full);
-    border: var(--border-width) solid var(--border);
-    color: var(--muted);
+    border: var(--border-width) solid rgba(255, 255, 255, 0.35);
+    color: #D6E4FF;
     text-decoration: none;
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
   }
   .lang-switch a.active {
-    background: var(--color-accent);
-    color: var(--color-on-accent);
-    border-color: var(--color-accent);
+    background: var(--color-asturias-yellow);
+    color: #0C1B33;
+    border-color: var(--color-asturias-yellow);
   }
-  .pill {
-    display: inline-block;
-    padding: var(--spacing-1-5) var(--spacing-4);
-    border: var(--border-width) solid var(--border);
-    border-radius: var(--radius-full);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-medium);
-    color: var(--muted);
-    background: var(--card);
-    margin-bottom: 22px;
-  }
-  .pill strong { color: var(--brand); font-weight: var(--font-weight-semibold); }
   header.hero h1 {
     margin: 0 0 14px;
     font-family: var(--font-family-heading);
@@ -88,13 +127,31 @@
     letter-spacing: -0.02em;
     line-height: 1.12;
   }
-  header.hero h1 .brand { color: var(--brand); }
+  header.hero h1 .brand { color: var(--color-asturias-yellow); }
   header.hero p {
     margin: 0 auto;
     max-width: 680px;
-    color: var(--muted);
+    color: #CFE0FF;
     font-size: 17px;
   }
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-2);
+    margin-top: var(--spacing-6);
+  }
+  .pill {
+    display: inline-block;
+    padding: var(--spacing-1-5) var(--spacing-4);
+    border: var(--border-width) solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: #EAF2FF;
+    background: rgba(255, 255, 255, 0.12);
+  }
+  .pill strong { color: var(--color-asturias-yellow); font-weight: var(--font-weight-semibold); }
   main {
     max-width: 980px;
     margin: 0 auto;
@@ -303,23 +360,45 @@
 </head>
 <body>
 
+<nav class="topnav">
+  <div class="topnav-inner">
+    <span class="topnav-brand">Gijón <span>Air Show</span> 2026</span>
+    <div class="topnav-links">
+      <a href="#map-sec" data-i18n="nav-map">Mapa</a>
+      <a href="#friday" data-i18n="day-fri">Vie 24</a>
+      <a href="#saturday" data-i18n="day-sat">Sáb 25</a>
+      <a href="#sunset">Sunset</a>
+      <a href="#sunday" data-i18n="day-sun">Dom 26</a>
+      <a href="#verdict" data-i18n="nav-verdict">Conclusión</a>
+    </div>
+  </div>
+</nav>
+
 <header class="hero">
-  <nav class="lang-switch">
-    <a href="." data-lang="es">ES</a>
-    <a href="?hl=ru" data-lang="ru">RU</a>
-    <a href="?hl=en" data-lang="en">EN</a>
-  </nav>
-  <span class="pill" data-i18n="pill">24&ndash;26 de julio de 2026 &middot; <strong>Playa de San Lorenzo, Gijón</strong></span>
-  <h1 data-i18n="h1">Festival aéreo de Gijón:<br>aviones, horarios y <span class="brand">posición del sol</span></h1>
-  <p data-i18n="hero-p">Cálculo respecto al centro estimado de los vuelos <strong>43.546583, &minus;5.651611</strong>.
+  <div class="hero-inner">
+    <div class="hero-top">
+      <span class="hero-badge">XX edición · 2006–2026</span>
+      <nav class="lang-switch">
+        <a href="." data-lang="es">ES</a>
+        <a href="?hl=ru" data-lang="ru">RU</a>
+        <a href="?hl=en" data-lang="en">EN</a>
+      </nav>
+    </div>
+    <h1 data-i18n="h1">Festival aéreo de Gijón:<br>aviones, horarios y <span class="brand">posición del sol</span></h1>
+    <p data-i18n="hero-p">Cálculo respecto al centro estimado de los vuelos <strong>43.546583, &minus;5.651611</strong>.
      Los horarios de cada exhibición son orientativos.</p>
+    <div class="hero-chips">
+      <span class="pill" data-i18n="pill">24&ndash;26 de julio de 2026 &middot; <strong>Playa de San Lorenzo, Gijón</strong></span>
+      <span class="pill">FM <strong>90.9</strong></span>
+    </div>
+  </div>
 </header>
 
 <main>
 
 <div class="notice" data-i18n="notice">Todos los horarios son orientativos: el programa puede cambiar y los tiempos pueden moverse. Consulta las fuentes oficiales el mismo día del festival.</div>
 
-<h2 data-i18n="map-h2">Mapa: desde dónde mirar</h2>
+<h2 id="map-sec" data-i18n="map-h2">Mapa: desde dónde mirar</h2>
 <p class="sub" data-i18n="map-sub">El círculo marca la zona estimada de vuelo (radio de 500 m desde el centro previsto). Los marcadores señalan tres buenos puntos de observación. La línea naranja indica la dirección del sol a la hora elegida; las líneas discontinuas, la dirección de visión desde cada punto.</p>
 <div id="map"></div>
 <div class="sunctl">
@@ -355,7 +434,7 @@
   <span class="dusk" data-i18n="legend-dusk">🌙 bajo el horizonte</span>
 </div>
 
-<h2 data-i18n="fri-h2">Viernes 24 de julio: entrenamientos</h2>
+<h2 id="friday" data-i18n="fri-h2">Viernes 24 de julio: entrenamientos</h2>
 <p class="sub" data-i18n="fri-sub">El reparto de los entrenamientos por aeronave aún no se ha publicado. Ventana principal: 10:00&ndash;14:00
 (<a href="https://www.turismoasturias.es/agenda-de-asturias/cine-y-espectaculos/-/calendarsuite/event/festival-aereo-de-gijon/13470879/jr0cMeS144cd" target="_blank" rel="noopener">información oficial</a>).</p>
 <div class="table-wrap">
@@ -372,7 +451,7 @@
 </table>
 </div>
 
-<h2 data-i18n="sat-h2">Sábado 25 de julio: entrenamientos diurnos</h2>
+<h2 id="saturday" data-i18n="sat-h2">Sábado 25 de julio: entrenamientos diurnos</h2>
 <p class="sub" data-i18n="sat-sub">El orden de las aeronaves tampoco se ha publicado. La ventana de entrenamiento puede prolongarse hasta las 15:15 aprox.
 (<a href="https://www.europapress.es/asturias/noticia-atencion-restricciones-bano-trafico-gijon-viernes-festival-aereo-20260722181826.html" target="_blank" rel="noopener">Europa Press</a>).</p>
 <div class="table-wrap">
@@ -389,7 +468,7 @@
 </table>
 </div>
 
-<h2 data-i18n="sunset-h2">Sábado: Sunset Air Show</h2>
+<h2 id="sunset" data-i18n="sunset-h2">Sábado: Sunset Air Show</h2>
 <p class="sub" data-i18n="sunset-sub">Programa vespertino: la mejor luz, desde el Cerro de Santa Catalina. Puesta de sol hacia las 21:52.</p>
 <div class="table-wrap">
 <table>
@@ -409,7 +488,7 @@
 </table>
 </div>
 
-<h2 data-i18n="sun-h2">Domingo 26 de julio: exhibición principal</h2>
+<h2 id="sunday" data-i18n="sun-h2">Domingo 26 de julio: exhibición principal</h2>
 <p class="sub" data-i18n="sun-sub">El orden procede del <a href="https://www.gijon.es/es/eventos/festival-aereo-de-gijon" target="_blank" rel="noopener">programa oficial</a> (inicio 11:35, fin 15:32). La locución del festival puede seguirse en la radio FM 90.9, útil en el Cerro y la zona este de la playa.</p>
 <div class="table-wrap">
 <table>
@@ -444,7 +523,7 @@
 </table>
 </div>
 
-<div class="verdict" data-i18n="verdict">
+<div class="verdict" id="verdict" data-i18n="verdict">
   <strong>Conclusión:</strong> para los entrenamientos y la primera mitad de la exhibición del domingo
   (hasta las 13:00 aprox.) es mejor <strong class="brand">Sombras de Luz</strong>: sol a la espalda toda
   la manana. Para la segunda mitad, en especial A400M, Yakstars, Harrier, Eurofighter y ASPA, es mejor la
@@ -483,6 +562,7 @@
       "h1": "Авиашоу в Хихоне:<br>борта, время и <span class=\"brand\">положение солнца</span>",
       "hero-p": "Расчёт относительно предполагаемого центра полётов <strong>43.546583, −5.651611</strong>. Время отдельных выступлений ориентировочное.",
       "notice": "Всё время ориентировочное: программа может меняться, слоты могут сдвигаться. В день шоу проверяйте официальные источники.",
+      "nav-map": "Карта", "nav-verdict": "Вывод",
       "map-h2": "Карта: откуда смотреть",
       "map-sub": "Круг — ориентировочная зона полётов (радиус 500 м от предполагаемого центра). Маркеры — три удобные точки наблюдения. Оранжевый луч — направление на солнце в выбранное время, пунктир — направление взгляда с каждой точки.",
       "map-note": "Позиции ориентировочные: реальная ось полётов может смещаться вдоль пляжа Сан-Лоренсо.",
@@ -538,6 +618,7 @@
       "h1": "Gijón Air Show:<br>aircraft, schedule and <span class=\"brand\">sun position</span>",
       "hero-p": "Computed relative to the estimated display center <strong>43.546583, −5.651611</strong>. Times of individual displays are approximate.",
       "notice": "All times are approximate: the programme may change and slots may shift. Check official sources on the day of the show.",
+      "nav-map": "Map", "nav-verdict": "Verdict",
       "map-h2": "Map: where to watch from",
       "map-sub": "The circle marks the estimated flying zone (500 m radius around the expected center). The markers are three good viewing spots. The orange ray shows the sun direction at the chosen time; the dashed lines are the sight lines from each spot.",
       "map-note": "Positions are approximate: the actual display line may shift along San Lorenzo beach.",
