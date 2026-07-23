@@ -760,6 +760,7 @@
       "park2": "<strong>Aparcamiento Este del Molinón</strong><br>Gratuito. Buenas probabilidades de encontrar sitio.",
       "park3": "<strong>Parking Cimadevilla</strong><br>De pago. Muy pocas plazas: solo tienes opciones llegando muy temprano, y puede estar lleno desde la noche.",
       "park4": "<strong>Parking Indigo — Gijón Espigón</strong><br>De pago. Suele haber plazas, pero es popular: mejor llegar antes del festival.",
+      "park5": "<strong>Aparcamiento Escuela Superior de la Marina Civil</strong><br>Junto a la carpa del Cirque du Soleil. Gratuito, pero lejos de la playa (unos 25 min a pie).",
       "lbl-az": "Acimut", "lbl-alt": "altura", "lbl-below": "Sol bajo el horizonte",
       "popup-zone": "<strong>Zona estimada de vuelo</strong><br>Bahía de San Lorenzo",
       "zone-label": "Zona de vuelo",
@@ -827,6 +828,7 @@
       "park2": "<strong>Парковка Este del Molinón</strong><br>Бесплатная. Высокие шансы найти место.",
       "park3": "<strong>Parking Cimadevilla</strong><br>Платная. Мест очень мало: шанс только если приехать совсем рано утром, и то может быть занято с ночи.",
       "park4": "<strong>Parking Indigo — Gijón Espigón</strong><br>Платная. Места есть, но парковка популярная — лучше приехать до начала шоу.",
+      "park5": "<strong>Парковка у Escuela Superior de la Marina Civil</strong><br>Перед шатром Cirque du Soleil. Бесплатная, но далеко от пляжа — около 25 минут пешком.",
       "lbl-az": "Азимут", "lbl-alt": "высота", "lbl-below": "Солнце за горизонтом", "day-fri": "Пт 24", "day-sat": "Сб 25", "day-sun": "Вс 26",
       "popup-zone": "<strong>Ориентировочная зона полётов</strong><br>Бухта Сан-Лоренсо",
       "zone-label": "Зона полётов",
@@ -894,6 +896,7 @@
       "park2": "<strong>Molinón East car park</strong><br>Free. Good chances of finding a spot.",
       "park3": "<strong>Parking Cimadevilla</strong><br>Paid. Very few spaces: only a chance if you arrive very early, and it may be full overnight.",
       "park4": "<strong>Parking Indigo — Gijón Espigón</strong><br>Paid. Usually has spaces but it is popular: best to arrive before the show.",
+      "park5": "<strong>Higher School of Civil Navy car park</strong><br>By the Cirque du Soleil big top. Free, but far from the beach (about a 25 min walk).",
       "lbl-az": "Azimuth", "lbl-alt": "altitude", "lbl-below": "Sun below the horizon", "day-fri": "Fri 24", "day-sat": "Sat 25", "day-sun": "Sun 26",
       "popup-zone": "<strong>Estimated flying zone</strong><br>San Lorenzo bay",
       "zone-label": "Flight zone",
@@ -925,7 +928,7 @@
 
   var flightCenter = [43.546583, -5.651611];
 
-  var map = L.map("map").setView([43.5445, -5.6525], 14);
+  var map = L.map("map").setView([43.5418, -5.6505], 14);
   map.attributionControl.setPrefix('<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>');
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -1058,7 +1061,8 @@
     [43.5419335, -5.6421244, "park1", false],
     [43.5352913, -5.6354489, "park2", true],
     [43.5468176, -5.6648634, "park3", false],
-    [43.5434308, -5.6664962, "park4", false]
+    [43.5434308, -5.6664962, "park4", false],
+    [43.5260139, -5.6334863, "park5", true]
   ].forEach(function (p) {
     var d = dict[p[2]] ? dict : I18N.es;
     L.marker([p[0], p[1]], {
