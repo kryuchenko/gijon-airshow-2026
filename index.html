@@ -78,6 +78,10 @@
     font-weight: var(--font-weight-medium);
   }
   .topnav-links a:hover { background: var(--color-accent-muted); color: var(--brand); }
+  @media (max-width: 640px) {
+    .topnav { position: static; }
+    h2 { scroll-margin-top: 8px; }
+  }
   h2, .verdict { scroll-margin-top: 76px; }
   .flag-stripes span { display: block; }
   .flag-stripes .y { height: 5px; background: var(--color-asturias-yellow); }
