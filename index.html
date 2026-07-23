@@ -249,7 +249,9 @@
     table { min-width: 0; width: 100%; font-size: 9.5px; }
     th, td { padding: 3px 6px; }
     td.ac { min-width: 0; }
-    td.ac, td.ac .ac-name { white-space: normal; }
+    th, td { white-space: normal; }
+    th:first-child, td:first-child { white-space: nowrap; }
+    td.ac .ac-name { white-space: normal; }
     .ac-name .ac-sub { font-size: 8.5px; }
     td a { color: inherit !important; border-bottom: none !important; text-decoration: none !important; }
     td.bad {
