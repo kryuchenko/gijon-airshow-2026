@@ -43,6 +43,11 @@
 страницы.
 
 Карта построена на [Leaflet](https://leafletjs.com/) с тайлами OpenStreetMap.
-Время выступлений ориентировочное, программа может меняться. Источники:
-[gijon.es](https://www.gijon.es/es/eventos/festival-aereo-de-gijon),
+Время выступлений ориентировочное, программа может меняться.
+
+Официальный источник фестиваля — [festivalaereogijon.com](https://www.festivalaereogijon.com/):
+состав участников и типы воздушных судов выверены по официальным постерам
+галереи "Programa 2026". Дополнительные источники:
+[gijon.es](https://www.gijon.es/es/eventos/festival-aereo-de-gijon)
+(поминутная сетка выступлений),
 [turismoasturias.es](https://www.turismoasturias.es).
