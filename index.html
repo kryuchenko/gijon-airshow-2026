@@ -4,113 +4,132 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Festival Aereo de Gijon 2026: борта, время и положение солнца</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <style>
   :root {
-    --ink: #1c2733;
-    --muted: #5b6b7b;
-    --bg: #f6f8fa;
-    --card: #ffffff;
-    --line: #dde4ea;
-    --accent: #0b6bcb;
-    --good-bg: #e3f4e3;
-    --good-ink: #1e6b2e;
-    --bad-bg: #fde8e4;
-    --bad-ink: #a33a25;
-    --side-bg: #fdf4dc;
-    --side-ink: #8a6d1a;
-    --mix-bg: #e9eef8;
-    --mix-ink: #3b5688;
-    --dusk-bg: #e6e2f0;
-    --dusk-ink: #574a80;
+    color-scheme: light dark;
+    --bg: light-dark(#F8F4ED, #111112);
+    --card: light-dark(#FFFFFF, #1F1F22);
+    --ink: light-dark(#15110C, #DFE2E5);
+    --muted: light-dark(#4E606F, #AAAFB5);
+    --border: light-dark(rgba(21, 17, 12, 0.12), rgba(223, 226, 229, 0.16));
+    --accent-muted: light-dark(rgba(21, 17, 12, 0.08), rgba(223, 226, 229, 0.14));
+    --brand: light-dark(#225BFF, #3D87FF);
+    --thead: light-dark(#F2EDE3, #26262A);
+    --good-bg: light-dark(#DFF0DC, #1D3323);
+    --good-ink: light-dark(#1C6B2F, #8FD19A);
+    --bad-bg: light-dark(#FBE3DD, #3A201B);
+    --bad-ink: light-dark(#A93A22, #F0A08F);
+    --side-bg: light-dark(#F6ECD4, #36301C);
+    --side-ink: light-dark(#8A6C1C, #D9C27A);
+    --dusk-bg: light-dark(#E7E3F2, #2B2740);
+    --dusk-ink: light-dark(#574A80, #B3A6E0);
+    --radius-element: 12px;
+    --radius-container: 16px;
+    --shadow-low: 0px 1px 1px rgba(0, 0, 0, 0.1), 0px 2px 8px rgba(0, 0, 0, 0.1);
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: Figtree, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: var(--ink);
     background: var(--bg);
     line-height: 1.55;
-  }
-  header.hero {
-    background: linear-gradient(160deg, #0d2a4a 0%, #14508c 60%, #1a6db3 100%);
-    color: #fff;
-    padding: 44px 20px 36px;
-    text-align: center;
-  }
-  header.hero h1 {
-    margin: 0 0 10px;
-    font-size: clamp(24px, 4vw, 38px);
-    letter-spacing: 0.3px;
-  }
-  header.hero p {
-    margin: 0 auto;
-    max-width: 760px;
-    color: #cfe1f3;
     font-size: 16px;
   }
-  header.hero .dates {
+  header.hero {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 72px 20px 28px;
+    text-align: center;
+  }
+  .pill {
     display: inline-block;
-    margin-top: 16px;
     padding: 6px 16px;
-    border: 1px solid rgba(255,255,255,0.45);
-    border-radius: 999px;
+    border: 1px solid var(--border);
+    border-radius: 9999px;
     font-size: 14px;
-    color: #eaf3fb;
+    font-weight: 500;
+    color: var(--muted);
+    background: var(--card);
+    margin-bottom: 22px;
+  }
+  .pill strong { color: var(--brand); font-weight: 600; }
+  header.hero h1 {
+    margin: 0 0 14px;
+    font-size: clamp(30px, 5vw, 52px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+  }
+  header.hero h1 .brand { color: var(--brand); }
+  header.hero p {
+    margin: 0 auto;
+    max-width: 680px;
+    color: var(--muted);
+    font-size: 17px;
   }
   main {
     max-width: 980px;
     margin: 0 auto;
-    padding: 28px 16px 60px;
+    padding: 20px 16px 60px;
   }
   #map {
     height: 480px;
-    border-radius: 14px;
-    box-shadow: 0 6px 24px rgba(13, 42, 74, 0.14);
-    margin-bottom: 14px;
+    border-radius: var(--radius-container);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-low);
+    margin-bottom: 12px;
   }
   .map-note {
     color: var(--muted);
     font-size: 14px;
-    margin: 0 4px 30px;
+    margin: 0 4px 8px;
   }
   h2 {
-    font-size: 24px;
-    margin: 40px 0 6px;
-    color: #0d2a4a;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 48px 0 6px;
   }
-  h2:first-of-type { margin-top: 26px; }
   .sub {
     color: var(--muted);
     font-size: 15px;
     margin: 0 0 16px;
   }
-  .sub a { color: var(--accent); }
+  a { color: var(--brand); }
   .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 14px;
-    margin: 18px 0 8px;
+    margin: 20px 0 8px;
   }
   .card {
     background: var(--card);
-    border: 1px solid var(--line);
-    border-left: 5px solid var(--accent);
-    border-radius: 12px;
-    padding: 16px 18px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-container);
+    box-shadow: var(--shadow-low);
+    padding: 18px 20px;
   }
-  .card.p1 { border-left-color: #d1495b; }
-  .card.p2 { border-left-color: #1e88e5; }
-  .card.p3 { border-left-color: #2e8b57; }
-  .card h3 { margin: 0 0 8px; font-size: 17px; }
+  .card .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 9999px;
+    margin-right: 8px;
+  }
+  .card h3 { margin: 0 0 8px; font-size: 17px; font-weight: 600; }
   .card p { margin: 0; font-size: 14.5px; color: var(--muted); }
   .table-wrap {
     overflow-x: auto;
     background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(13, 42, 74, 0.06);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-container);
+    box-shadow: var(--shadow-low);
   }
   table {
     border-collapse: collapse;
@@ -119,72 +138,72 @@
     font-size: 14.5px;
   }
   th, td {
-    padding: 9px 12px;
-    border-bottom: 1px solid var(--line);
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
     text-align: left;
     white-space: nowrap;
   }
   tr:last-child td { border-bottom: none; }
+  th {
+    background: var(--thead);
+    font-weight: 600;
+  }
   td a {
-    color: var(--accent);
+    color: var(--brand);
     text-decoration: none;
-    border-bottom: 1px dotted rgba(11, 107, 203, 0.5);
+    border-bottom: 1px dotted color-mix(in srgb, var(--brand) 50%, transparent);
   }
   td a:hover { border-bottom-style: solid; }
-  th {
-    background: #eef3f8;
-    color: #0d2a4a;
-    font-weight: 600;
-    position: sticky;
-    top: 0;
-  }
   td.good { background: var(--good-bg); color: var(--good-ink); font-weight: 600; }
   td.bad  { background: var(--bad-bg);  color: var(--bad-ink);  font-weight: 600; }
   td.side { background: var(--side-bg); color: var(--side-ink); }
-  td.mix  { background: var(--mix-bg);  color: var(--mix-ink); }
   td.dusk { background: var(--dusk-bg); color: var(--dusk-ink); }
   .legend {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin: 14px 0 26px;
+    margin: 18px 0 8px;
     font-size: 13.5px;
+    font-weight: 500;
   }
   .legend span {
-    padding: 4px 12px;
-    border-radius: 999px;
-    border: 1px solid var(--line);
+    padding: 5px 14px;
+    border-radius: 9999px;
+    border: 1px solid var(--border);
   }
   .legend .good { background: var(--good-bg); color: var(--good-ink); }
   .legend .bad  { background: var(--bad-bg);  color: var(--bad-ink); }
   .legend .side { background: var(--side-bg); color: var(--side-ink); }
-  .legend .mix  { background: var(--mix-bg);  color: var(--mix-ink); }
   .legend .dusk { background: var(--dusk-bg); color: var(--dusk-ink); }
   .verdict {
-    margin-top: 40px;
+    margin-top: 44px;
     background: var(--card);
-    border: 1px solid var(--line);
-    border-left: 5px solid #2e8b57;
-    border-radius: 12px;
-    padding: 18px 22px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-container);
+    box-shadow: var(--shadow-low);
+    padding: 20px 24px;
     font-size: 15.5px;
   }
+  .verdict strong.brand { color: var(--brand); }
   footer {
+    max-width: 980px;
+    margin: 0 auto;
+    border-top: 1px solid var(--border);
     text-align: center;
     color: var(--muted);
     font-size: 13px;
-    padding: 24px 16px 40px;
+    padding: 24px 16px 44px;
   }
-  footer a { color: var(--accent); }
+  .leaflet-container { background: var(--accent-muted); }
 </style>
 </head>
 <body>
 
 <header class="hero">
-  <h1>Авиашоу в Хихоне: борта, время и положение солнца</h1>
+  <span class="pill">24&ndash;26 июля 2026 &middot; <strong>Playa de San Lorenzo, Gijon</strong></span>
+  <h1>Авиашоу в Хихоне:<br>борта, время и <span class="brand">положение солнца</span></h1>
   <p>Расчёт относительно предполагаемого центра полётов <strong>43.546583, &minus;5.651611</strong>.
      Время отдельных выступлений ориентировочное.</p>
-  <span class="dates">24&ndash;26 июля 2026 &middot; Playa de San Lorenzo, Gijon</span>
 </header>
 
 <main>
@@ -195,16 +214,16 @@
 <p class="map-note">Позиции ориентировочные: реальная ось полётов может смещаться вдоль пляжа Сан-Лоренсо.</p>
 
 <div class="cards">
-  <div class="card p1">
-    <h3>1. Лестница 10 (Escalera 10)</h3>
-    <p>Середина пляжа Сан-Лоренсо. С полудня и до конца программы солнце со спины &mdash; лучшая точка для воскресного основного шоу: A400M, Yakstars, Harrier, Eurofighter, Patrulla ASPA.</p>
+  <div class="card">
+    <h3><span class="dot" style="background:#D1495B"></span>1. Лестница 10 (Escalera 10)</h3>
+    <p>Середина пляжа Сан-Лоренсо. С ~13:05 и до конца программы солнце со спины &mdash; лучшая точка для второй половины воскресного шоу: A400M, Yakstars, Harrier, Eurofighter, Patrulla ASPA.</p>
   </div>
-  <div class="card p2">
-    <h3>2. Устье реки Piles</h3>
-    <p>Восточный край пляжа. Утром и до ~14:50 солнце со спины &mdash; оптимально для утренних тренировок. На субботнем Sunset Air Show солнце бьёт в глаза и низко.</p>
+  <div class="card">
+    <h3><span class="dot" style="background:#1E88E5"></span>2. Sombras de Luz</h3>
+    <p>Скульптура на Муро между лестницами 18 и 19. Солнце со спины всё утро и до ~14:10 &mdash; лучшая точка для тренировок и первой половины воскресного шоу. Вечером солнце в глаза.</p>
   </div>
-  <div class="card p3">
-    <h3>3. Cerro de Santa Catalina</h3>
+  <div class="card">
+    <h3><span class="dot" style="background:#2E8B57"></span>3. Cerro de Santa Catalina</h3>
     <p>Холм над Симадевильей, у скульптуры &laquo;Elogio del Horizonte&raquo;. Вид сверху, но днём солнце в глаза. Зато идеален для субботнего Sunset Air Show &mdash; солнце со спины.</p>
   </div>
 </div>
@@ -213,7 +232,6 @@
   <span class="good">Солнце со спины &mdash; лучший свет</span>
   <span class="bad">Солнце в глаза &mdash; против света</span>
   <span class="side">Солнце сбоку</span>
-  <span class="mix">Меняется в течение слота</span>
   <span class="dusk">Солнце за горизонтом</span>
 </div>
 
@@ -223,13 +241,13 @@
 <div class="table-wrap">
 <table>
   <thead>
-    <tr><th>Время</th><th>Лестница 10</th><th>Устье Piles</th><th>Cerro Santa Catalina</th></tr>
+    <tr><th>Время</th><th>Лестница 10</th><th>Sombras de Luz</th><th>Cerro Santa Catalina</th></tr>
   </thead>
   <tbody>
-    <tr><td>10:00&ndash;12:22</td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>12:23&ndash;13:54</td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>13:55&ndash;14:00</td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку справа</td></tr>
-    <tr><td>Возможные 16:00&ndash;16:30</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку слева</td><td class="good">Солнце со спины</td></tr>
+    <tr><td>10:00&ndash;13:04</td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
+    <tr><td>13:05&ndash;13:39</td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
+    <tr><td>13:40&ndash;14:00</td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку справа</td></tr>
+    <tr><td>Возможные 16:00&ndash;16:30</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку справа</td></tr>
   </tbody>
 </table>
 </div>
@@ -240,23 +258,23 @@
 <div class="table-wrap">
 <table>
   <thead>
-    <tr><th>Время</th><th>Лестница 10</th><th>Устье Piles</th><th>Cerro Santa Catalina</th></tr>
+    <tr><th>Время</th><th>Лестница 10</th><th>Sombras de Luz</th><th>Cerro Santa Catalina</th></tr>
   </thead>
   <tbody>
-    <tr><td>10:00&ndash;12:21</td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>12:22&ndash;13:54</td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>13:55&ndash;14:51</td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку справа</td></tr>
-    <tr><td>14:52&ndash;15:15</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку справа</td></tr>
+    <tr><td>10:00&ndash;13:04</td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
+    <tr><td>13:05&ndash;13:39</td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
+    <tr><td>13:40&ndash;14:09</td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку справа</td></tr>
+    <tr><td>14:10&ndash;15:15</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку справа</td></tr>
   </tbody>
 </table>
 </div>
 
 <h2>Суббота: Sunset Air Show</h2>
-<p class="sub">Вечерняя программа: лучший свет &mdash; на Cerro Santa Catalina.</p>
+<p class="sub">Вечерняя программа: лучший свет &mdash; на Cerro Santa Catalina. Закат около 21:52.</p>
 <div class="table-wrap">
 <table>
   <thead>
-    <tr><th>Примерное время</th><th>Борт</th><th>Лестница 10</th><th>Устье Piles</th><th>Cerro Santa Catalina</th></tr>
+    <tr><th>Примерное время</th><th>Борт</th><th>Лестница 10</th><th>Sombras de Luz</th><th>Cerro Santa Catalina</th></tr>
   </thead>
   <tbody>
     <tr><td>20:30&ndash;20:42</td><td><a href="https://en.wikipedia.org/wiki/Sikorsky_SH-60_Seahawk" target="_blank" rel="noopener">SH-60</a> Armada</td><td class="side">Солнце сбоку слева</td><td class="bad">Солнце в глаза</td><td class="good">Солнце со спины</td></tr>
@@ -265,8 +283,8 @@
     <tr><td>21:06&ndash;21:18</td><td><a href="https://en.wikipedia.org/wiki/Beechcraft_T-6_Texan_II" target="_blank" rel="noopener">T-6A Texan II</a></td><td class="side">Солнце сбоку слева</td><td class="bad">Солнце в глаза, низко</td><td class="good">Солнце со спины</td></tr>
     <tr><td>21:18&ndash;21:23</td><td>Самолёт PAPEA</td><td class="side">Солнце сбоку слева</td><td class="bad">Солнце в глаза, низко</td><td class="good">Солнце со спины</td></tr>
     <tr><td>21:23&ndash;21:43</td><td>Парашютисты PAPEA</td><td class="side">Солнце сбоку слева</td><td class="bad">Солнце в глаза, низко</td><td class="good">Солнце со спины</td></tr>
-    <tr><td>21:43&ndash;около 21:48</td><td>AeroSPARX (<a href="https://en.wikipedia.org/wiki/Grob_G_109" target="_blank" rel="noopener">Grob G 109</a>)</td><td class="side">Солнце сбоку слева</td><td class="bad">Солнце в глаза у горизонта</td><td class="good">Солнце со спины</td></tr>
-    <tr><td>Около 21:48&ndash;22:17</td><td>AeroSPARX (<a href="https://en.wikipedia.org/wiki/Grob_G_109" target="_blank" rel="noopener">Grob G 109</a>)</td><td class="dusk">Солнце за горизонтом</td><td class="dusk">Солнце за горизонтом</td><td class="dusk">Солнце за горизонтом</td></tr>
+    <tr><td>21:43&ndash;около 21:52</td><td>AeroSPARX (<a href="https://en.wikipedia.org/wiki/Grob_G_109" target="_blank" rel="noopener">Grob G 109</a>)</td><td class="side">Солнце сбоку слева</td><td class="bad">Солнце в глаза у горизонта</td><td class="good">Солнце со спины</td></tr>
+    <tr><td>Около 21:52&ndash;22:17</td><td>AeroSPARX (<a href="https://en.wikipedia.org/wiki/Grob_G_109" target="_blank" rel="noopener">Grob G 109</a>)</td><td class="dusk">Солнце за горизонтом</td><td class="dusk">Солнце за горизонтом</td><td class="dusk">Солнце за горизонтом</td></tr>
   </tbody>
 </table>
 </div>
@@ -276,29 +294,29 @@
 <div class="table-wrap">
 <table>
   <thead>
-    <tr><th>Примерное время</th><th>Борт</th><th>Лестница 10</th><th>Устье Piles</th><th>Cerro Santa Catalina</th></tr>
+    <tr><th>Примерное время</th><th>Борт</th><th>Лестница 10</th><th>Sombras de Luz</th><th>Cerro Santa Catalina</th></tr>
   </thead>
   <tbody>
     <tr><td>11:35&ndash;11:45</td><td>Mario Llanera</td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
     <tr><td>11:45&ndash;11:55</td><td><a href="https://en.wikipedia.org/wiki/Ultralight_aviation" target="_blank" rel="noopener">ULM</a> La Morgal</td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
     <tr><td>11:55&ndash;11:58</td><td>Самолёт PAPEA</td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
     <tr><td>11:58&ndash;12:05</td><td>Dani Roman, <a href="https://en.wikipedia.org/wiki/Wingsuit_flying" target="_blank" rel="noopener">wingsuit</a></td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>12:05&ndash;12:23</td><td>PAPEA</td><td class="mix">Сбоку справа &rarr; со спины</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>12:23&ndash;12:41</td><td>Парашютисты Guardia Civil</td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>12:41&ndash;12:51</td><td>AeroSPARX, <a href="https://en.wikipedia.org/wiki/Grob_G_109" target="_blank" rel="noopener">Grob G109B</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>12:51&ndash;13:01</td><td>SASEMAR, <a href="https://en.wikipedia.org/wiki/AgustaWestland_AW139" target="_blank" rel="noopener">AW139</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
+    <tr><td>12:05&ndash;12:23</td><td>PAPEA</td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
+    <tr><td>12:23&ndash;12:41</td><td>Парашютисты Guardia Civil</td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
+    <tr><td>12:41&ndash;12:51</td><td>AeroSPARX, <a href="https://en.wikipedia.org/wiki/Grob_G_109" target="_blank" rel="noopener">Grob G109B</a></td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
+    <tr><td>12:51&ndash;13:01</td><td>SASEMAR, <a href="https://en.wikipedia.org/wiki/AgustaWestland_AW139" target="_blank" rel="noopener">AW139</a></td><td class="side">Солнце сбоку справа</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
     <tr><td>13:01&ndash;13:11</td><td>Bomberos, <a href="https://en.wikipedia.org/wiki/Eurocopter_EC145" target="_blank" rel="noopener">EC145</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
     <tr><td>13:11&ndash;13:21</td><td>Guardia Civil, <a href="https://en.wikipedia.org/wiki/Eurocopter_AS365_Dauphin" target="_blank" rel="noopener">AS365</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
     <tr><td>13:16&ndash;13:26</td><td>Guardia Civil, <a href="https://en.wikipedia.org/wiki/CASA/IPTN_CN-235" target="_blank" rel="noopener">CN-235</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
     <tr><td>13:26&ndash;13:36</td><td><a href="https://en.wikipedia.org/wiki/NHIndustries_NH90" target="_blank" rel="noopener">NH90</a> Lobo</td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>13:36&ndash;13:44</td><td>Policia Nacional, <a href="https://en.wikipedia.org/wiki/Eurocopter_EC135" target="_blank" rel="noopener">EC135</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>13:44&ndash;13:54</td><td>Armada, <a href="https://en.wikipedia.org/wiki/Sikorsky_SH-60_Seahawk" target="_blank" rel="noopener">SH-60</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="bad">Солнце в глаза</td></tr>
-    <tr><td>13:54&ndash;14:04</td><td>Luca Salvadori, <a href="https://en.wikipedia.org/wiki/Mudry_CAP_20" target="_blank" rel="noopener">CAP-21DS</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="mix">В глаза &rarr; сбоку справа</td></tr>
+    <tr><td>13:36&ndash;13:44</td><td>Policia Nacional, <a href="https://en.wikipedia.org/wiki/Eurocopter_EC135" target="_blank" rel="noopener">EC135</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку справа</td></tr>
+    <tr><td>13:44&ndash;13:54</td><td>Armada, <a href="https://en.wikipedia.org/wiki/Sikorsky_SH-60_Seahawk" target="_blank" rel="noopener">SH-60</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку справа</td></tr>
+    <tr><td>13:54&ndash;14:04</td><td>Luca Salvadori, <a href="https://en.wikipedia.org/wiki/Mudry_CAP_20" target="_blank" rel="noopener">CAP-21DS</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку справа</td></tr>
     <tr><td>14:04&ndash;14:14</td><td>Camilo Benito, <a href="https://en.wikipedia.org/wiki/Extra_EA-300" target="_blank" rel="noopener">Extra 330SC</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку справа</td></tr>
-    <tr><td>14:14&ndash;14:22</td><td><a href="https://en.wikipedia.org/wiki/Airbus_A400M_Atlas" target="_blank" rel="noopener">Airbus A400M</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку справа</td></tr>
-    <tr><td>14:22&ndash;14:34</td><td>Yakstars, 4&times; <a href="https://en.wikipedia.org/wiki/Yakovlev_Yak-52" target="_blank" rel="noopener">Yak-52</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку справа</td></tr>
-    <tr><td>14:34&ndash;14:44</td><td><a href="https://en.wikipedia.org/wiki/Boeing_CH-47_Chinook" target="_blank" rel="noopener">CH-47F Chinook</a></td><td class="good">Солнце со спины</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку справа</td></tr>
-    <tr><td>14:44&ndash;14:54</td><td><a href="https://en.wikipedia.org/wiki/Beechcraft_T-6_Texan_II" target="_blank" rel="noopener">T-6A Texan II</a></td><td class="good">Солнце со спины</td><td class="mix">Со спины &rarr; сбоку слева</td><td class="side">Солнце сбоку справа</td></tr>
+    <tr><td>14:14&ndash;14:22</td><td><a href="https://en.wikipedia.org/wiki/Airbus_A400M_Atlas" target="_blank" rel="noopener">Airbus A400M</a></td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку справа</td></tr>
+    <tr><td>14:22&ndash;14:34</td><td>Yakstars, 4&times; <a href="https://en.wikipedia.org/wiki/Yakovlev_Yak-52" target="_blank" rel="noopener">Yak-52</a></td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку справа</td></tr>
+    <tr><td>14:34&ndash;14:44</td><td><a href="https://en.wikipedia.org/wiki/Boeing_CH-47_Chinook" target="_blank" rel="noopener">CH-47F Chinook</a></td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку справа</td></tr>
+    <tr><td>14:44&ndash;14:54</td><td><a href="https://en.wikipedia.org/wiki/Beechcraft_T-6_Texan_II" target="_blank" rel="noopener">T-6A Texan II</a></td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку справа</td></tr>
     <tr><td>14:54&ndash;15:04</td><td><a href="https://en.wikipedia.org/wiki/McDonnell_Douglas_AV-8B_Harrier_II" target="_blank" rel="noopener">AV-8B+ Harrier</a></td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку справа</td></tr>
     <tr><td>15:04&ndash;15:14</td><td><a href="https://en.wikipedia.org/wiki/Eurofighter_Typhoon" target="_blank" rel="noopener">Eurofighter</a></td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку справа</td></tr>
     <tr><td>15:14&ndash;15:32</td><td>Patrulla ASPA (<a href="https://en.wikipedia.org/wiki/Eurocopter_EC120_Colibri" target="_blank" rel="noopener">EC120 Colibri</a>)</td><td class="good">Солнце со спины</td><td class="side">Солнце сбоку слева</td><td class="side">Солнце сбоку справа</td></tr>
@@ -307,8 +325,11 @@
 </div>
 
 <div class="verdict">
-  <strong>Вывод:</strong> для тренировок до 12:20 лучше устье Piles. Для воскресного основного шоу,
-  особенно A400M, Yakstars, Harrier, Eurofighter и ASPA, лучше <strong>лестница 10</strong>.
+  <strong>Вывод:</strong> для тренировок и первой половины воскресного шоу (примерно до 13:00) лучше
+  <strong class="brand">Sombras de Luz</strong> &mdash; солнце со спины всё утро. Для второй половины
+  воскресного шоу, особенно A400M, Yakstars, Harrier, Eurofighter и ASPA, лучше
+  <strong class="brand">лестница 10</strong>. Для субботнего Sunset Air Show &mdash;
+  <strong class="brand">Cerro de Santa Catalina</strong>.
 </div>
 
 </main>
@@ -324,7 +345,7 @@
 <script>
   var flightCenter = [43.546583, -5.651611];
 
-  var map = L.map('map').setView([43.5445, -5.6535], 14);
+  var map = L.map('map').setView([43.5445, -5.6525], 14);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -333,14 +354,14 @@
 
   L.circle(flightCenter, {
     radius: 500,
-    color: '#0b6bcb',
+    color: '#225BFF',
     weight: 2,
-    fillColor: '#0b6bcb',
+    fillColor: '#225BFF',
     fillOpacity: 0.12
   }).addTo(map).bindPopup('<strong>Ориентировочная зона полётов</strong><br>Центр: 43.546583, &minus;5.651611<br>Радиус: 500 м');
 
   L.circleMarker(flightCenter, {
-    radius: 4, color: '#0b6bcb', fillColor: '#0b6bcb', fillOpacity: 1
+    radius: 4, color: '#225BFF', fillColor: '#225BFF', fillOpacity: 1
   }).addTo(map).bindPopup('Предполагаемый центр полётов');
 
   function viewpoint(coords, color, title, text) {
@@ -353,11 +374,11 @@
     }).addTo(map).bindPopup('<strong>' + title + '</strong><br>' + text);
   }
 
-  viewpoint([43.54076, -5.65185], '#d1495b', '1. Лестница 10',
-    'Середина пляжа Сан-Лоренсо. Солнце со спины с ~12:20 и до конца программы. Лучшая точка для воскресного основного шоу.');
-  viewpoint([43.54020, -5.64460], '#1e88e5', '2. Устье реки Piles',
-    'Восточный край пляжа. Солнце со спины утром и до ~14:50 &mdash; оптимально для тренировок. Вечером солнце в глаза.');
-  viewpoint([43.549188, -5.663062], '#2e8b57', '3. Cerro de Santa Catalina',
+  viewpoint([43.54076, -5.65185], '#D1495B', '1. Лестница 10',
+    'Середина пляжа Сан-Лоренсо. Солнце со спины с ~13:05 и до конца программы. Лучшая точка для второй половины воскресного шоу.');
+  viewpoint([43.54394, -5.64611], '#1E88E5', '2. Sombras de Luz',
+    'Скульптура на Муро между лестницами 18 и 19. Солнце со спины до ~14:10 &mdash; оптимально для тренировок и первой половины шоу.');
+  viewpoint([43.549188, -5.663062], '#2E8B57', '3. Cerro de Santa Catalina',
     'Холм у &laquo;Elogio del Horizonte&raquo;. Вид сверху; днём солнце в глаза, зато вечером на Sunset Air Show &mdash; со спины.');
 </script>
 
