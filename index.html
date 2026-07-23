@@ -277,12 +277,16 @@
   }
   .map-legend {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
-    gap: 6px 16px;
+    gap: 4px 12px;
     margin: 10px 4px 12px;
-    font-size: 13px;
+    font-size: 11.5px;
     color: var(--muted);
+    white-space: nowrap;
+  }
+  @media (max-width: 760px) {
+    .map-legend { flex-wrap: wrap; white-space: normal; }
   }
   .ml-item { display: inline-flex; align-items: center; gap: 6px; }
   .ml-zone {
@@ -657,7 +661,7 @@
   <span class="ml-item"><span class="ml-dot" style="background:#D1495B"></span><span class="ml-dot" style="background:#1E88E5"></span><span class="ml-dot" style="background:#2E8B57"></span><span data-i18n="lg-points">Puntos de observación</span></span>
   <span class="ml-item"><span class="ml-sun"></span><span data-i18n="lg-sun">Dirección del sol</span></span>
   <span class="ml-item"><span class="ml-sight"></span><span data-i18n="lg-sight">Líneas de visión</span></span>
-  <span class="ml-item"><span class="p-icon ml-p">P</span><span data-i18n="lg-p-paid">parking de pago</span></span>
+  <span class="ml-item"><span class="p-icon ml-p">P</span><span data-i18n="lg-p-paid">de pago</span></span>
   <span class="ml-item"><span class="p-icon free ml-p">P</span><span data-i18n="lg-p-free">gratuito</span></span>
   <span class="ml-item"><span class="p-icon risky ml-p">P</span><span data-i18n="lg-p-risky">arriesgado</span></span>
 </div>
@@ -898,7 +902,7 @@
       "park4": "<strong>Parking Indigo — Gijón Espigón</strong><br>Платная. Места есть, но парковка популярная — лучше приехать до начала шоу.",
       "park5": "<strong>Парковка у Escuela Superior de la Marina Civil</strong><br>Бесплатная, но далеко от пляжа — около 25 минут пешком.",
       "park6": "<strong>Parque de los Hermanos Castro</strong><br>Близко к пляжу, но рискованно: в парке часто проходят фестивали, и тогда парковки там нет — именно сейчас её может не быть.",
-      "lg-zone": "Зона полётов", "lg-points": "Точки наблюдения", "lg-sun": "Направление на солнце", "lg-sight": "Линии взгляда", "lg-p-paid": "платная парковка", "lg-p-free": "бесплатная", "lg-p-risky": "рискованная",
+      "lg-zone": "Зона полётов", "lg-points": "Точки наблюдения", "lg-sun": "Направление на солнце", "lg-sight": "Линии взгляда", "lg-p-paid": "платная", "lg-p-free": "бесплатная", "lg-p-risky": "рискованная",
       "lbl-az": "Азимут", "lbl-alt": "высота", "lbl-below": "Солнце за горизонтом", "day-fri": "Пт 24", "day-sat": "Сб 25", "day-sun": "Вс 26",
       "popup-zone": "<strong>Ориентировочная зона полётов</strong><br>Бухта Сан-Лоренсо",
       "zone-label": "Зона полётов",
@@ -968,7 +972,7 @@
       "park4": "<strong>Parking Indigo — Gijón Espigón</strong><br>Paid. Usually has spaces but it is popular: best to arrive before the show.",
       "park5": "<strong>Higher School of Civil Navy car park</strong><br>Free, but far from the beach (about a 25 min walk).",
       "park6": "<strong>Parque de los Hermanos Castro</strong><br>Close to the beach but risky: the park often hosts festivals and then there is no parking — it may be unavailable right now.",
-      "lg-zone": "Flight zone", "lg-points": "Viewing spots", "lg-sun": "Sun direction", "lg-sight": "Sight lines", "lg-p-paid": "paid parking", "lg-p-free": "free", "lg-p-risky": "risky",
+      "lg-zone": "Flight zone", "lg-points": "Viewing spots", "lg-sun": "Sun direction", "lg-sight": "Sight lines", "lg-p-paid": "paid", "lg-p-free": "free", "lg-p-risky": "risky",
       "lbl-az": "Azimuth", "lbl-alt": "altitude", "lbl-below": "Sun below the horizon", "day-fri": "Fri 24", "day-sat": "Sat 25", "day-sun": "Sun 26",
       "popup-zone": "<strong>Estimated flying zone</strong><br>San Lorenzo bay",
       "zone-label": "Flight zone",
