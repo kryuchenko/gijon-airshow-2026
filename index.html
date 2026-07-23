@@ -199,6 +199,28 @@
     -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z'/%3E%3C/svg%3E") center / 24px 24px no-repeat;
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z'/%3E%3C/svg%3E") center / 24px 24px no-repeat;
   }
+  .notice {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    background: var(--side-bg);
+    color: var(--side-ink);
+    border: var(--border-width) solid var(--color-border-yellow);
+    border-radius: var(--radius-container);
+    padding: var(--spacing-4) var(--spacing-5);
+    margin: var(--spacing-2) 0 var(--spacing-6);
+    font-size: 16px;
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.4;
+  }
+  .notice::before {
+    content: "";
+    flex: 0 0 28px;
+    height: 28px;
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 1 21h22L12 2zm1 14h-2v2h2v-2zm0-7h-2v5h2V9z'/%3E%3C/svg%3E") center / 28px 28px no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 1 21h22L12 2zm1 14h-2v2h2v-2zm0-7h-2v5h2V9z'/%3E%3C/svg%3E") center / 28px 28px no-repeat;
+  }
   td.good { background: var(--good-bg); color: var(--good-ink); font-weight: var(--font-weight-semibold); }
   td.bad  { background: var(--bad-bg);  color: var(--bad-ink);  font-weight: var(--font-weight-semibold); }
   td.side { background: var(--side-bg); color: var(--side-ink); }
@@ -257,6 +279,8 @@
 </header>
 
 <main>
+
+<div class="notice" data-i18n="notice">Todos los horarios son orientativos: el programa puede cambiar y los tiempos pueden moverse. Consulta las fuentes oficiales el mismo día del festival.</div>
 
 <h2 data-i18n="map-h2">Mapa: desde dónde mirar</h2>
 <p class="sub" data-i18n="map-sub">El círculo marca la zona estimada de vuelo (radio de 500 m desde el centro previsto). Los marcadores señalan tres buenos puntos de observación.</p>
@@ -410,6 +434,7 @@
       "pill": "24–26 июля 2026 · <strong>Playa de San Lorenzo, Gijón</strong>",
       "h1": "Авиашоу в Хихоне:<br>борта, время и <span class=\"brand\">положение солнца</span>",
       "hero-p": "Расчёт относительно предполагаемого центра полётов <strong>43.546583, −5.651611</strong>. Время отдельных выступлений ориентировочное.",
+      "notice": "Всё время ориентировочное: программа может меняться, слоты могут сдвигаться. В день шоу проверяйте официальные источники.",
       "map-h2": "Карта: откуда смотреть",
       "map-sub": "Круг — ориентировочная зона полётов (радиус 500 м от предполагаемого центра). Маркеры — три удобные точки наблюдения.",
       "map-note": "Позиции ориентировочные: реальная ось полётов может смещаться вдоль пляжа Сан-Лоренсо.",
@@ -463,6 +488,7 @@
       "pill": "24–26 July 2026 · <strong>Playa de San Lorenzo, Gijón</strong>",
       "h1": "Gijón Air Show:<br>aircraft, schedule and <span class=\"brand\">sun position</span>",
       "hero-p": "Computed relative to the estimated display center <strong>43.546583, −5.651611</strong>. Times of individual displays are approximate.",
+      "notice": "All times are approximate: the programme may change and slots may shift. Check official sources on the day of the show.",
       "map-h2": "Map: where to watch from",
       "map-sub": "The circle marks the estimated flying zone (500 m radius around the expected center). The markers are three good viewing spots.",
       "map-note": "Positions are approximate: the actual display line may shift along San Lorenzo beach.",
