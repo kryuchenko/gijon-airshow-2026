@@ -184,7 +184,10 @@
     flex-wrap: wrap;
     margin-top: var(--spacing-6);
   }
-  .filters { margin-top: var(--spacing-3); }
+  .filters { margin-top: var(--spacing-3); flex-wrap: nowrap; gap: 4px; }
+  @media (max-width: 760px) {
+    .filters { flex-wrap: wrap; }
+  }
   .day-tabs button, .filters button {
     font-family: inherit;
     cursor: pointer;
@@ -204,9 +207,10 @@
     border-color: var(--color-asturias-yellow);
   }
   .filters button {
-    padding: 5px 14px;
-    font-size: 13px;
+    padding: 4px 10px;
+    font-size: 12px;
     font-weight: var(--font-weight-medium);
+    white-space: nowrap;
   }
   .filters button.active {
     background: var(--color-accent-muted);
