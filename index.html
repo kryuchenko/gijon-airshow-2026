@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="https://unpkg.com/@astryxdesign/core@0.1.8/reset.css">
 <link rel="stylesheet" href="https://unpkg.com/@astryxdesign/core@0.1.8/astryx.css">
-<link rel="stylesheet" href="theme.css?v=86033baf">
+<link rel="stylesheet" href="theme.css?v=3b8374e8">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <style>
@@ -240,9 +240,9 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-3);
-    background: var(--side-bg);
-    color: var(--side-ink);
-    border: var(--border-width) solid var(--color-border-yellow);
+    background: light-dark(#FFF8D2, #3B3310);
+    color: light-dark(#6E5900, #F7D417);
+    border: var(--border-width) solid var(--color-asturias-yellow);
     border-radius: var(--radius-container);
     padding: var(--spacing-4) var(--spacing-5);
     margin: var(--spacing-2) 0 var(--spacing-6);
@@ -617,14 +617,14 @@
 
   L.circle(flightCenter, {
     radius: 500,
-    color: "#225BFF",
+    color: "#0066FF",
     weight: 2,
-    fillColor: "#225BFF",
+    fillColor: "#0066FF",
     fillOpacity: 0.12
   }).addTo(map).bindPopup(dict["popup-zone"] || I18N.es["popup-zone"]);
 
   L.circleMarker(flightCenter, {
-    radius: 4, color: "#225BFF", fillColor: "#225BFF", fillOpacity: 1
+    radius: 4, color: "#0066FF", fillColor: "#0066FF", fillOpacity: 1
   }).addTo(map).bindPopup(dict["popup-center"] || I18N.es["popup-center"]);
 
   function viewpoint(coords, color, titleKey, textKey) {
@@ -647,8 +647,8 @@
       L.polyline([[p[0], p[1]], flightCenter], { color: p[2], weight: 2, dashArray: "4 6", opacity: 0.65 }).addTo(map);
     });
 
-  var sunRay = L.polyline([flightCenter, flightCenter], { color: "#F59E0B", weight: 3, opacity: 0 }).addTo(map);
-  var sunDot = L.circleMarker(flightCenter, { radius: 8, color: "#ffffff", weight: 2, fillColor: "#F59E0B", opacity: 0, fillOpacity: 0 }).addTo(map);
+  var sunRay = L.polyline([flightCenter, flightCenter], { color: "#E3B800", weight: 3, opacity: 0 }).addTo(map);
+  var sunDot = L.circleMarker(flightCenter, { radius: 8, color: "#B58F00", weight: 2, fillColor: "#F7D417", opacity: 0, fillOpacity: 0 }).addTo(map);
   var selDay = 26;
   var slider = document.getElementById("time-slider");
   var readout = document.getElementById("sun-readout");

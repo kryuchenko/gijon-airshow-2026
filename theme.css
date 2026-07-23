@@ -1,7 +1,7 @@
 /*
  * Brand theme for gijon-airshow-2026, authored in the output format of
- * `astryx theme build` (@astryxdesign/core). Token values follow the
- * "astryx" brand theme used on astryx.atmeta.com.
+ * `astryx theme build` (@astryxdesign/core). Palette: Asturias flag colors —
+ * blue Pantone 829 (#0066FF), yellow Pantone 109 (#F7D417) — on a white base.
  */
 
 @layer astryx-theme {
@@ -20,14 +20,18 @@
         BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       --font-family-heading: Figtree, "Figtree Variable", system-ui, -apple-system,
         BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --color-accent: light-dark(#15110C, #DFE2E5);
-      --color-text-accent: light-dark(#15110C, #DFE2E5);
-      --color-icon-accent: light-dark(#15110C, #DFE2E5);
-      --color-accent-muted: light-dark(rgba(21, 17, 12, 0.08), rgba(223, 226, 229, 0.14));
-      --color-on-accent: light-dark(#FFFFFF, #15110C);
-      --color-background-body: light-dark(#F8F4ED, #111112);
-      --color-text-primary: light-dark(#15110C, #DFE2E5);
-      --color-icon-primary: light-dark(#15110C, #DFE2E5);
+      --color-accent: light-dark(#0066FF, #5C95FF);
+      --color-text-accent: light-dark(#0066FF, #5C95FF);
+      --color-icon-accent: light-dark(#0066FF, #5C95FF);
+      --color-accent-muted: light-dark(rgba(0, 102, 255, 0.1), rgba(92, 149, 255, 0.18));
+      --color-on-accent: light-dark(#FFFFFF, #0A1730);
+      --color-background-body: light-dark(#FFFFFF, #0F1522);
+      --color-background-card: light-dark(#FFFFFF, #1A2333);
+      --color-background-surface: light-dark(#FFFFFF, #1A2333);
+      --color-text-primary: light-dark(#0C1B33, #E2E8F2);
+      --color-icon-primary: light-dark(#0C1B33, #E2E8F2);
+      --color-text-secondary: light-dark(#46586E, #9FB0C6);
+      --color-border: light-dark(rgba(12, 27, 51, 0.14), rgba(226, 232, 242, 0.16));
       --text-display-1-weight: var(--font-weight-semibold);
       --text-display-2-weight: var(--font-weight-semibold);
       --text-display-3-weight: var(--font-weight-semibold);
@@ -35,7 +39,8 @@
       --radius-element: 12px;
       --radius-container: 16px;
       --radius-page: 32px;
-      --color-brand: light-dark(#225BFF, #3D87FF);
+      --color-brand: light-dark(#0066FF, #5C95FF);
+      --color-asturias-yellow: #F7D417;
     }
   }
 }
