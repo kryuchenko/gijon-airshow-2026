@@ -231,7 +231,8 @@
     .day-tabs, .filters, .cta-banner, #map-sec, #map-sec + .sub, footer { display: none !important; }
     section[data-day] { display: block !important; break-before: page; }
     section[data-day="fri"] { break-before: auto; }
-    section[data-day] tr { display: table-row !important; }
+    section[data-day] tr:not(.empty-row) { display: table-row !important; }
+    tr.empty-row { display: none !important; }
     tr { break-inside: avoid; }
     .table-wrap, .hero-inner, .verdict { box-shadow: none !important; }
     .table-wrap { overflow: visible; }
@@ -397,6 +398,12 @@
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 1 21h22L12 2zm1 14h-2v2h2v-2zm0-7h-2v5h2V9z'/%3E%3C/svg%3E") center / 28px 28px no-repeat;
   }
   td.trn { color: var(--muted); }
+  tr.empty-row td {
+    color: var(--muted);
+    text-align: center;
+    padding: 16px;
+    white-space: normal;
+  }
   tr.divider td {
     text-align: center;
     background: var(--color-accent-muted);
@@ -567,6 +574,8 @@
     <tr><td>13:05&ndash;13:39</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td><td class="bad" data-i18n="sun-eyes">🤦 de frente</td></tr>
     <tr><td>13:40&ndash;14:00</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
     <tr><td data-i18n="row-possible">Posible 16:00&ndash;16:30</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
+  
+    <tr class="empty-row" style="display:none"><td colspan="5" data-i18n="row-empty">No hay exhibiciones de esta clase este día.</td></tr>
   </tbody>
 </table>
 </div>
@@ -597,6 +606,8 @@
     <tr data-cls="para"><td>21:23&ndash;21:43</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Patrulla_Papea.jpg/250px-Patrulla_Papea.jpg"><span class="ac-name" data-i18n="ac-papea-para"><a href="https://en.wikipedia.org/wiki/Parachuting" target="_blank" rel="noopener">Paracaidistas</a> de la PAPEA<span class="ac-sub"><a href="https://en.wikipedia.org/wiki/Airbus_C295" target="_blank" rel="noopener">C-295</a> / <a href="https://en.wikipedia.org/wiki/CASA_C-212_Aviocar" target="_blank" rel="noopener">C-212</a></span></span></td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="bad" data-i18n="sun-eyes-low">🤦 de frente, bajo</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td></tr>
     <tr data-cls="aero pyro"><td>21:43&ndash;&asymp;21:52</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Grob.g109b.glider.arp.jpg/250px-Grob.g109b.glider.arp.jpg"><span class="ac-name">AeroSPARX (<a href="https://en.wikipedia.org/wiki/Grob_G_109" target="_blank" rel="noopener">Grob G109B</a>)</span></td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="bad" data-i18n="sun-eyes-horizon">🤦 de frente, horizonte</td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td></tr>
     <tr data-cls="aero pyro"><td>&asymp;21:52&ndash;22:17</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Grob.g109b.glider.arp.jpg/250px-Grob.g109b.glider.arp.jpg"><span class="ac-name">AeroSPARX (<a href="https://en.wikipedia.org/wiki/Grob_G_109" target="_blank" rel="noopener">Grob G109B</a>)</span></td><td class="dusk" data-i18n="sun-horizon">🌙 bajo el horizonte</td><td class="dusk" data-i18n="sun-horizon">🌙 bajo el horizonte</td><td class="dusk" data-i18n="sun-horizon">🌙 bajo el horizonte</td></tr>
+  
+    <tr class="empty-row" style="display:none"><td colspan="6" data-i18n="row-empty">No hay exhibiciones de esta clase este día.</td></tr>
   </tbody>
 </table>
 </div>
@@ -634,6 +645,8 @@
     <tr data-cls="jet"><td>14:54&ndash;15:04</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Boeing_AV-8B_Harrier_II%2C_Italy_-_Navy_JP7306232.jpg/250px-Boeing_AV-8B_Harrier_II%2C_Italy_-_Navy_JP7306232.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/McDonnell_Douglas_AV-8B_Harrier_II" target="_blank" rel="noopener">AV-8B+ Harrier</a></span></td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
     <tr data-cls="jet"><td>15:04&ndash;15:14</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/RAF_Eurofighter_EF-2000_Typhoon_F2_Lofting-1.jpg/250px-RAF_Eurofighter_EF-2000_Typhoon_F2_Lofting-1.jpg"><span class="ac-name"><a href="https://en.wikipedia.org/wiki/Eurofighter_Typhoon" target="_blank" rel="noopener">Eurofighter</a></span></td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
     <tr data-cls="heli"><td>15:14&ndash;15:32</td><td class="ac"><img class="ac-thumb" loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Eurocopter_EC-120B_Colibri_AN0367366.jpg/250px-Eurocopter_EC-120B_Colibri_AN0367366.jpg"><span class="ac-name">Patrulla ASPA (<a href="https://en.wikipedia.org/wiki/Eurocopter_EC120_Colibri" target="_blank" rel="noopener">EC120 Colibri</a>)</span></td><td class="good" data-i18n="sun-back">☀️ a tu espalda</td><td class="side" data-i18n="sun-side-left">☀️ lateral izq.</td><td class="side" data-i18n="sun-side-right">☀️ lateral dcha.</td></tr>
+  
+    <tr class="empty-row" style="display:none"><td colspan="6" data-i18n="row-empty">No hay exhibiciones de esta clase este día.</td></tr>
   </tbody>
 </table>
 </div>
@@ -687,7 +700,7 @@
       "h1": "Авиашоу в Хихоне:<br>борта, время и <span class=\"brand\">положение солнца</span>",
       "hero-p": "Расчёт относительно предполагаемого центра полётов <strong>43.546583, −5.651611</strong>. Время отдельных выступлений ориентировочное.",
       "notice": "Всё время ориентировочное: программа может меняться, слоты могут сдвигаться. В день шоу проверяйте официальные источники.",
-      "row-training": "Тренировки", "row-divider": "Конец репетиций · начало вечернего шоу",
+      "row-training": "Тренировки", "row-divider": "Конец репетиций · начало вечернего шоу", "row-empty": "Выступлений этого класса в этот день нет.",
       "pdf": "Сохранить PDF",
       "cls-all": "Все", "cls-heli": "🚁 Вертолёты", "cls-jet": "✈️ Реактивные", "cls-para": "🪂 Парашютисты",
       "cls-aero": "🌀 Пилотаж", "cls-cargo": "📦 Транспорт", "cls-light": "🛩️ Лёгкая авиация", "cls-pyro": "🎆 Пиро-шоу",
@@ -749,7 +762,7 @@
       "h1": "Gijón Air Show:<br>aircraft, schedule and <span class=\"brand\">sun position</span>",
       "hero-p": "Computed relative to the estimated display center <strong>43.546583, −5.651611</strong>. Times of individual displays are approximate.",
       "notice": "All times are approximate: the programme may change and slots may shift. Check official sources on the day of the show.",
-      "row-training": "Training", "row-divider": "End of rehearsals · start of the evening show",
+      "row-training": "Training", "row-divider": "End of rehearsals · start of the evening show", "row-empty": "No displays of this class on this day.",
       "pdf": "Save PDF",
       "cls-all": "All", "cls-heli": "🚁 Helicopters", "cls-jet": "✈️ Jets", "cls-para": "🪂 Parachutists",
       "cls-aero": "🌀 Aerobatics", "cls-cargo": "📦 Transport", "cls-light": "🛩️ Light aviation", "cls-pyro": "🎆 Pyro show",
@@ -920,9 +933,22 @@
   });
 
   function applyFilter(cls) {
-    document.querySelectorAll("tr[data-cls]").forEach(function (tr) {
-      var ok = cls === "all" || tr.getAttribute("data-cls").split(" ").indexOf(cls) !== -1;
-      tr.style.display = ok ? "" : "none";
+    document.querySelectorAll("main table tbody").forEach(function (tb) {
+      var visible = 0;
+      tb.querySelectorAll("tr").forEach(function (tr) {
+        if (tr.classList.contains("empty-row")) return;
+        var show;
+        if (cls === "all") {
+          show = true;
+        } else {
+          var dc = tr.getAttribute("data-cls");
+          show = !!dc && dc.split(" ").indexOf(cls) !== -1;
+        }
+        tr.style.display = show ? "" : "none";
+        if (show) visible++;
+      });
+      var er = tb.querySelector("tr.empty-row");
+      if (er) er.style.display = visible ? "none" : "";
     });
     document.querySelectorAll("[data-filter]").forEach(function (b) {
       b.classList.toggle("active", b.getAttribute("data-filter") === cls);
