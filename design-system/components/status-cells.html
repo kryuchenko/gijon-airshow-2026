@@ -1,0 +1,49 @@
+<!-- @dsCard name="Sun status cells" group="Components" subtitle="good / bad / side / dusk with emoji labels" -->
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Sun status cells</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    color-scheme: light dark;
+    --blue: light-dark(#0066FF, #5C95FF);
+    --yellow: #F7D417;
+    --ink: light-dark(#0C1B33, #E2E8F2);
+    --muted: light-dark(#46586E, #9FB0C6);
+    --bg: light-dark(#FFFFFF, #0F1522);
+    --card: light-dark(#FFFFFF, #1A2333);
+    --border: light-dark(rgba(12,27,51,0.14), rgba(226,232,242,0.16));
+    --accent-muted: light-dark(rgba(0,102,255,0.1), rgba(92,149,255,0.18));
+    --on-accent: light-dark(#FFFFFF, #0A1730);
+    --good-bg: light-dark(#24BB5E33, #24BB5E33); --good-ink: light-dark(#09441F, #A5F690);
+    --bad-bg: light-dark(#E3193B33, #E3193B33); --bad-ink: light-dark(#7B0210, #FFB2B8);
+    --side-bg: light-dark(#E2A40033, #E2A40033); --side-ink: light-dark(#753F07, #FBCE03);
+    --dusk-bg: light-dark(#7952FF33, #7952FF33); --dusk-ink: light-dark(#3E0697, #B3B0FE);
+    --r-inner: 8px; --r-el: 12px; --r-cont: 16px;
+    --shadow: 0px 1px 1px rgba(0,0,0,0.1), 0px 2px 8px rgba(0,0,0,0.1);
+  }
+  body { margin: 0; padding: 20px; font-family: Figtree, system-ui, sans-serif;
+         color: var(--ink); background: var(--bg); line-height: 1.5; }
+</style>
+</head>
+<body>
+<style>
+  table { border-collapse: collapse; font-size: 14.5px; background: var(--card);
+          border: 1px solid var(--border); border-radius: var(--r-cont); overflow: hidden; }
+  td, th { padding: 10px 14px; border-bottom: 1px solid var(--border); text-align: left; white-space: nowrap; }
+  tr:last-child td { border-bottom: none; }
+  th { background: var(--accent-muted); font-weight: 600; }
+  td.good { background: var(--good-bg); color: var(--good-ink); font-weight: 600; }
+  td.bad  { background: var(--bad-bg);  color: var(--bad-ink);  font-weight: 600; }
+  td.side { background: var(--side-bg); color: var(--side-ink); }
+  td.dusk { background: var(--dusk-bg); color: var(--dusk-ink); }
+</style>
+<table>
+  <tr><th>State</th><th>Cell</th></tr>
+  <tr><td>Best light</td><td class="good">☀️ behind you</td></tr>
+  <tr><td>Backlit</td><td class="bad">☀️ in your eyes</td></tr>
+  <tr><td>Side</td><td class="side">☀️ on the left</td></tr>
+  <tr><td>After sunset</td><td class="dusk">🌙 below horizon</td></tr>
+</table>
+</body></html>
